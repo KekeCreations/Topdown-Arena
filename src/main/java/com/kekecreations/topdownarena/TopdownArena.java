@@ -3,9 +3,13 @@ package com.kekecreations.topdownarena;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.kekecreations.topdownarena.core.registry.ComponentRegistry;
+import com.kekecreations.topdownarena.core.registry.EventRegistry;
 
 public class TopdownArena extends JavaPlugin {
     private static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
+
+
 
     public TopdownArena(JavaPluginInit init) {
         super(init);
@@ -14,6 +18,7 @@ public class TopdownArena extends JavaPlugin {
 
     @Override
     protected void setup() {
-
+        EventRegistry.registerEvents(this);
+        ComponentRegistry.registerComponents(this);
     }
 }

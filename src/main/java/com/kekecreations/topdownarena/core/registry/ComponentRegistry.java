@@ -1,0 +1,27 @@
+package com.kekecreations.topdownarena.core.registry;
+
+import com.hypixel.hytale.component.ComponentType;
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.kekecreations.topdownarena.common.component.RoundComponent;
+import com.kekecreations.topdownarena.common.system.PlayerTickSystem;
+
+public class ComponentRegistry {
+
+    private static ComponentType<EntityStore, RoundComponent> roundComponent;
+
+
+    public static void registerComponents(JavaPlugin javaPlugin) {
+        var registry = javaPlugin.getEntityStoreRegistry();
+        roundComponent = registry.registerComponent(
+                RoundComponent.class,
+                "RoundData",
+                RoundComponent.CODEC
+        );
+        //Allows to call component from component class
+        RoundComponent.setComponentType(roundComponent);
+
+        registry.registerSystem(new PlayerTickSystem(roundComponent));
+    }
+
+}
