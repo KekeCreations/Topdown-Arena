@@ -75,7 +75,7 @@ public class RoundComponent implements Component<EntityStore> {
         return this.roundTimer;
     }
 
-    public int getEnemiesKilled() {
+    public int getEnemiesLeftToKill() {
         return this.enemiesKilled;
     }
 
@@ -111,7 +111,7 @@ public class RoundComponent implements Component<EntityStore> {
         this.level = levelStarted;
     }
 
-    public void setEnemiesKilled(int newKillCount) {
+    public void setEnemiesToKill(int newKillCount) {
         this.enemiesKilled = newKillCount;
     }
 

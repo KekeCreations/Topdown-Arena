@@ -9,6 +9,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
 import com.kekecreations.topdownarena.common.ui.ClassMenuUi;
 import com.kekecreations.topdownarena.common.ui.LevelMenuUi;
+import com.kekecreations.topdownarena.common.ui.RoundStatsHud;
 import com.kekecreations.topdownarena.common.ui.StartMenuUi;
 
 import javax.annotation.Nonnull;
@@ -35,6 +36,10 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
         if (player != null) {
             RoundComponent roundData = store.getComponent(ref, RoundComponent.getComponentType());
             if (roundData != null) {
+                player.getHudManager().setCustomHud(player.getPlayerRef(), new RoundStatsHud(player.getPlayerRef(), roundData));
+                if (roundData.getRoundTimer() > 0) {
+                    roundData.setRoundTimer(roundData.getRoundTimer() - 1);
+                }
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
                 if (roundData.getRoundType() == "menu_levels") {
                     player.getPageManager().openCustomPage(ref, store, new LevelMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
@@ -50,31 +55,6 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 }
             }
         }
-
-
-       // if (store.getComponent(ref, roundStats) != null) {
-           // RoundComponent roundData = store.getComponent(ref, roundStats);
-          //  player.sendMessage(Message.raw("FUCK"));
-            /*
-
-            player.getHudManager().setCustomHud(player.getPlayerRef(), new RoundStatsHud(player.getPlayerRef(), roundData));
-            if (!roundData.isTimerFrozen()) {
-                roundData.setRoundTimer(roundData.getRoundTimer() - 1);
-                if (Objects.equals(roundData.getRoundType(), "classic")) {
-                    if (roundData.getRoundTimer() <= 0) {
-                        if (roundData.getRoundCount() == 1) {
-                            roundData.setRoundCount(2);
-                            roundData.setRoundTimer(100);
-                            roundData.freezeRoundTimer(true);
-                            player.getPageManager().openCustomPage(ref, store, new ItemShopGui(player.getPlayerRef(), CustomPageLifetime.CantClose));
-                            //OPEN ITEM UI (UNFREEZE TIMER HERE)
-                        }
-                    }
-                }
-            }
-
-             */
-       // }
     }
 }
 
