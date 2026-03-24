@@ -7,6 +7,7 @@ import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
+import com.kekecreations.topdownarena.common.ui.ClassMenuUi;
 import com.kekecreations.topdownarena.common.ui.LevelMenuUi;
 import com.kekecreations.topdownarena.common.ui.StartMenuUi;
 
@@ -41,6 +42,10 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 }
                 if (roundData.getRoundType() == "menu_start") {
                     player.getPageManager().openCustomPage(ref, store, new StartMenuUi(player.getPlayerRef(), CustomPageLifetime.CantClose));
+                    roundData.setRoundType("null");
+                }
+                if (roundData.getRoundType() == "menu_class") {
+                    player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
                     roundData.setRoundType("null");
                 }
             }

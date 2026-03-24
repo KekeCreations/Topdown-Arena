@@ -23,6 +23,9 @@ public class RoundComponent implements Component<EntityStore> {
                     .append(new KeyedCodec<>("UnlockedLevels", Codec.INTEGER),
                             (c, f) -> c.unlockedLevels = f, c -> c.unlockedLevels)
                     .add()
+                    .append(new KeyedCodec<>("Level", Codec.INTEGER),
+                            (c, f) -> c.level = f, c -> c.level)
+                    .add()
                     .append(new KeyedCodec<>("RoundType", Codec.STRING),
                             (c, f) -> c.roundType = f, c -> c.roundType)
                     .add()
@@ -35,7 +38,9 @@ public class RoundComponent implements Component<EntityStore> {
 
     private int bonusEnemiesKilled = 0;
 
-    private int unlockedLevels = 0;
+    private int unlockedLevels = 1;
+
+    private int level = 0;
 
     private String roundType = "null";
 
@@ -43,22 +48,24 @@ public class RoundComponent implements Component<EntityStore> {
 
     public RoundComponent() {}
 
-    public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, String roundType, boolean freezeTimer) {
+    public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, int level, String roundType, boolean freezeTimer) {
         this.roundTimer = roundTimer;
         this.enemiesKilled = enemiesKilled;
         this.bonusEnemiesKilled = bonusEnemiesKilled;
         this.unlockedLevels = unlockedLevels;
+        this.level = level;
         this.roundType = roundType;
         this.freezeTimer = freezeTimer;
     }
 
     @Override
     public Component<EntityStore> clone() {
-        RoundComponent copy = new RoundComponent(roundTimer, enemiesKilled, bonusEnemiesKilled, unlockedLevels, roundType, freezeTimer);
+        RoundComponent copy = new RoundComponent(roundTimer, enemiesKilled, bonusEnemiesKilled, unlockedLevels, level, roundType, freezeTimer);
         copy.roundTimer = this.roundTimer;
         copy.enemiesKilled = this.enemiesKilled;
         copy.bonusEnemiesKilled = this.bonusEnemiesKilled;
         copy.unlockedLevels = this.unlockedLevels;
+        copy.level = this.level;
         copy.roundType = this.roundType;
         copy.freezeTimer = this.freezeTimer;
         return copy;
@@ -80,6 +87,10 @@ public class RoundComponent implements Component<EntityStore> {
         return this.unlockedLevels;
     }
 
+    public int getLevel() {
+        return this.level;
+    }
+
     public String getRoundType() {
         return this.roundType;
     }
@@ -94,6 +105,10 @@ public class RoundComponent implements Component<EntityStore> {
 
     public void setRoundTimer(int newRoundTimer) {
         this.roundTimer = newRoundTimer;
+    }
+
+    public void setLevel(int levelStarted) {
+        this.level = levelStarted;
     }
 
     public void setEnemiesKilled(int newKillCount) {
