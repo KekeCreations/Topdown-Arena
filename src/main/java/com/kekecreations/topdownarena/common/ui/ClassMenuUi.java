@@ -2,6 +2,7 @@ package com.kekecreations.topdownarena.common.ui;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.protocol.EntityStatEffects;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.protocol.packets.interface_.CustomUIEventBindingType;
 import com.hypixel.hytale.protocol.packets.interface_.Page;
@@ -49,29 +50,21 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         RoundComponent roundData = Objects.requireNonNull(store.getComponent(ref, RoundComponent.getComponentType()));
 
         int foodChance = (int)(Math.random() * 6);
-        int weaponChance = (int)(Math.random() * 6);
-        int weapon2Chance = (int)(Math.random() * 4);
         Inventory inventory = player.getInventory();
 
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
             inventory.clear();
+            //Heal command if possible
         }
-        player.sendMessage(Message.raw(weaponChance + ""));
-        player.sendMessage(Message.raw(weapon2Chance + ""));
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked)) {
-            switch(weaponChance) {
-                case 0 -> inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Iron"));
-                case 1 -> inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bronze"));
-                case 2 -> inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Steel_Rusty"));
-                case 3 -> inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Copper"));
-                case 4 -> inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Mithril"));
-                case 5 -> inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Daggers_Iron"));
-            }
-            switch(weapon2Chance) {
-                case 0 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Iron"));
-                case 1 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Cobalt"));
-                case 2 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Mithril"));
-                case 3 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Copper"));
+            if (roundData.getLevel() <= 3) {
+                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Copper"));
+                inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Copper"));
+
+                inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                //inventory.getArmor().setItemStackForSlot((short) 4, new ItemStack("Armor_Copper_Feet"));
             }
         }
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
@@ -85,15 +78,16 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             }
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.freezeRoundTimer(false);
-            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 0 0 0");
-            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 2 0 0");
-            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 1 0 0");
-            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 0 0 1");
-            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 0 0 2");
-            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 2 0 3");
-            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 1 0 3");
-            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 1 0 1");
-
+            if (roundData.getLevel() == 1) {
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 2");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 3 0 0");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 3");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 2 0 2");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 2 0 1");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 2");
+            }
         }
     }
 }
