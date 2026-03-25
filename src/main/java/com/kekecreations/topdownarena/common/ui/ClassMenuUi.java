@@ -6,6 +6,7 @@ import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.protocol.packets.interface_.CustomUIEventBindingType;
 import com.hypixel.hytale.protocol.packets.interface_.Page;
 import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
 import com.hypixel.hytale.server.core.inventory.Inventory;
@@ -19,8 +20,6 @@ import com.kekecreations.topdownarena.common.component.RoundComponent;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
-import java.util.Random;
-import java.util.random.RandomGenerator;
 
 public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
 
@@ -71,7 +70,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             switch(weapon2Chance) {
                 case 0 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Iron"));
                 case 1 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Cobalt"));
-                case 2 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Iron_Rusty"));
+                case 2 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Mithril"));
                 case 3 -> inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Copper"));
             }
         }
@@ -86,6 +85,15 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             }
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.freezeRoundTimer(false);
+            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 0 0 0");
+            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 2 0 0");
+            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 1 0 0");
+            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 0 0 1");
+            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 0 0 2");
+            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 2 0 3");
+            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 1 0 3");
+            CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Zombie 1 0 1");
+
         }
     }
 }

@@ -18,7 +18,7 @@ public class EventRegistry {
     public static void registerEvents(JavaPlugin javaPlugin) {
         cameraSettings.positionLerpSpeed = 0.2F;
         cameraSettings.rotationLerpSpeed = 0.2F;
-        cameraSettings.distance = 8.0F;
+        cameraSettings.distance = 6.0F;
         cameraSettings.displayCursor = true;
         cameraSettings.isFirstPerson = false;
         cameraSettings.movementForceRotationType = MovementForceRotationType.Custom;
@@ -26,6 +26,8 @@ public class EventRegistry {
         cameraSettings.positionDistanceOffsetType = PositionDistanceOffsetType.DistanceOffset;
         cameraSettings.rotationType = RotationType.Custom;
         cameraSettings.rotation = new Direction(0.0F, (-(float)Math.PI / 2F), 0.0F);
+        cameraSettings.mouseInputType = MouseInputType.LookAtPlane;
+        cameraSettings.planeNormal = new Vector3f(0.0F, 1.0F, 0.0F);
 
 
         javaPlugin.getEventRegistry().registerGlobal(PlayerReadyEvent.class, event -> {

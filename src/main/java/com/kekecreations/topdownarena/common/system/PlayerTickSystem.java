@@ -41,17 +41,19 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
                 }
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
-                if (roundData.getRoundType() == "menu_levels") {
-                    player.getPageManager().openCustomPage(ref, store, new LevelMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
-                    roundData.setRoundType("null");
-                }
-                if (roundData.getRoundType() == "menu_start") {
-                    player.getPageManager().openCustomPage(ref, store, new StartMenuUi(player.getPlayerRef(), CustomPageLifetime.CantClose));
-                    roundData.setRoundType("null");
-                }
-                if (roundData.getRoundType() == "menu_class") {
-                    player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
-                    roundData.setRoundType("null");
+                if (roundData.getRoundType() != "null") {
+                    if (roundData.getRoundType() == "menu_levels") {
+                        player.getPageManager().openCustomPage(ref, store, new LevelMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
+                        roundData.setRoundType("null");
+                    }
+                    if (roundData.getRoundType() == "menu_start") {
+                        player.getPageManager().openCustomPage(ref, store, new StartMenuUi(player.getPlayerRef(), CustomPageLifetime.CantClose));
+                        roundData.setRoundType("null");
+                    }
+                    if (roundData.getRoundType() == "menu_class") {
+                        player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
+                        roundData.setRoundType("null");
+                    }
                 }
             }
         }
