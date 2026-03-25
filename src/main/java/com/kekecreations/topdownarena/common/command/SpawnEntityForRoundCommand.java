@@ -4,6 +4,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3f;
+import com.hypixel.hytale.protocol.GameMode;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
@@ -30,6 +31,7 @@ public class SpawnEntityForRoundCommand extends AbstractTargetPlayerCommand {
         this.x = this.withRequiredArg("x", "x", ArgTypes.DOUBLE);
         this.y = this.withRequiredArg("y", "y", ArgTypes.DOUBLE);
         this.z = this.withRequiredArg("z", "z", ArgTypes.DOUBLE);
+        this.setPermissionGroup(GameMode.Adventure);
     }
 
     @Override

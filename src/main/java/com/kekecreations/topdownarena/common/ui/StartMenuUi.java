@@ -1,6 +1,7 @@
 package com.kekecreations.topdownarena.common.ui;
 
 import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.RemoveReason;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.protocol.*;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPage;
@@ -14,6 +15,7 @@ import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
 
 import javax.annotation.Nonnull;
@@ -50,6 +52,9 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         if (PLAY_LEVELS_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_levels");
+            roundData.setBonusEnemiesKilled(0);
+            roundData.setEnemiesToKill(0);
+            store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
         }
         else if (PLAY_SANDBOX_BUTTON_ID.equals(data.buttonClicked)) {
         }

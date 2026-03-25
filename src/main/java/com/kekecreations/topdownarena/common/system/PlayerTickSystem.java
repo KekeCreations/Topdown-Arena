@@ -4,6 +4,7 @@ import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.DelayedEntitySystem;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
@@ -39,6 +40,18 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 player.getHudManager().setCustomHud(player.getPlayerRef(), new RoundStatsHud(player.getPlayerRef(), roundData));
                 if (roundData.getRoundTimer() > 0) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
+                }
+                if (roundData.getRoundTimer() <= 0) {
+                    if (roundData.getEnemiesLeftToKill() == 0) {
+                        //Unlock Level 2
+                        if (roundData.getLevel() == 1 && roundData.getUnlockedLevels() <= 1) {
+                            roundData.setUnlockedLevels(roundData.getUnlockedLevels() + 1);
+                            player.sendMessage(Message.raw("NEW LEVEL UNLOCKED"));
+                        }
+
+                    } else {
+                        player.sendMessage(Message.raw("LEVEL LOST"));
+                    }
                 }
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
                 if (roundData.getRoundType() != "null") {

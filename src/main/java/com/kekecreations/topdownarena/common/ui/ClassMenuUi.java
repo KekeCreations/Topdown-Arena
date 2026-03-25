@@ -12,6 +12,8 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
 import com.hypixel.hytale.server.core.inventory.Inventory;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
+import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntityStatTypes;
 import com.hypixel.hytale.server.core.ui.builder.EventData;
 import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
@@ -48,13 +50,15 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
 
         Player player = Objects.requireNonNull(store.getComponent(ref, Player.getComponentType()));
         RoundComponent roundData = Objects.requireNonNull(store.getComponent(ref, RoundComponent.getComponentType()));
-
+        EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
         int foodChance = (int)(Math.random() * 6);
         Inventory inventory = player.getInventory();
 
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
             inventory.clear();
-            //Heal command if possible
+            if (entityStat != null) {
+                entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 100.0F);
+            }
         }
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked)) {
             if (roundData.getLevel() <= 3) {
@@ -63,8 +67,8 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
 
                 inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
                 inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
                 inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
-                //inventory.getArmor().setItemStackForSlot((short) 4, new ItemStack("Armor_Copper_Feet"));
             }
         }
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {

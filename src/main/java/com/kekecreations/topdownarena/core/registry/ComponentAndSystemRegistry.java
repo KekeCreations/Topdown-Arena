@@ -4,9 +4,11 @@ import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
+import com.kekecreations.topdownarena.common.system.NPCDeathSystem;
+import com.kekecreations.topdownarena.common.system.PlayerDeathSystem;
 import com.kekecreations.topdownarena.common.system.PlayerTickSystem;
 
-public class ComponentRegistry {
+public class ComponentAndSystemRegistry {
 
     private static ComponentType<EntityStore, RoundComponent> roundComponent;
 
@@ -22,6 +24,8 @@ public class ComponentRegistry {
         RoundComponent.setComponentType(roundComponent);
 
         registry.registerSystem(new PlayerTickSystem(roundComponent));
+        registry.registerSystem(new PlayerDeathSystem());
+        registry.registerSystem(new NPCDeathSystem());
     }
 
 }
