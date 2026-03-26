@@ -18,9 +18,12 @@ import com.hypixel.hytale.server.npc.NPCPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
+
 public class SpawnEntityForRoundCommand extends AbstractTargetPlayerCommand {
 
     private final RequiredArg<String> npcId;
+    private final RequiredArg<String> addOrSubtract;
     private final RequiredArg<Double> x;
     private final RequiredArg<Double> y;
     private final RequiredArg<Double> z;
@@ -28,6 +31,7 @@ public class SpawnEntityForRoundCommand extends AbstractTargetPlayerCommand {
     public SpawnEntityForRoundCommand() {
         super("round_npc", "Spawning NPC Command for Topdown Arena!");
         this.npcId = this.withRequiredArg("npcId", "Entity ID", ArgTypes.STRING);
+        this.addOrSubtract = this.withRequiredArg("addOrSubtract", "Add or subtract coordinates from player coordinates", ArgTypes.STRING);
         this.x = this.withRequiredArg("x", "x", ArgTypes.DOUBLE);
         this.y = this.withRequiredArg("y", "y", ArgTypes.DOUBLE);
         this.z = this.withRequiredArg("z", "z", ArgTypes.DOUBLE);
@@ -39,9 +43,15 @@ public class SpawnEntityForRoundCommand extends AbstractTargetPlayerCommand {
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player != null) {
             TransformComponent transformComponent = store.getComponent(ref, TransformComponent.getComponentType());
+            Vector3d newVector;
             if (transformComponent != null) {
+                if (Objects.equals(this.addOrSubtract.get(commandContext), "Add")) {
+                    newVector = transformComponent.getPosition().add(this.x.get(commandContext), this.y.get(commandContext), this.z.get(commandContext));
+                } else {
+                    newVector = transformComponent.getPosition().subtract(this.x.get(commandContext), this.y.get(commandContext), this.z.get(commandContext));
+                }
                 NPCPlugin.get().spawnNPC(store, this.npcId.get(commandContext), null,
-                        new Vector3d(transformComponent.getPosition().add(this.x.get(commandContext), this.y.get(commandContext), this.z.get(commandContext))),
+                        newVector,
                         new Vector3f()
                 );
             }

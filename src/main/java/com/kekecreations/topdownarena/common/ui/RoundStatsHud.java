@@ -25,10 +25,16 @@ public class RoundStatsHud extends CustomUIHud {
             uiCommandBuilder.set("#KILLCOUNT.TextSpans", Message.raw("Enemies Left:" + roundData.getEnemiesLeftToKill()));
             uiCommandBuilder.set("#BONUSKILLCOUNT.TextSpans", Message.raw("Bonus Kills:" + roundData.getBonusEnemiesKilled()));
             uiCommandBuilder.set("#ROUNDTIMER.TextSpans", Message.raw(String.valueOf(roundData.getRoundTimer())));
+            if (roundData.getRoundTimer() <= 24 && roundData.getRoundTimer() >= 20) {
+                uiCommandBuilder.set("#WAVE.TextSpans", Message.raw("INCOMING WAVE!"));
+            } else {
+                uiCommandBuilder.set("#WAVE.TextSpans", Message.raw(""));
+            }
         } else {
             uiCommandBuilder.set("#KILLCOUNT.TextSpans", Message.raw(""));
             uiCommandBuilder.set("#ROUNDTIMER.TextSpans", Message.raw(""));
             uiCommandBuilder.set("#BONUSKILLCOUNT.TextSpans", Message.raw(""));
+            uiCommandBuilder.set("#WAVE.TextSpans", Message.raw(""));
         }
     }
 }

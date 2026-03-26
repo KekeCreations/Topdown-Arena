@@ -5,6 +5,7 @@ import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.DelayedEntitySystem;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
@@ -37,6 +38,13 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 player.getHudManager().setCustomHud(player.getPlayerRef(), new RoundStatsHud(player.getPlayerRef(), roundData));
                 if (roundData.getRoundTimer() > 0) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
+                    if (roundData.getRoundTimer() == 20) {
+                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton Add 0 0 2");
+                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton Add 2 0 2");
+                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton Add 2 0 0");
+                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton_Archer Subtract 2 0 0");
+                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton_Archer Subtract 0 0 2");
+                    }
                 }
                 if (roundData.getRoundTimer() <= 0 && !roundData.isTimerFrozen()) {
                     if (roundData.getEnemiesLeftToKill() <= 0) {

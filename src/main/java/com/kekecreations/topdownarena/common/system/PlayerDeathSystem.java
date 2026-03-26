@@ -33,6 +33,7 @@ public class PlayerDeathSystem extends DeathSystems.OnDeathSystem {
             RoundComponent roundData = store.getComponent(ref, RoundComponent.getComponentType());
             if (roundData != null) {
                 roundData.setRoundType("menu_start");
+                roundData.setLevel(0);
                 roundData.freezeRoundTimer(true);
             }
         }

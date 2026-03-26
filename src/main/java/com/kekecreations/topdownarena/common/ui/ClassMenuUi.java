@@ -93,12 +93,12 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.freezeRoundTimer(false);
             if (roundData.getLevel() == 1) {
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 2");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 2 0 2");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 2 0 1");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 2");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 1");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
             }
         }
     }
