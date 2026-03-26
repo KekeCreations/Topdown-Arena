@@ -55,7 +55,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         RoundComponent roundData = Objects.requireNonNull(store.getComponent(ref, RoundComponent.getComponentType()));
         EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
         int foodChance = (int)(Math.random() * 6);
-        int potionChance = (int)(Math.random() * 6);
+        int potionChance = (int)(Math.random() * 3);
         Inventory inventory = player.getInventory();
 
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
@@ -81,20 +81,17 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             }
         } else if (SELECT_TWO_BUTTON_ID.equals(data.buttonClicked)) {
             if (roundData.getLevel() <= 3) {
-                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Cobalt"));
+                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
                 inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
                 inventory.getHotbar().setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
-                inventory.getHotbar().setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 2));
+                inventory.getHotbar().setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
                 inventory.getHotbar().setItemStackForSlot((short) 6, new ItemStack("Weapon_Arrow_Crude", 128));
 
                 inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
                 inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
                 inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
                 inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
-
-                if (roundData.getLevel() >= 2) {
-                    inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
-                }
+                inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
             }
         }
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
@@ -109,10 +106,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             switch(potionChance) {
                 case 0 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Greater", 4));
                 case 1 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Small", 8));
-                case 2 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Regen_Stamina", 2));
-                case 3 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Regen_Health", 2));
-                case 4 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Regen_Health_Large", 1));
-                case 5 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health", 6));
+                case 2 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health", 6));
             }
             roundData.freezeRoundTimer(false);
             roundData.setRoundType("level");
