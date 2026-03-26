@@ -97,6 +97,37 @@ Group #CLASSES {
       Background: (Color: #243847);
       Anchor: (Height: 20);
     }
+    Group #CLASS4 {
+      LayoutMode: Middle;
+      Background: (Color: #1d2d3a);
+      Anchor: (Width: 200, Height: 200);
+      Group #IMGROUP4 {
+        Background: (Color: #192834);
+        Anchor: (Width: 100, Height: 100);
+        Padding: (Top: 16, Bottom: 16);
+        AssetImage #CLASSIMAGE4 {
+          Anchor: (Width: 100, Height: 100);
+          AssetPath: "Icons/ItemsGenerated/Weapon_Spellbook_Fire.png";
+        }
+      }
+      Label #CLASSTITLE4 {
+        Text: "WARRIOR";
+        Style: (TextColor: #a9a151, FontSize: 15, RenderBold: true, HorizontalAlignment: Center);
+      }
+      Label #DESC4 {
+        Text: "SPEAR THOSE WHO DARE";
+        Style: (TextColor: #ffffff, FontSize: 15, RenderBold: true, HorizontalAlignment: Center);
+      }
+      $C.@TextButton #SELECT4 {
+        Anchor: (Width: 100, Height: 30);
+        Text: "SELECT";
+      }
+    }
+    Group #BORDER5 {
+      LayoutMode: Top;
+      Background: (Color: #243847);
+      Anchor: (Height: 20);
+    }
     Group #CLASS3 {
       LayoutMode: Middle;
       Background: (Color: #1d2d3a);
@@ -111,11 +142,11 @@ Group #CLASSES {
         }
       }
       Label #CLASSTITLE3 {
-        Text: "MAGE";
+        Text: "SHIFTER";
         Style: (TextColor: #a9a151, FontSize: 15, RenderBold: true, HorizontalAlignment: Center);
       }
       Label #DESC3 {
-        Text: "CORRUPT YOUR ENEMY";
+        Text: "SHROUD THE TRUTH";
         Style: (TextColor: #ffffff, FontSize: 15, RenderBold: true, HorizontalAlignment: Center);
       }
       $C.@TextButton #SELECT3 {
@@ -123,10 +154,10 @@ Group #CLASSES {
         Text: "SELECT";
       }
     }
-  }
-  Group #BORDER5 {
-    LayoutMode: Top;
-    Background: (Color: #243847);
-    Anchor: (Height: 20);
+    Group #BORDER6 {
+      LayoutMode: Top;
+      Background: (Color: #243847);
+      Anchor: (Height: 20);
+    }
   }
 }

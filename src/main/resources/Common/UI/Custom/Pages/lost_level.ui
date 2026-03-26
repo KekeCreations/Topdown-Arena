@@ -23,6 +23,11 @@ Group #MENU {
     Text: "Tip #2: Try another class, different classes are harder to play with than others.";
     Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
   }
+  Label #DESC3 {
+    Anchor: (Top: 10);
+    Text: "Tip #3: Every level has a random wave, maybe next round will be better?";
+    Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+  }
   Group #IMGROUP1 {
     LayoutMode: Middle;
     Anchor: (Width: 300, Height: 300);

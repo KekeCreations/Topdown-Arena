@@ -36,28 +36,31 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
         Ref<EntityStore> ref = chunk.getReferenceTo(index);
         Player player = store.getComponent(ref, Player.getComponentType());
         PlayerRef playerRef = store.getComponent(ref, PlayerRef.getComponentType());
+
+        int randomWave = (int)(Math.random() * 3);
+
         if (player != null && playerRef != null) {
             RoundComponent roundData = store.getComponent(ref, RoundComponent.getComponentType());
             if (roundData != null) {
                 player.getHudManager().setCustomHud(playerRef, new RoundStatsHud(playerRef, roundData));
-                if (roundData.getRoundTimer() > 0) {
+                if (roundData.getRoundTimer() > 0 && !roundData.isTimerFrozen()) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
                     //WAVE 2
                     if (roundData.getRoundTimer() == 20) {
-                        switch(roundData.getLevel()) {
-                            case 1 -> {
+                        switch(randomWave) {
+                            case 0 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 0");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 2 0 0");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 0 0 2");
                             }
-                            case 2 -> {
+                            case 1 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 2 0 0");
                             }
-                            case 3 -> {
+                            case 2 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 0");

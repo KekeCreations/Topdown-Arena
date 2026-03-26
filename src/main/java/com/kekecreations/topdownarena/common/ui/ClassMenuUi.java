@@ -32,6 +32,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
     private static final String SELECT_ONE_BUTTON_ID = "SELECT1";
     private static final String SELECT_TWO_BUTTON_ID = "SELECT2";
     private static final String SELECT_THREE_BUTTON_ID = "SELECT3";
+    private static final String SELECT_FOUR_BUTTON_ID = "SELECT4";
     RoundComponent roundData;
 
     public ClassMenuUi(@Nonnull PlayerRef playerRef, RoundComponent roundData, @Nonnull CustomPageLifetime lifetime) {
@@ -45,6 +46,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#SELECT1", EventData.of("OnButtonClicked", SELECT_ONE_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#SELECT2", EventData.of("OnButtonClicked", SELECT_TWO_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#SELECT3", EventData.of("OnButtonClicked", SELECT_THREE_BUTTON_ID), false);
+        uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#SELECT4", EventData.of("OnButtonClicked", SELECT_FOUR_BUTTON_ID), false);
     }
 
     @Override
@@ -95,16 +97,19 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             }
         } else if (SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
             if (roundData.getLevel() <= 3) {
-                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Staff_Mithril"));
+                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
                 inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
                 inventory.getHotbar().setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
-                inventory.getHotbar().setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 1));
-                inventory.getHotbar().setItemStackForSlot((short) 6, new ItemStack("Weapon_Sword_Bone", 1));
+                inventory.getHotbar().setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 2));
+                inventory.getHotbar().setItemStackForSlot((short) 6, new ItemStack("Potion_Morph_Dog", 3));
+                inventory.getHotbar().setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
+                inventory.getHotbar().setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
 
                 inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
                 inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
                 inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
                 inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
             }
         }
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
