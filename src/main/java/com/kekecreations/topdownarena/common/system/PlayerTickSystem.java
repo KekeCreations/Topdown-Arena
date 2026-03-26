@@ -7,6 +7,8 @@ import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
+import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntityStatTypes;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
 import com.kekecreations.topdownarena.common.ui.*;
@@ -46,11 +48,18 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton_Archer Subtract 0 0 2");
                     }
                 }
+                EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
                 if (roundData.getRoundTimer() <= 0 && !roundData.isTimerFrozen()) {
                     if (roundData.getEnemiesLeftToKill() <= 0) {
                         roundData.setRoundType("menu_winlevel");
+                        if (entityStat != null) {
+                            entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
+                        }
                     } else {
                         roundData.setRoundType("menu_lostlevel");
+                        if (entityStat != null) {
+                            entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
+                        }
                     }
                 }
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
