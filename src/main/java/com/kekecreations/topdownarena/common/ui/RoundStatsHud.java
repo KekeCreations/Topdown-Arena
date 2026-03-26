@@ -27,6 +27,8 @@ public class RoundStatsHud extends CustomUIHud {
             uiCommandBuilder.set("#ROUNDTIMER.TextSpans", Message.raw(String.valueOf(roundData.getRoundTimer())));
             if (roundData.getRoundTimer() <= 24 && roundData.getRoundTimer() >= 20) {
                 uiCommandBuilder.set("#WAVE.TextSpans", Message.raw("INCOMING WAVE!"));
+            } else if (roundData.getRoundTimer() <= 70 && roundData.getRoundTimer() >= 60) {
+                uiCommandBuilder.set("#WAVE.TextSpans", Message.raw("PREPARE!"));
             } else {
                 uiCommandBuilder.set("#WAVE.TextSpans", Message.raw(""));
             }

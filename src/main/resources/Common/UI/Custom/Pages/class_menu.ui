@@ -76,7 +76,7 @@ Group #CLASSES {
         Padding: (Top: 16, Bottom: 16);
         AssetImage #CLASSIMAGE2 {
           Anchor: (Width: 100, Height: 100);
-          AssetPath: "Icons/ItemsGenerated/Weapon_Shortbow_Iron.png";
+          AssetPath: "Icons/ItemsGenerated/Weapon_Bomb_Fire_Goblin.png";
         }
       }
       Label #CLASSTITLE2 {

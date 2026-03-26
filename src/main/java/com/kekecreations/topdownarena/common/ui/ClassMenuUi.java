@@ -1,5 +1,6 @@
 package com.kekecreations.topdownarena.common.ui;
 
+import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.protocol.EntityStatEffects;
@@ -12,6 +13,7 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
 import com.hypixel.hytale.server.core.inventory.Inventory;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntityStatTypes;
 import com.hypixel.hytale.server.core.ui.builder.EventData;
@@ -72,6 +74,27 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                 inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
                 inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
                 inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+
+                if (roundData.getLevel() >= 2) {
+                    inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                }
+            }
+        } else if (SELECT_TWO_BUTTON_ID.equals(data.buttonClicked)) {
+            if (roundData.getLevel() <= 3) {
+                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Cobalt"));
+                inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
+                inventory.getHotbar().setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                inventory.getHotbar().setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 2));
+                inventory.getHotbar().setItemStackForSlot((short) 6, new ItemStack("Weapon_Arrow_Crude", 128));
+
+                inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+
+                if (roundData.getLevel() >= 2) {
+                    inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                }
             }
         }
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
@@ -92,22 +115,6 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                 case 5 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health", 6));
             }
             roundData.freezeRoundTimer(false);
-            if (roundData.getLevel() == 1) {
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 1");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
-            }
-            if (roundData.getLevel() == 2) {
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 2");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 1 0 0");
-                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 2");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
-            }
             roundData.setRoundType("level");
             player.getPageManager().setPage(ref, store, Page.None);
         }

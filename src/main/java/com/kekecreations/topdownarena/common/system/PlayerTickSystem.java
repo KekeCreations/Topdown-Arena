@@ -42,12 +42,34 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 player.getHudManager().setCustomHud(playerRef, new RoundStatsHud(playerRef, roundData));
                 if (roundData.getRoundTimer() > 0) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
+                    //WAVE 2
                     if (roundData.getRoundTimer() == 20) {
                         CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
                         CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
                         CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 0");
                         CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 2 0 0");
                         CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 0 0 2");
+                    }
+                    //START GAME
+                    if (roundData.getRoundTimer() == 60) {
+                        switch (roundData.getLevel()) {
+                            case 1 -> {
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 1");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
+                            }
+                            case 2 -> {
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
+                            }
+                        }
                     }
                 }
                 EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
