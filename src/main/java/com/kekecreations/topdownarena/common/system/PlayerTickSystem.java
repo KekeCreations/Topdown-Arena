@@ -41,8 +41,8 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 if (roundData.getRoundTimer() > 0) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
                 }
-                if (roundData.getRoundTimer() <= 0) {
-                    if (roundData.getEnemiesLeftToKill() == 0) {
+                if (roundData.getRoundTimer() <= 0 && !roundData.isTimerFrozen()) {
+                    if (roundData.getEnemiesLeftToKill() <= 0) {
                         //Unlock Level 2
                         if (roundData.getLevel() == 1 && roundData.getUnlockedLevels() <= 1) {
                             roundData.setUnlockedLevels(roundData.getUnlockedLevels() + 1);
@@ -52,6 +52,7 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     } else {
                         player.sendMessage(Message.raw("LEVEL LOST"));
                     }
+                    roundData.setRoundType("menu_start");
                 }
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
                 if (roundData.getRoundType() != "null") {

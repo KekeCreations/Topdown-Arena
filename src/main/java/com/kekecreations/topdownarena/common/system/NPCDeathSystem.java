@@ -2,6 +2,7 @@ package com.kekecreations.topdownarena.common.system;
 
 import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.modules.entity.damage.DeathComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.DeathSystems;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
@@ -29,8 +30,10 @@ public class NPCDeathSystem extends DeathSystems.OnDeathSystem {
                     if (roundData != null) {
                         if (roundData.getEnemiesLeftToKill() == 0) {
                             roundData.setBonusEnemiesKilled(roundData.getBonusEnemiesKilled() + 1);
+                            npc.remove();
                         } else {
                             roundData.setEnemiesToKill(roundData.getEnemiesLeftToKill() - 1);
+                            npc.remove();
                         }
                     }
                 }
