@@ -9,6 +9,7 @@ import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntityStatTypes;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
 import com.kekecreations.topdownarena.common.ui.*;
@@ -34,18 +35,19 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
     public void tick(float dt, int index, ArchetypeChunk<EntityStore> chunk, Store<EntityStore> store, CommandBuffer<EntityStore> commandBuffer) {
         Ref<EntityStore> ref = chunk.getReferenceTo(index);
         Player player = store.getComponent(ref, Player.getComponentType());
-        if (player != null) {
+        PlayerRef playerRef = store.getComponent(ref, PlayerRef.getComponentType());
+        if (player != null && playerRef != null) {
             RoundComponent roundData = store.getComponent(ref, RoundComponent.getComponentType());
             if (roundData != null) {
-                player.getHudManager().setCustomHud(player.getPlayerRef(), new RoundStatsHud(player.getPlayerRef(), roundData));
+                player.getHudManager().setCustomHud(playerRef, new RoundStatsHud(playerRef, roundData));
                 if (roundData.getRoundTimer() > 0) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
                     if (roundData.getRoundTimer() == 20) {
-                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton Add 0 0 2");
-                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton Add 2 0 2");
-                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton Add 2 0 0");
-                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton_Archer Subtract 2 0 0");
-                        CommandManager.get().handleCommand(player.getPlayerRef(), "round_npc Skeleton_Archer Subtract 0 0 2");
+                        CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
+                        CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
+                        CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 0");
+                        CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 2 0 0");
+                        CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 0 0 2");
                     }
                 }
                 EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
@@ -65,23 +67,23 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
                 if (roundData.getRoundType() != "null") {
                     if (roundData.getRoundType() == "menu_levels") {
-                        player.getPageManager().openCustomPage(ref, store, new LevelMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
+                        player.getPageManager().openCustomPage(ref, store, new LevelMenuUi(playerRef, roundData, CustomPageLifetime.CantClose));
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_start") {
-                        player.getPageManager().openCustomPage(ref, store, new StartMenuUi(player.getPlayerRef(), CustomPageLifetime.CantClose));
+                        player.getPageManager().openCustomPage(ref, store, new StartMenuUi(playerRef, CustomPageLifetime.CantClose));
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_class") {
-                        player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
+                        player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(playerRef, roundData, CustomPageLifetime.CantClose));
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_winlevel") {
-                        player.getPageManager().openCustomPage(ref, store, new WinLevelUi(player.getPlayerRef(), roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                        player.getPageManager().openCustomPage(ref, store, new WinLevelUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_lostlevel") {
-                        player.getPageManager().openCustomPage(ref, store, new LostLevelUi(player.getPlayerRef(), CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                        player.getPageManager().openCustomPage(ref, store, new LostLevelUi(playerRef, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
                 }
