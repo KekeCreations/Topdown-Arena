@@ -38,9 +38,9 @@ public class EventRegistry {
             Ref<EntityStore> playerRef = event.getPlayerRef();
             PlayerRef playerRefClass = event.getPlayerRef().getStore().getComponent(playerRef, PlayerRef.getComponentType());
             if (playerRefClass != null) {
-                player.getPageManager().openCustomPage(playerRef, playerRef.getStore(), new StartMenuUi(playerRefClass, CustomPageLifetime.CantClose));
                 RoundComponent roundComponent = playerRef.getStore().ensureAndGetComponent(playerRef, RoundComponent.getComponentType());
                 roundComponent.freezeRoundTimer(true);
+                player.getPageManager().openCustomPage(playerRef, playerRef.getStore(), new StartMenuUi(playerRefClass, roundComponent, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                 playerRefClass.getPacketHandler().writeNoCache(new SetServerCamera(ClientCameraView.Custom, true, cameraSettings));
             }
         });

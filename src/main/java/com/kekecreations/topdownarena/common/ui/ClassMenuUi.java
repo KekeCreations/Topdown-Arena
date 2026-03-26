@@ -20,6 +20,7 @@ import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -90,7 +91,6 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                 case 4 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Regen_Health_Large", 1));
                 case 5 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health", 6));
             }
-            player.getPageManager().setPage(ref, store, Page.None);
             roundData.freezeRoundTimer(false);
             if (roundData.getLevel() == 1) {
                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
@@ -108,6 +108,17 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
             }
+            roundData.setRoundType("level");
+            player.getPageManager().setPage(ref, store, Page.None);
+        }
+    }
+
+    @Override
+    public void onDismiss(@NotNull Ref<EntityStore> ref, @NotNull Store<EntityStore> store) {
+        super.onDismiss(ref, store);
+        if (roundData.getRoundType() == "null") {
+            roundData.setRoundType("menu_start");
+            roundData.setLevel(0);
         }
     }
 }

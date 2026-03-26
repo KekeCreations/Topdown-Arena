@@ -14,6 +14,7 @@ import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -68,5 +69,11 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_start");
         }
+    }
+
+    @Override
+    public void onDismiss(@NotNull Ref<EntityStore> ref, @NotNull Store<EntityStore> store) {
+        super.onDismiss(ref, store);
+        roundData.setRoundType("menu_start");
     }
 }

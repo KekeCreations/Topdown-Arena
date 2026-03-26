@@ -67,15 +67,15 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
                 if (roundData.getRoundType() != "null") {
                     if (roundData.getRoundType() == "menu_levels") {
-                        player.getPageManager().openCustomPage(ref, store, new LevelMenuUi(playerRef, roundData, CustomPageLifetime.CantClose));
+                        player.getPageManager().openCustomPage(ref, store, new LevelMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_start") {
-                        player.getPageManager().openCustomPage(ref, store, new StartMenuUi(playerRef, CustomPageLifetime.CantClose));
+                        player.getPageManager().openCustomPage(ref, store, new StartMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_class") {
-                        player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(playerRef, roundData, CustomPageLifetime.CantClose));
+                        player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_winlevel") {

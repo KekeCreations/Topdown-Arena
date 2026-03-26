@@ -17,6 +17,7 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -26,9 +27,11 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
     private static final String PLAY_LEVELS_BUTTON_ID = "PLAYLEVELS";
     private static final String PLAY_SANDBOX_BUTTON_ID = "PLAYSANDBOX";
     private static final String QUIT_BUTTON_ID = "QUIT";
+    RoundComponent roundData;
 
-    public StartMenuUi(@Nonnull PlayerRef playerRef, @Nonnull CustomPageLifetime lifetime) {
+    public StartMenuUi(@Nonnull PlayerRef playerRef, RoundComponent roundComponent, @Nonnull CustomPageLifetime lifetime) {
         super(playerRef, lifetime, MenuWithButtonsData.CODEC);
+        this.roundData = roundComponent;
     }
 
     @Override
@@ -61,5 +64,11 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         else if (QUIT_BUTTON_ID.equals(data.buttonClicked)) {
             System.exit(0);
         }
+    }
+
+    @Override
+    public void onDismiss(@NotNull Ref<EntityStore> ref, @NotNull Store<EntityStore> store) {
+        super.onDismiss(ref, store);
+        roundData.setRoundType("menu_start");
     }
 }
