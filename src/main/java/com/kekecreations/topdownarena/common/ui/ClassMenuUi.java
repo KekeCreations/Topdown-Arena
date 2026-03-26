@@ -60,7 +60,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         int potionChance = (int)(Math.random() * 3);
         Inventory inventory = player.getInventory();
 
-        if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
+        if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked) || SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
             inventory.clear();
             if (entityStat != null) {
                 entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
@@ -111,8 +111,22 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                 inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
                 inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
             }
+        } else if (SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
+            if (roundData.getLevel() <= 3) {
+                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Copper"));
+                inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Copper"));
+                inventory.getHotbar().setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));
+
+                inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                if (roundData.getLevel() >= 2) {
+                    inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                }
+            }
         }
-        if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
+        if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked) || SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
             switch(foodChance) {
                 case 0 -> inventory.getHotbar().setItemStackForSlot((short) 0, new ItemStack("Food_Cheese", 16));
                 case 1 -> inventory.getHotbar().setItemStackForSlot((short) 0, new ItemStack("Food_Fish_Grilled", 8));

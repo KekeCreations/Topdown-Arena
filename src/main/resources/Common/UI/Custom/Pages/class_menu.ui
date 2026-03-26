@@ -107,7 +107,7 @@ Group #CLASSES {
         Padding: (Top: 16, Bottom: 16);
         AssetImage #CLASSIMAGE4 {
           Anchor: (Width: 100, Height: 100);
-          AssetPath: "Icons/ItemsGenerated/Weapon_Spellbook_Fire.png";
+          AssetPath: "Icons/ItemsGenerated/Weapon_Mace_Copper.png";
         }
       }
       Label #CLASSTITLE4 {

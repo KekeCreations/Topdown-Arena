@@ -64,6 +64,9 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 2 0 0");
                             }
                         }
                     }
