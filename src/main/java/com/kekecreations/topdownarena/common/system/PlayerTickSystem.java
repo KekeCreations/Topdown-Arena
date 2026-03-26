@@ -65,8 +65,6 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 0");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 0 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 2 0 0");
                             }
                         }
                     }
@@ -89,6 +87,14 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 1");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 2");
+                            }
+                            case 3 -> {
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 2 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 2");

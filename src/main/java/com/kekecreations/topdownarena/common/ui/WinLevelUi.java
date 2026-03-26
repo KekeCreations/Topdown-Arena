@@ -50,6 +50,9 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             if (roundData.getLevel() == 1 && roundData.getUnlockedLevels() <= 1) {
                 roundData.setUnlockedLevels(2);
             }
+            if (roundData.getLevel() == 2 && roundData.getUnlockedLevels() <= 2) {
+                roundData.setUnlockedLevels(3);
+            }
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_start");
             roundData.freezeRoundTimer(true);
