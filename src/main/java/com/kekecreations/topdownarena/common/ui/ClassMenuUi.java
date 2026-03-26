@@ -100,6 +100,14 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 1");
                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
             }
+            if (roundData.getLevel() == 2) {
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 2");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 1 0 0");
+                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 2");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
+                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
+            }
         }
     }
 }
