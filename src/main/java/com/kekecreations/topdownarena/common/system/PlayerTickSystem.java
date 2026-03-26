@@ -8,10 +8,7 @@ import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
-import com.kekecreations.topdownarena.common.ui.ClassMenuUi;
-import com.kekecreations.topdownarena.common.ui.LevelMenuUi;
-import com.kekecreations.topdownarena.common.ui.RoundStatsHud;
-import com.kekecreations.topdownarena.common.ui.StartMenuUi;
+import com.kekecreations.topdownarena.common.ui.*;
 
 import javax.annotation.Nonnull;
 
@@ -43,16 +40,10 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 }
                 if (roundData.getRoundTimer() <= 0 && !roundData.isTimerFrozen()) {
                     if (roundData.getEnemiesLeftToKill() <= 0) {
-                        //Unlock Level 2
-                        if (roundData.getLevel() == 1 && roundData.getUnlockedLevels() <= 1) {
-                            roundData.setUnlockedLevels(roundData.getUnlockedLevels() + 1);
-                            player.sendMessage(Message.raw("NEW LEVEL UNLOCKED"));
-                        }
-
+                        roundData.setRoundType("menu_winlevel");
                     } else {
-                        player.sendMessage(Message.raw("LEVEL LOST"));
+                        roundData.setRoundType("menu_lostlevel");
                     }
-                    roundData.setRoundType("menu_start");
                 }
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
                 if (roundData.getRoundType() != "null") {
@@ -68,9 +59,16 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(player.getPlayerRef(), roundData, CustomPageLifetime.CantClose));
                         roundData.setRoundType("null");
                     }
+                    if (roundData.getRoundType() == "menu_winlevel") {
+                        player.getPageManager().openCustomPage(ref, store, new WinLevelUi(player.getPlayerRef(), roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                        roundData.setRoundType("null");
+                    }
+                    if (roundData.getRoundType() == "menu_lostlevel") {
+                        player.getPageManager().openCustomPage(ref, store, new LostLevelUi(player.getPlayerRef(), CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                        roundData.setRoundType("null");
+                    }
                 }
             }
         }
     }
 }
-

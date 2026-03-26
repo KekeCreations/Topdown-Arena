@@ -58,7 +58,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
             inventory.clear();
             if (entityStat != null) {
-                entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 100.0F);
+                entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
             }
         }
         if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked)) {
@@ -94,8 +94,6 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             roundData.freezeRoundTimer(false);
             if (roundData.getLevel() == 1) {
                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 2");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 3 0 0");
-                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 3");
                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 2 0 2");
                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
