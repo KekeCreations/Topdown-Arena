@@ -46,7 +46,6 @@ public class LostLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_start");
             roundData.freezeRoundTimer(true);
-            store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
         }
     }
 }

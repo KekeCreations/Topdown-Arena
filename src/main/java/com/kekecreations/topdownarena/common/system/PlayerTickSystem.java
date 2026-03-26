@@ -43,9 +43,8 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 if (roundData.getRoundTimer() > 0) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
                     //WAVE 2
-                    int waveRandomizer = (int)(Math.random() * 3);
                     if (roundData.getRoundTimer() == 20) {
-                        switch(waveRandomizer) {
+                        switch(roundData.getLevel()) {
                             case 1 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");

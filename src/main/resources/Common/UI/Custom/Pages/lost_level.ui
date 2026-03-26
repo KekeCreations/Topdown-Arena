@@ -4,33 +4,36 @@ Group #MENU {
   LayoutMode: Top;
   Background: (Color: #243847);
   Anchor: (Width: 800, Height: 500);
-  Padding: (Full: 0);
   Label #WINTEXT {
-    Padding: (Full: 0);
     Text: "YOU'VE LOST";
     Style: (TextColor: #a9a151, FontSize: 35, RenderBold: true, HorizontalAlignment: Center);
   }
   Group #GOLDBORDER {
     LayoutMode: Top;
-    Anchor: (Height: 25);
     Background: (Color: #795625);
-    Padding: (Full: 0);
+    Anchor: (Height: 25);
   }
   Label #DESC {
     Anchor: (Top: 10);
-    Padding: (Full: 0);
-    Text: "Tip #1: Remember you can sprint and jump";
+    Text: "Tip #1: Remember you can sprint and jump.";
     Style: (TextColor: #ffffff, RenderBold: true, RenderUppercase: true, HorizontalAlignment: Center);
   }
   Label #DESC2 {
     Anchor: (Top: 10);
-    Padding: (Full: 0);
-    Text: "Tip #2: Maybe try another class?";
+    Text: "Tip #2: Try another class, different classes are harder to play with than others.";
     Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
   }
+  Group #IMGROUP1 {
+    LayoutMode: Middle;
+    Anchor: (Width: 300, Height: 300);
+    Padding: (Top: 16, Bottom: 16);
+    AssetImage #IMAGE {
+      Anchor: (Width: 100, Height: 100);
+      AssetPath: "Icons/ItemsGenerated/Deco_Bone_Skulls_Feran_Large.png";
+    }
+  }
   $C.@TextButton #CONTINUE {
-    Anchor: (Height: 40, Top: 200);
-    Padding: (Full: 0);
+    Anchor: (Width: 130, Height: 40, Top: 10);
     Text: "CONTINUE";
   }
 }
