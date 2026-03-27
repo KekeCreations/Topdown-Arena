@@ -50,9 +50,16 @@ public class RoundComponent implements Component<EntityStore> {
 
     private boolean easyMode = false;
 
+    private int sandboxEnemyChoice = 0;
+    private int sandboxEnemyChoice2 = 0;
+    private int sandboxEnemyChoice3 = 0;
+    private int sandboxClassChoice = 0;
+    private int sandboxClassLevelChoice = 0;
+
     public RoundComponent() {}
 
-    public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, int level, String roundType, boolean freezeTimer, boolean arachnophobiaMode, boolean easyMode) {
+    public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, int level, String roundType, boolean freezeTimer, boolean arachnophobiaMode, boolean easyMode,
+                          int sandboxEnemyChoice, int sandboxEnemyChoice2, int sandboxEnemyChoice3, int sandboxClassChoice, int sandboxClassLevelChoice) {
         this.roundTimer = roundTimer;
         this.enemiesKilled = enemiesKilled;
         this.bonusEnemiesKilled = bonusEnemiesKilled;
@@ -62,11 +69,16 @@ public class RoundComponent implements Component<EntityStore> {
         this.freezeTimer = freezeTimer;
         this.arachnophobiaMode = arachnophobiaMode;
         this.easyMode = easyMode;
+        this.sandboxEnemyChoice = sandboxEnemyChoice;
+        this.sandboxEnemyChoice2 = sandboxEnemyChoice2;
+        this.sandboxEnemyChoice3 = sandboxEnemyChoice3;
+        this.sandboxClassChoice = sandboxClassChoice;
+        this.sandboxClassLevelChoice = sandboxClassLevelChoice;
     }
 
     @Override
     public Component<EntityStore> clone() {
-        RoundComponent copy = new RoundComponent(roundTimer, enemiesKilled, bonusEnemiesKilled, unlockedLevels, level, roundType, freezeTimer, arachnophobiaMode, easyMode);
+        RoundComponent copy = new RoundComponent(roundTimer, enemiesKilled, bonusEnemiesKilled, unlockedLevels, level, roundType, freezeTimer, arachnophobiaMode, easyMode, sandboxEnemyChoice, sandboxEnemyChoice2, sandboxEnemyChoice3, sandboxClassChoice, sandboxClassLevelChoice);
         copy.roundTimer = this.roundTimer;
         copy.enemiesKilled = this.enemiesKilled;
         copy.bonusEnemiesKilled = this.bonusEnemiesKilled;
@@ -76,9 +88,48 @@ public class RoundComponent implements Component<EntityStore> {
         copy.freezeTimer = this.freezeTimer;
         copy.arachnophobiaMode = this.arachnophobiaMode;
         copy.easyMode = this.easyMode;
+        copy.sandboxEnemyChoice = this.sandboxEnemyChoice;
+        copy.sandboxEnemyChoice2 = this.sandboxEnemyChoice2;
+        copy.sandboxEnemyChoice3 = this.sandboxEnemyChoice3;
+        copy.sandboxClassChoice = this.sandboxClassChoice;
+        copy.sandboxClassLevelChoice = this.sandboxClassLevelChoice;
         return copy;
     }
 
+    //SANDBOX
+    public int getSandboxEnemyChoice() {
+        return this.sandboxEnemyChoice;
+    }
+    public int getSandboxEnemyChoice2() {
+        return this.sandboxEnemyChoice2;
+    }
+    public int getSandboxEnemyChoice3() {
+        return this.sandboxEnemyChoice3;
+    }
+    public int getSandboxClassChoice() {
+        return this.sandboxClassChoice;
+    }
+    public int getSandboxClassLevelChoice() {
+        return this.sandboxClassLevelChoice;
+    }
+    public void setEnemyChoice(int enemyChoice) {
+        this.sandboxEnemyChoice = enemyChoice;
+    }
+    public void setEnemyChoice2(int enemyChoice) {
+        this.sandboxEnemyChoice2 = enemyChoice;
+    }
+    public void setEnemyChoice3(int enemyChoice) {
+        this.sandboxEnemyChoice3 = enemyChoice;
+    }
+    public void setClassChoice(int classChoice) {
+        this.sandboxClassChoice= classChoice;
+    }
+    public void setClassLevelChoice(int classLevelChoice) {
+        this.sandboxClassLevelChoice= classLevelChoice;
+    }
+
+
+    //NORMAL + SANDBOX
     public int getRoundTimer() {
         return this.roundTimer;
     }
