@@ -46,9 +46,13 @@ public class RoundComponent implements Component<EntityStore> {
 
     private boolean freezeTimer = false;
 
+    private boolean arachnophobiaMode = false;
+
+    private boolean easyMode = false;
+
     public RoundComponent() {}
 
-    public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, int level, String roundType, boolean freezeTimer) {
+    public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, int level, String roundType, boolean freezeTimer, boolean arachnophobiaMode, boolean easyMode) {
         this.roundTimer = roundTimer;
         this.enemiesKilled = enemiesKilled;
         this.bonusEnemiesKilled = bonusEnemiesKilled;
@@ -56,11 +60,13 @@ public class RoundComponent implements Component<EntityStore> {
         this.level = level;
         this.roundType = roundType;
         this.freezeTimer = freezeTimer;
+        this.arachnophobiaMode = arachnophobiaMode;
+        this.easyMode = easyMode;
     }
 
     @Override
     public Component<EntityStore> clone() {
-        RoundComponent copy = new RoundComponent(roundTimer, enemiesKilled, bonusEnemiesKilled, unlockedLevels, level, roundType, freezeTimer);
+        RoundComponent copy = new RoundComponent(roundTimer, enemiesKilled, bonusEnemiesKilled, unlockedLevels, level, roundType, freezeTimer, arachnophobiaMode, easyMode);
         copy.roundTimer = this.roundTimer;
         copy.enemiesKilled = this.enemiesKilled;
         copy.bonusEnemiesKilled = this.bonusEnemiesKilled;
@@ -68,11 +74,21 @@ public class RoundComponent implements Component<EntityStore> {
         copy.level = this.level;
         copy.roundType = this.roundType;
         copy.freezeTimer = this.freezeTimer;
+        copy.arachnophobiaMode = this.arachnophobiaMode;
+        copy.easyMode = this.easyMode;
         return copy;
     }
 
     public int getRoundTimer() {
         return this.roundTimer;
+    }
+
+    public boolean getArachnophobiaMode() {
+        return this.arachnophobiaMode;
+    }
+
+    public boolean getEasyMode() {
+        return this.easyMode;
     }
 
     public int getEnemiesLeftToKill() {
@@ -125,6 +141,14 @@ public class RoundComponent implements Component<EntityStore> {
 
     public void freezeRoundTimer(boolean freezeTimer) {
         this.freezeTimer = freezeTimer;
+    }
+
+    public void arachnophobiaMode(boolean arachnophobiaMode) {
+        this.arachnophobiaMode = arachnophobiaMode;
+    }
+
+    public void easyMode(boolean easyMode) {
+        this.easyMode = easyMode;
     }
 
     private static ComponentType<EntityStore, RoundComponent> type;

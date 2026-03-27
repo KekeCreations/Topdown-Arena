@@ -45,6 +45,12 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 player.getHudManager().setCustomHud(playerRef, new RoundStatsHud(playerRef, roundData));
                 if (roundData.getRoundTimer() > 0 && !roundData.isTimerFrozen()) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
+                    if (roundData.getEasyMode()) {
+                        EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
+                        if (entityStat != null) {
+                            entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 0.10F);
+                        }
+                    }
                     //WAVE 2
                     if (roundData.getRoundTimer() == 20) {
                         switch(randomWave) {
@@ -61,10 +67,16 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 2 0 0");
                             }
                             case 2 -> {
-                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 0 0 2");
+                                if (roundData.getArachnophobiaMode()) {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Add 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 0");
+                                } else {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 0 0 2");
+                                }
                             }
                         }
                     }
@@ -136,6 +148,10 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     }
                     if (roundData.getRoundType() == "menu_lostlevel") {
                         player.getPageManager().openCustomPage(ref, store, new LostLevelUi(playerRef, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                        roundData.setRoundType("null");
+                    }
+                    if (roundData.getRoundType() == "menu_options") {
+                        player.getPageManager().openCustomPage(ref, store, new OptionsUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
                 }

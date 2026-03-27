@@ -4,6 +4,8 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.RemoveReason;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.protocol.*;
+import com.hypixel.hytale.protocol.packets.connection.DisconnectType;
+import com.hypixel.hytale.protocol.packets.connection.ServerDisconnect;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPage;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.protocol.packets.interface_.CustomUIEventBindingType;
@@ -26,6 +28,8 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
 
     private static final String PLAY_LEVELS_BUTTON_ID = "PLAYLEVELS";
     private static final String PLAY_SANDBOX_BUTTON_ID = "PLAYSANDBOX";
+    private static final String OPTIONS_BUTTON_ID = "OPTIONS";
+    private static final String HOW_TO_PLAY_BUTTON_ID = "HOWTOPLAY";
     private static final String QUIT_BUTTON_ID = "QUIT";
     RoundComponent roundData;
 
@@ -40,6 +44,8 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
 
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVELS", EventData.of("OnButtonClicked", PLAY_LEVELS_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYSANDBOX", EventData.of("OnButtonClicked", PLAY_SANDBOX_BUTTON_ID), false);
+        uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#OPTIONS", EventData.of("OnButtonClicked", OPTIONS_BUTTON_ID), false);
+        uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#HOWTOPLAY", EventData.of("OnButtonClicked", HOW_TO_PLAY_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#QUIT", EventData.of("OnButtonClicked", QUIT_BUTTON_ID), false);
     }
 
@@ -58,11 +64,15 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             roundData.setBonusEnemiesKilled(0);
             roundData.setEnemiesToKill(0);
             store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
+        } else if (OPTIONS_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundData.setRoundType("menu_options");
+            store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
         }
         else if (PLAY_SANDBOX_BUTTON_ID.equals(data.buttonClicked)) {
         }
         else if (QUIT_BUTTON_ID.equals(data.buttonClicked)) {
-            System.exit(0);
+            playerRef.getPacketHandler().writeNoCache(new ServerDisconnect(null, DisconnectType.Disconnect));
         }
     }
 

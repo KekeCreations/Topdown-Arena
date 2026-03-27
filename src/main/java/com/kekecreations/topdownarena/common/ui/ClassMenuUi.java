@@ -1,17 +1,12 @@
 package com.kekecreations.topdownarena.common.ui;
 
-import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.protocol.EntityStatEffects;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.protocol.packets.interface_.CustomUIEventBindingType;
 import com.hypixel.hytale.protocol.packets.interface_.Page;
-import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
-import com.hypixel.hytale.server.core.inventory.Inventory;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
@@ -83,7 +78,9 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                 storage.clear();
                 tool.clear();
                 if (entityStat != null) {
-                    entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
+                    entityStat.resetStatValue(DefaultEntityStatTypes.getHealth());
+                    entityStat.resetStatValue(DefaultEntityStatTypes.getStamina());
+                    entityStat.resetStatValue(DefaultEntityStatTypes.getMana());
                 }
             }
             if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked)) {

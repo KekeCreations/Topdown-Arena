@@ -35,6 +35,11 @@ Group #MAIN {
       Anchor: (Width: 115, Height: 50, Left: 0, Right: 0, Top: 15);
       Text: "PLAY SANDBOX";
     }
+    $C.@TextButton #OPTIONS {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 115, Height: 50, Left: 0, Right: 0, Top: 15);
+      Text: "OPTIONS";
+    }
     $C.@TextButton #HOWTOPLAY {
       Anchor: (Height: 30, Top: 30);
       Text: "HOW TO PLAY";
