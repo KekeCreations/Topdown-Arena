@@ -26,7 +26,11 @@ Group #MAIN {
     LayoutMode: Left;
     Background: (Color: #333333);
     Anchor: (Height: 50);
-    Padding: (Full: 0);
+    Group #BORDERSEP {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
     $C.@TextButton #PLAYLEVEL1 {
       Background: (Color: #ffffff);
       Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
@@ -52,10 +56,300 @@ Group #MAIN {
       Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
       Text: "LOCKED";
     }
+    Group #SEP5 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL4 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP6 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL5 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #BORDERSEP2 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+  }
+  Group #ROWSEP {
+    LayoutMode: Top;
+    Background: (Color: #1e3d53);
+    Anchor: (Height: 15);
+  }
+  Group #BUTTONROW2 {
+    LayoutMode: Left;
+    Background: (Color: #333333);
+    Anchor: (Height: 50);
+    Group #BORDERSEP3 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL6 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP7 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL7 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP8 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL8 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP9 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL9 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP10 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL10 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #BORDERSEP4 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+  }
+  Group #ROWSEP2 {
+    LayoutMode: Top;
+    Background: (Color: #1e3d53);
+    Anchor: (Height: 15);
+  }
+  Group #BUTTONROW3 {
+    LayoutMode: Left;
+    Background: (Color: #333333);
+    Anchor: (Height: 50);
+    Group #BORDERSEP5 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL11 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP11 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL12 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP12 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL13 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP13 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL14 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP14 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL15 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #BORDERSEP6 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+  }
+  Group #ROWSEP3 {
+    LayoutMode: Top;
+    Background: (Color: #1e3d53);
+    Anchor: (Height: 15);
+  }
+  Group #BUTTONROW4 {
+    LayoutMode: Left;
+    Background: (Color: #333333);
+    Anchor: (Height: 50);
+    Group #BORDERSEP7 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL16 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP15 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL17 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP16 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL18 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP17 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL19 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP18 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL20 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #BORDERSEP8 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+  }
+  Group #ROWSEP4 {
+    LayoutMode: Top;
+    Background: (Color: #1e3d53);
+    Anchor: (Height: 15);
+  }
+  Group #BUTTONROW5 {
+    LayoutMode: Left;
+    Background: (Color: #333333);
+    Anchor: (Height: 50);
+    Group #BORDERSEP9 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL21 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP16 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL22 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP17 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL23 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP18 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL24 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #SEP19 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 30, Height: 50);
+    }
+    $C.@TextButton #PLAYLEVEL25 {
+      Background: (Color: #ffffff);
+      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
+      Text: "LOCKED";
+    }
+    Group #BORDERSEP10 {
+      LayoutMode: Top;
+      Background: (Color: #1e3d53);
+      Anchor: (Width: 40, Height: 50);
+    }
+  }
+  Group #ROWSEP5 {
+    LayoutMode: Top;
+    Background: (Color: #1e3d53);
+    Anchor: (Height: 25);
   }
   $C.@TextButton #BACK {
     Background: (Color: #ffffff);
-    Anchor: (Width: 80, Height: 50, Left: 0, Right: 0, Top: 80);
+    Anchor: (Width: 80, Height: 50, Left: 0, Right: 0, Top: 0);
     Text: "BACK";
   }
 }
