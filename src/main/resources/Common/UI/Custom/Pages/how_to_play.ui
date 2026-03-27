@@ -41,7 +41,7 @@ Group #MAIN {
     }
     Label #EASYDESC3 {
       Anchor: (Top: 1);
-      Text: "Class gear upgrades every 3 levels.";
+      Text: "Class gear upgrades every 5 levels.";
       Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #EASYDESC4 {

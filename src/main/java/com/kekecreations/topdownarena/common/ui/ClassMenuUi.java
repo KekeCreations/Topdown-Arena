@@ -84,7 +84,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                 }
             }
             if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked)) {
-                if (roundData.getLevel() <= 3) {
+                if (roundData.getLevel() <= 5) {
                     hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Copper"));
                     hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Copper"));
                     hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
@@ -99,7 +99,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     }
                 }
             } else if (SELECT_TWO_BUTTON_ID.equals(data.buttonClicked)) {
-                if (roundData.getLevel() <= 3) {
+                if (roundData.getLevel() <= 5) {
                     hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
                     hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
                     hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
@@ -114,7 +114,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
                 }
             } else if (SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
-                if (roundData.getLevel() <= 3) {
+                if (roundData.getLevel() <= 5) {
                     hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
                     hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
                     hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
@@ -130,7 +130,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
                 }
             } else if (SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
-                if (roundData.getLevel() <= 3) {
+                if (roundData.getLevel() <= 5) {
                     hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Copper"));
                     hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Copper"));
                     hotbar.setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));

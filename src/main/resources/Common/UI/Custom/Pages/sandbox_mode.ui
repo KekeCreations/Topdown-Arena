@@ -32,19 +32,16 @@ Group #CLASSES {
     Background: (Color: #243847);
     Anchor: (Width: 1000, Height: 850);
     Label #ENEMYCHOICE {
-      Padding: (Full: 0);
       Text: "ENEMY CHOICES";
       Style: (TextColor: #ffffff, FontSize: 20, RenderBold: true, HorizontalAlignment: Center);
     }
     Group #ROW1 {
       LayoutMode: Left;
-      Background: (Color: #333333);
-      Padding: (Full: 0);
+      Background: (Color: #243847);
       Group #BORDERGAP {
         LayoutMode: Top;
-        Background: (Color: #333333);
+        Background: (Color: #243847);
         Anchor: (Width: 100);
-        Padding: (Full: 0);
       }
       Group #ENEMY1 {
         LayoutMode: Middle;
@@ -64,13 +61,10 @@ Group #CLASSES {
           Style: (TextColor: #a9a151, FontSize: 15, RenderBold: true, HorizontalAlignment: Center);
         }
         Label #COUNTLABEL {
-          Padding: (Full: 0);
           Text: "Count:";
           Style: (TextColor: #ffffff);
         }
-        $C.@NumberField #COUNT1 {
-          Padding: (Full: 0);
-        }
+        $C.@NumberField #COUNT1 {}
         $C.@TextButton #CYCLE1 {
           Anchor: (Width: 100, Height: 30);
           Text: "CYCLE";
@@ -78,9 +72,8 @@ Group #CLASSES {
       }
       Group #GAP {
         LayoutMode: Top;
-        Background: (Color: #333333);
+        Background: (Color: #243847);
         Anchor: (Width: 80);
-        Padding: (Full: 0);
       }
       Group #ENEMY2 {
         LayoutMode: Middle;
@@ -100,13 +93,10 @@ Group #CLASSES {
           Style: (TextColor: #a9a151, FontSize: 15, RenderBold: true, HorizontalAlignment: Center);
         }
         Label #COUNTLABEL2 {
-          Padding: (Full: 0);
           Text: "Count:";
           Style: (TextColor: #ffffff);
         }
-        $C.@NumberField #COUNT2 {
-          Padding: (Full: 0);
-        }
+        $C.@NumberField #COUNT2 {}
         $C.@TextButton #CYCLE2 {
           Anchor: (Width: 100, Height: 30);
           Text: "CYCLE";
@@ -114,9 +104,8 @@ Group #CLASSES {
       }
       Group #GAP2 {
         LayoutMode: Top;
-        Background: (Color: #333333);
+        Background: (Color: #243847);
         Anchor: (Width: 80);
-        Padding: (Full: 0);
       }
       Group #ENEMY3 {
         LayoutMode: Middle;
@@ -136,13 +125,10 @@ Group #CLASSES {
           Style: (TextColor: #a9a151, FontSize: 15, RenderBold: true, HorizontalAlignment: Center);
         }
         Label #COUNTLABEL3 {
-          Padding: (Full: 0);
           Text: "Count:";
           Style: (TextColor: #ffffff);
         }
-        $C.@NumberField #COUNT3 {
-          Padding: (Full: 0);
-        }
+        $C.@NumberField #COUNT3 {}
         $C.@TextButton #CYCLE3 {
           Anchor: (Width: 100, Height: 30);
           Text: "CYCLE";
@@ -150,9 +136,8 @@ Group #CLASSES {
       }
       Group #BORDERGAP2 {
         LayoutMode: Top;
-        Background: (Color: #333333);
+        Background: (Color: #243847);
         Anchor: (Width: 100);
-        Padding: (Full: 0);
       }
     }
     Group #MAINSEP {
@@ -161,14 +146,12 @@ Group #CLASSES {
       Anchor: (Height: 20);
     }
     Label #CLASSCHOICE {
-      Padding: (Full: 0);
       Text: "CLASS CHOICE";
       Style: (TextColor: #ffffff, FontSize: 20, RenderBold: true, HorizontalAlignment: Center);
     }
     Group #ROW2 {
       LayoutMode: Middle;
-      Background: (Color: #333333);
-      Padding: (Full: 0);
+      Background: (Color: #243847);
       Group #CLASS {
         LayoutMode: Middle;
         Background: (Color: #1d2d3a);
@@ -202,14 +185,12 @@ Group #CLASSES {
       Anchor: (Height: 20);
     }
     Label #CLASSLEVELCHOICE {
-      Padding: (Full: 0);
       Text: "CLASS LEVEL CHOICE";
       Style: (TextColor: #ffffff, FontSize: 20, RenderBold: true, HorizontalAlignment: Center);
     }
     Group #ROW3 {
       LayoutMode: Middle;
-      Background: (Color: #333333);
-      Padding: (Full: 0);
+      Background: (Color: #243847);
       Group #CLASSLEVEL {
         LayoutMode: Middle;
         Background: (Color: #1d2d3a);
@@ -244,7 +225,6 @@ Group #CLASSES {
     }
     $C.@TextButton #PLAYBUTTON {
       Anchor: (Width: 120, Height: 30);
-      Padding: (Full: 0);
       Text: "PLAY";
     }
     Group #MAINSEP3 {
@@ -254,7 +234,6 @@ Group #CLASSES {
     }
     $C.@TextButton #BACKBUTTON {
       Anchor: (Width: 100, Height: 20);
-      Padding: (Full: 0);
       Text: "BACK";
     }
   }
