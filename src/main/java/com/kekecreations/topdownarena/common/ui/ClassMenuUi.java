@@ -12,6 +12,7 @@ import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
 import com.hypixel.hytale.server.core.inventory.Inventory;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
@@ -58,91 +59,111 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
         int foodChance = (int)(Math.random() * 6);
         int potionChance = (int)(Math.random() * 3);
-        Inventory inventory = player.getInventory();
+        InventoryComponent hotbarComponent = store.getComponent(ref, InventoryComponent.getComponentTypeById(-1));
+        InventoryComponent armourComponent = store.getComponent(ref, InventoryComponent.getComponentTypeById(-3));
+        InventoryComponent utilityComponent = store.getComponent(ref, InventoryComponent.getComponentTypeById(-5));
+        InventoryComponent backpackComponent = store.getComponent(ref, InventoryComponent.getComponentTypeById(-9));
+        InventoryComponent storageComponent = store.getComponent(ref, InventoryComponent.getComponentTypeById(-2));
+        InventoryComponent toolComponent = store.getComponent(ref, InventoryComponent.getComponentTypeById(-8));
 
-        if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked) || SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
-            inventory.clear();
-            if (entityStat != null) {
-                entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
-            }
-        }
-        if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked)) {
-            if (roundData.getLevel() <= 3) {
-                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Copper"));
-                inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Copper"));
-                inventory.getHotbar().setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+        ItemContainer hotbar = hotbarComponent.getInventory();
+        ItemContainer armour = armourComponent.getInventory();
+        ItemContainer utility = utilityComponent.getInventory();
+        ItemContainer backpack = backpackComponent.getInventory();
+        ItemContainer storage = storageComponent.getInventory();
+        ItemContainer tool = toolComponent.getInventory();
 
-                inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
-                inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
-                inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
-                inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+        if (hotbar != null && armour != null && utility != null && backpack != null && storage != null && tool != null) {
 
-                if (roundData.getLevel() >= 2) {
-                    inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+            if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked) || SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
+                hotbar.clear();
+                armour.clear();
+                utility.clear();
+                backpack.clear();
+                storage.clear();
+                tool.clear();
+                if (entityStat != null) {
+                    entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
                 }
             }
-        } else if (SELECT_TWO_BUTTON_ID.equals(data.buttonClicked)) {
-            if (roundData.getLevel() <= 3) {
-                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
-                inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
-                inventory.getHotbar().setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
-                inventory.getHotbar().setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
-                inventory.getHotbar().setItemStackForSlot((short) 6, new ItemStack("Weapon_Arrow_Crude", 128));
+            if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked)) {
+                if (roundData.getLevel() <= 3) {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Copper"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Copper"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
 
-                inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
-                inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
-                inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
-                inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
-                inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
-            }
-        } else if (SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
-            if (roundData.getLevel() <= 3) {
-                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
-                inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
-                inventory.getHotbar().setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
-                inventory.getHotbar().setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 2));
-                inventory.getHotbar().setItemStackForSlot((short) 6, new ItemStack("Potion_Morph_Dog", 3));
-                inventory.getHotbar().setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
-                inventory.getHotbar().setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
+                    armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                    armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                    armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
 
-                inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
-                inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
-                inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
-                inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
-                inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
-            }
-        } else if (SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
-            if (roundData.getLevel() <= 3) {
-                inventory.getHotbar().setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Copper"));
-                inventory.getHotbar().setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Copper"));
-                inventory.getHotbar().setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));
+                    if (roundData.getLevel() >= 2) {
+                        utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                    }
+                }
+            } else if (SELECT_TWO_BUTTON_ID.equals(data.buttonClicked)) {
+                if (roundData.getLevel() <= 3) {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                    hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
+                    hotbar.setItemStackForSlot((short) 6, new ItemStack("Weapon_Arrow_Crude", 128));
 
-                inventory.getArmor().setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
-                inventory.getArmor().setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
-                inventory.getArmor().setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
-                inventory.getArmor().setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
-                if (roundData.getLevel() >= 2) {
-                    inventory.getUtility().setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                    armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                    armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                    armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                    utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                }
+            } else if (SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
+                if (roundData.getLevel() <= 3) {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                    hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 2));
+                    hotbar.setItemStackForSlot((short) 6, new ItemStack("Potion_Morph_Dog", 3));
+                    hotbar.setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
+                    hotbar.setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
+
+                    armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                    armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                    armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                    utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                }
+            } else if (SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
+                if (roundData.getLevel() <= 3) {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Copper"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Copper"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));
+
+                    armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                    armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                    armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                    if (roundData.getLevel() >= 2) {
+                        utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                    }
                 }
             }
-        }
-        if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked) || SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
-            switch(foodChance) {
-                case 0 -> inventory.getHotbar().setItemStackForSlot((short) 0, new ItemStack("Food_Cheese", 16));
-                case 1 -> inventory.getHotbar().setItemStackForSlot((short) 0, new ItemStack("Food_Fish_Grilled", 8));
-                case 2 -> inventory.getHotbar().setItemStackForSlot((short) 0, new ItemStack("Food_Pie_Apple", 4));
-                case 3 -> inventory.getHotbar().setItemStackForSlot((short) 0, new ItemStack("Food_Wildmeat_Cooked", 16));
-                case 4 -> inventory.getHotbar().setItemStackForSlot((short) 0, new ItemStack("Food_Salad_Berry", 8));
-                case 5 -> inventory.getHotbar().setItemStackForSlot((short) 0, new ItemStack("Food_Kebab_Meat", 8));
+            if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked) || SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
+                switch (foodChance) {
+                    case 0 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Cheese", 16));
+                    case 1 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Fish_Grilled", 8));
+                    case 2 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Pie_Apple", 4));
+                    case 3 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Wildmeat_Cooked", 16));
+                    case 4 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Salad_Berry", 8));
+                    case 5 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Kebab_Meat", 8));
+                }
+                switch (potionChance) {
+                    case 0 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Greater", 4));
+                    case 1 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Small", 8));
+                    case 2 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health", 6));
+                }
+                roundData.freezeRoundTimer(false);
+                roundData.setRoundType("level");
+                player.getPageManager().setPage(ref, store, Page.None);
             }
-            switch(potionChance) {
-                case 0 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Greater", 4));
-                case 1 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Small", 8));
-                case 2 -> inventory.getHotbar().setItemStackForSlot((short) 4, new ItemStack("Potion_Health", 6));
-            }
-            roundData.freezeRoundTimer(false);
-            roundData.setRoundType("level");
-            player.getPageManager().setPage(ref, store, Page.None);
         }
     }
 
