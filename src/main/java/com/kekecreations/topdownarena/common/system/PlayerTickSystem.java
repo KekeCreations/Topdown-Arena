@@ -158,6 +158,10 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         player.getPageManager().openCustomPage(ref, store, new OptionsUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
+                    if (roundData.getRoundType() == "how_to_play") {
+                        player.getPageManager().openCustomPage(ref, store, new HowToPlayUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                        roundData.setRoundType("null");
+                    }
                 }
             }
         }
