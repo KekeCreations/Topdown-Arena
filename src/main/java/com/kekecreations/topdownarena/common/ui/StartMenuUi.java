@@ -69,7 +69,9 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             roundData.setRoundType("menu_options");
             store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
         } else if (PLAY_SANDBOX_BUTTON_ID.equals(data.buttonClicked)) {
-
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundData.setRoundType("sandbox_mode");
+            store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
         } else if (HOW_TO_PLAY_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("how_to_play");
