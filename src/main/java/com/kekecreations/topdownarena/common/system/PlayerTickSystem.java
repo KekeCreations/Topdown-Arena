@@ -48,9 +48,9 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
                     if (entityStat != null) {
                         if (roundData.getEasyMode()) {
-                            entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 0.50F);
+                            entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 2F);
                         }
-                        entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 0.50F);
+                        entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 1F);
                     }
                     //WAVE 2
                     if (roundData.getRoundTimer() == 20) {
