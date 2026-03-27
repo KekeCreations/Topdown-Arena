@@ -45,11 +45,12 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 player.getHudManager().setCustomHud(playerRef, new RoundStatsHud(playerRef, roundData));
                 if (roundData.getRoundTimer() > 0 && !roundData.isTimerFrozen()) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
-                    if (roundData.getEasyMode()) {
-                        EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
-                        if (entityStat != null) {
-                            entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 0.10F);
+                    EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
+                    if (entityStat != null) {
+                        if (roundData.getEasyMode()) {
+                            entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 0.50F);
                         }
+                        entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 0.50F);
                     }
                     //WAVE 2
                     if (roundData.getRoundTimer() == 20) {
@@ -129,7 +130,7 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     }
                 }
                 //OPENING MENU STRAIGHT FROM CUSTOM PAGE CAUSES SERVER LAG
-                if (roundData.getRoundType() != "null") {
+                if (roundData.getRoundType() != "null" && player.getPageManager().getCustomPage() == null) {
                     if (roundData.getRoundType() == "menu_levels") {
                         player.getPageManager().openCustomPage(ref, store, new LevelMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
