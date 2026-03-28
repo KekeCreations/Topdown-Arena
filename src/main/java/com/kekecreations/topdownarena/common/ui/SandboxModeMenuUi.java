@@ -267,6 +267,7 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.ValueChanged, "#COUNT1", EventData.of("@COUNT1", "#COUNT1.Value"), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.ValueChanged, "#COUNT2", EventData.of("@COUNT2", "#COUNT2.Value"), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.ValueChanged, "#COUNT3", EventData.of("@COUNT3", "#COUNT3.Value"), false);
+        uiEventBuilder.addEventBinding(CustomUIEventBindingType.ValueChanged, "#REQUIREDKILLS", EventData.of("@REQUIREDKILLS", "#REQUIREDKILLS.Value"), false);
     }
 
     @Override
@@ -354,26 +355,37 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
             player.getPageManager().openCustomPage(ref, store, new SandboxModeMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
         }
         if (BACK_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_start");
             roundData.setLevel(0);
         }
         if (PLAY_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
+            roundData.setRoundTimer(70);
+            roundData.freezeRoundTimer(false);
             roundData.setRoundType("sandbox");
+           // roundData.setEnemiesToKill((int) data.REQUIREDKILLS);
             //roundData.setLevel(0);
         }
 
 
         if (data.COUNT1 > 0) {
             this.playerRef.sendMessage(Message.raw("@OUNT1 updated to: " + data.COUNT1));
+            roundData.setEnemyCount((int) data.COUNT1);
             changed = true;
         }
         if (data.COUNT2 > 0) {
             this.playerRef.sendMessage(Message.raw("COUNT2 updated to: " + data.COUNT2));
+            roundData.setEnemyCount2((int) data.COUNT2);
             changed = true;
         }
         if (data.COUNT3 > 0) {
             this.playerRef.sendMessage(Message.raw("COUNT3 updated to: " + data.COUNT3));
+            roundData.setEnemyCount3((int) data.COUNT3);
+            changed = true;
+        }
+        if (data.REQUIREDKILLS > 0) {
+            this.playerRef.sendMessage(Message.raw("REQUIREDKILLS updated to: " + data.COUNT3));
             changed = true;
         }
 
@@ -399,6 +411,7 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
         public float COUNT1;
         public float COUNT2;
         public float COUNT3;
+        public float REQUIREDKILLS;
 
         public static final BuilderCodec<Data> CODEC = BuilderCodec.builder(SandboxModeMenuUi.Data.class, SandboxModeMenuUi.Data::new)
                 .append(new KeyedCodec<>("OnButtonClicked", Codec.STRING), (menuData, s) -> menuData.buttonClicked = s, choicePageEventData -> choicePageEventData.buttonClicked)
@@ -408,6 +421,8 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
                 .append(new KeyedCodec<>("@COUNT2", Codec.FLOAT), (menuData, s) -> menuData.COUNT2 = s, menuData -> menuData.COUNT2)
                 .add()
                 .append(new KeyedCodec<>("@COUNT3", Codec.FLOAT), (menuData, s) -> menuData.COUNT3 = s, menuData -> menuData.COUNT3)
+                .add()
+                .append(new KeyedCodec<>("@REQUIREDKILLS", Codec.FLOAT), (menuData, s) -> menuData.REQUIREDKILLS = s, menuData -> menuData.REQUIREDKILLS)
                 .add()
                 .build();
     }

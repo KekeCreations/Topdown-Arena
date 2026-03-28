@@ -116,6 +116,16 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 2");
                             }
                         }
+                        int count1;
+                        if (roundData.getRoundType() == "sandbox") {
+                            for (count1 = 0; count1 < roundData.getSandboxEnemyCount(); count1++) {
+                                switch(roundData.getSandboxEnemyChoice()) {
+                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 1");
+                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 1");
+                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 0 0 1");
+                                }
+                            }
+                        }
                     }
                 }
                 EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
