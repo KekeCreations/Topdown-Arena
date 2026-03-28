@@ -5,7 +5,7 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.protocol.*;
 import com.hypixel.hytale.protocol.packets.camera.SetServerCamera;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
-import com.hypixel.hytale.server.core.entity.Entity;
+import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
@@ -61,6 +61,11 @@ public class EventRegistry {
                     roundComponent.setRoundType("null");
                 }
                 playerRefClass.getPacketHandler().writeNoCache(new SetServerCamera(ClientCameraView.Custom, true, cameraSettings));
+
+                int playerCount;
+                for (playerCount = 0; playerCount < Universe.get().getPlayerCount(); playerCount++) {
+                    CommandManager.get().handleCommand(playerRefClass, "start_tp");
+                }
             }
         });
     }
