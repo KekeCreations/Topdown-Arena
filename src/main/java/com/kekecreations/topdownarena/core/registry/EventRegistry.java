@@ -40,6 +40,8 @@ public class EventRegistry {
             if (playerRefClass != null) {
                 RoundComponent roundComponent = playerRef.getStore().ensureAndGetComponent(playerRef, RoundComponent.getComponentType());
                 roundComponent.freezeRoundTimer(true);
+                roundComponent.setRoundsPlayedStat(roundComponent.getRoundsPlayedStat() - 1);
+                roundComponent.setRoundsWonStat(roundComponent.getRoundsWonStat() - 1);
                 player.getPageManager().openCustomPage(playerRef, playerRef.getStore(), new StartMenuUi(playerRefClass, roundComponent, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                 playerRefClass.getPacketHandler().writeNoCache(new SetServerCamera(ClientCameraView.Custom, true, cameraSettings));
             }

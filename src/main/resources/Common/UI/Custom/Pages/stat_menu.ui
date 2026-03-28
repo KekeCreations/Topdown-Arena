@@ -55,7 +55,7 @@ Group #MAIN {
           Text: "RESET";
     }
     $C.@TextButton #BACK {
-      Anchor: (Width: 115, Height: 50, Top: 40);
+      Anchor: (Width: 115, Height: 50, Top: 80);
       Text: "BACK";
     }
   }

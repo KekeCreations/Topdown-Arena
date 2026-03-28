@@ -56,6 +56,8 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_start");
             roundData.freezeRoundTimer(true);
+            roundData.setRoundsPlayedStat(roundData.getRoundsPlayedStat() + 1);
+            roundData.setRoundsWonStat(roundData.getRoundsWonStat() + 1);
             store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
         }
     }
@@ -63,6 +65,8 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
     @Override
     public void onDismiss(@NotNull Ref<EntityStore> ref, @NotNull Store<EntityStore> store) {
         super.onDismiss(ref, store);
+        roundData.setRoundsPlayedStat(roundData.getRoundsPlayedStat() + 1);
+        roundData.setRoundsWonStat(roundData.getRoundsWonStat() + 1);
         roundData.setRoundType("menu_start");
     }
 }

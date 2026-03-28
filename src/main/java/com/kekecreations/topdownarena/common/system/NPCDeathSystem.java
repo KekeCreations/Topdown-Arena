@@ -24,7 +24,7 @@ public class NPCDeathSystem extends DeathSystems.OnDeathSystem {
     @Override
     public void onComponentAdded(@NotNull Ref<EntityStore> ref, @NotNull DeathComponent deathComponent, @NotNull Store<EntityStore> store, @NotNull CommandBuffer<EntityStore> commandBuffer) {
         NPCEntity npc = store.getComponent(ref, NPCEntity.getComponentType());
-        if (npc != null) {
+        if (npc != null && !npc.wasRemoved()) {
             DespawnComponent despawnComponent = store.getComponent(ref, DespawnComponent.getComponentType());
             if (despawnComponent != null) {
                 npc.setDespawning(false);
@@ -36,12 +36,16 @@ public class NPCDeathSystem extends DeathSystems.OnDeathSystem {
                     if (roundData != null) {
                         if (roundData.getEnemiesLeftToKill() == 0) {
                             roundData.setBonusEnemiesKilled(roundData.getBonusEnemiesKilled() + 1);
-                            roundData.setTotalBonusKillsStat(roundData.getTotalBonusKillsStat() + 1);
-                            roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
+                            if (roundData.getRoundType() != "sandbox") {
+                                roundData.setTotalBonusKillsStat(roundData.getTotalBonusKillsStat() + 1);
+                                roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
+                            }
                             npc.remove();
                         } else {
                             roundData.setEnemiesToKill(roundData.getEnemiesLeftToKill() - 1);
-                            roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
+                            if (roundData.getRoundType() != "sandbox") {
+                                roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
+                            }
                             npc.remove();
                         }
                     }
