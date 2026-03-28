@@ -47,12 +47,7 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         Player player = Objects.requireNonNull(store.getComponent(ref, Player.getComponentType()));
         RoundComponent roundData = Objects.requireNonNull(store.getComponent(ref, RoundComponent.getComponentType()));
         if (CONTINUE_BUTTON_ID.equals(data.buttonClicked)) {
-            if (roundData.getLevel() == 1 && roundData.getUnlockedLevels() <= 1) {
-                roundData.setUnlockedLevels(2);
-            }
-            if (roundData.getLevel() == 2 && roundData.getUnlockedLevels() <= 2) {
-                roundData.setUnlockedLevels(3);
-            }
+            unlockLevels();
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_start");
             roundData.freezeRoundTimer(true);
@@ -62,9 +57,22 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         }
     }
 
+    void unlockLevels() {
+        if (roundData.getLevel() == 1 && roundData.getUnlockedLevels() <= 1) {
+            roundData.setUnlockedLevels(2);
+        }
+        if (roundData.getLevel() == 2 && roundData.getUnlockedLevels() <= 2) {
+            roundData.setUnlockedLevels(3);
+        }
+        if (roundData.getLevel() == 3 && roundData.getUnlockedLevels() <= 3) {
+            roundData.setUnlockedLevels(4);
+        }
+    }
+
     @Override
     public void onDismiss(@NotNull Ref<EntityStore> ref, @NotNull Store<EntityStore> store) {
         super.onDismiss(ref, store);
+        unlockLevels();
         roundData.setRoundsPlayedStat(roundData.getRoundsPlayedStat() + 1);
         roundData.setRoundsWonStat(roundData.getRoundsWonStat() + 1);
         roundData.setRoundType("menu_start");

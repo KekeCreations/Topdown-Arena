@@ -24,6 +24,7 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
     private static final String PLAY_LEVEL_ONE_BUTTON_ID = "PLAYLEVEL1";
     private static final String PLAY_LEVEL_TWO_BUTTON_ID = "PLAYLEVEL2";
     private static final String PLAY_LEVEL_THREE_BUTTON_ID = "PLAYLEVEL3";
+    private static final String PLAY_LEVEL_FOUR_BUTTON_ID = "PLAYLEVEL4";
     private static final String BACK_BUTTON_ID = "BACK";
     RoundComponent roundData;
 
@@ -44,6 +45,10 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         if (roundData.getUnlockedLevels() >= 3) {
             uiCommandBuilder.set("#PLAYLEVEL3.TextSpans", Message.raw("LEVEL 3"));
             uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL3", EventData.of("OnButtonClicked", PLAY_LEVEL_THREE_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 4) {
+            uiCommandBuilder.set("#PLAYLEVEL4.TextSpans", Message.raw("LEVEL 4"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL4", EventData.of("OnButtonClicked", PLAY_LEVEL_FOUR_BUTTON_ID), false);
         }
     }
 
@@ -75,6 +80,14 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             roundData.setRoundType("menu_class");
             roundData.setRoundTimer(70);
             roundData.setLevel(3);
+            roundData.setEnemiesToKill(8);
+            roundData.freezeRoundTimer(true);
+        }
+        else if (PLAY_LEVEL_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundData.setRoundType("menu_class");
+            roundData.setRoundTimer(70);
+            roundData.setLevel(4);
             roundData.setEnemiesToKill(8);
             roundData.freezeRoundTimer(true);
         }

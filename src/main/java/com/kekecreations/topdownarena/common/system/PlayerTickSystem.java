@@ -117,6 +117,17 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 2");
                             }
+                            case 4 -> {
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter Add 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Subtract 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Subtract 1 0 0");
+                            }
+                            case 5 -> {
+                                CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 0 0 2");
+                            }
                         }
                         int count1;
                         int count2;
