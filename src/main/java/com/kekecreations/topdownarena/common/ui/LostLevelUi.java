@@ -44,7 +44,6 @@ public class LostLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         RoundComponent roundData = Objects.requireNonNull(store.getComponent(ref, RoundComponent.getComponentType()));
         if (CONTINUE_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundsPlayedStat(roundData.getRoundsPlayedStat() + 1);
             roundData.setRoundType("menu_start");
             roundData.freezeRoundTimer(true);
         }

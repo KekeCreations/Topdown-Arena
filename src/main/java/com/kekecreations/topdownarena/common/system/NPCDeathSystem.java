@@ -2,13 +2,10 @@ package com.kekecreations.topdownarena.common.system;
 
 import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
-import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.modules.entity.DespawnComponent;
+import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DeathComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.DeathSystems;
-import com.hypixel.hytale.server.core.universe.PlayerRef;
-import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
@@ -26,23 +23,26 @@ public class NPCDeathSystem extends DeathSystems.OnDeathSystem {
     public void onComponentAdded(@NotNull Ref<EntityStore> ref, @NotNull DeathComponent deathComponent, @NotNull Store<EntityStore> store, @NotNull CommandBuffer<EntityStore> commandBuffer) {
         NPCEntity npc = store.getComponent(ref, NPCEntity.getComponentType());
         if (npc != null && !npc.wasRemoved()) {
-            for (PlayerRef playerRef : Universe.get().getPlayers()) {
-                if (playerRef.getReference() != null) {
-                    RoundComponent roundData = store.getComponent(playerRef.getReference(), RoundComponent.getComponentType());
-                    if (roundData != null) {
-                        if (roundData.getEnemiesLeftToKill() == 0) {
-                            roundData.setBonusEnemiesKilled(roundData.getBonusEnemiesKilled() + 1);
-                            if (roundData.getRoundType() != "sandbox") {
-                                roundData.setTotalBonusKillsStat(roundData.getTotalBonusKillsStat() + 1);
-                                roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
+            Damage damage = deathComponent.getDeathInfo();
+            if (damage != null) {
+                if (damage.getSource() instanceof Damage.EntitySource entitySource) {
+                    if (store.getArchetype(entitySource.getRef()).contains(Player.getComponentType())) {
+                        RoundComponent roundData = store.getComponent(entitySource.getRef(), RoundComponent.getComponentType());
+                        if (roundData != null) {
+                            if (roundData.getEnemiesLeftToKill() == 0) {
+                                roundData.setBonusEnemiesKilled(roundData.getBonusEnemiesKilled() + 1);
+                                if (roundData.getRoundType() != "sandbox") {
+                                    roundData.setTotalBonusKillsStat(roundData.getTotalBonusKillsStat() + 1);
+                                    roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
+                                }
+                                npc.remove();
+                            } else {
+                                roundData.setEnemiesToKill(roundData.getEnemiesLeftToKill() - 1);
+                                if (roundData.getRoundType() != "sandbox") {
+                                    roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
+                                }
+                                npc.remove();
                             }
-                            npc.remove();
-                        } else {
-                            roundData.setEnemiesToKill(roundData.getEnemiesLeftToKill() - 1);
-                            if (roundData.getRoundType() != "sandbox") {
-                                roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
-                            }
-                            npc.remove();
                         }
                     }
                 }
