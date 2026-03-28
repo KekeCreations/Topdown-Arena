@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.kekecreations"
-version = "1.0.0-beta"
+version = "0.1.0-beta"
 val javaVersion = 25
 
 repositories {

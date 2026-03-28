@@ -1,0 +1,6 @@
+V0.1.0-beta
+- Added 8 levels to unlock and play with
+- Added 4 classes (Knight, Warrior, Shifter & Archer)
+- Added 2 class levels (Copper & Iron)
+- Added Sandbox Mode
+- Added Multiplayer Support
