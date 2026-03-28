@@ -4,13 +4,15 @@ import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.DelayedEntitySystem;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
-import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.protocol.packets.interface_.Page;
 import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntityStatTypes;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
+import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.kekecreations.topdownarena.common.component.OtherPlayerRoundComponent;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
 import com.kekecreations.topdownarena.common.ui.*;
 
@@ -42,7 +44,9 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
         if (player != null && playerRef != null) {
             RoundComponent roundData = store.getComponent(ref, RoundComponent.getComponentType());
             if (roundData != null) {
-                player.getHudManager().setCustomHud(playerRef, new RoundStatsHud(playerRef, roundData));
+                for (PlayerRef otherPlayer : Universe.get().getPlayers()) {
+                    player.getHudManager().setCustomHud(otherPlayer, new RoundStatsHud(otherPlayer, roundData));
+                }
                 if (roundData.getRoundTimer() > 0 && !roundData.isTimerFrozen()) {
                     roundData.setRoundTimer(roundData.getRoundTimer() - 1);
                     EntityStatMap entityStat = store.getComponent(ref, EntityStatMap.getComponentType());
@@ -241,6 +245,17 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_class") {
+                        for (PlayerRef otherPlayerRef : Universe.get().getPlayers()) {
+                            OtherPlayerRoundComponent otherPlayerRoundComponent = store.getComponent(otherPlayerRef.getReference(), OtherPlayerRoundComponent.getComponentType());
+                            if (otherPlayerRoundComponent != null) {
+                                Player otherPlayer = store.getComponent(otherPlayerRef.getReference(), Player.getComponentType());
+                                if (otherPlayer != null) {
+                                    otherPlayer.getPageManager().setPage(ref, store, Page.None);
+                                    otherPlayerRoundComponent.setRoundType("menu_class");
+                                    otherPlayerRoundComponent.setLevel(roundData.getLevel());
+                                }
+                            }
+                        }
                         player.getPageManager().openCustomPage(ref, store, new ClassMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
@@ -266,10 +281,6 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     }
                     if (roundData.getRoundType() == "stats") {
                         player.getPageManager().openCustomPage(ref, store, new StatsUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
-                        roundData.setRoundType("null");
-                    }
-                    if (roundData.getRoundType() == "in_progress") {
-                        player.getPageManager().openCustomPage(ref, store, new InProgressUi(playerRef, CustomPageLifetime.CantClose));
                         roundData.setRoundType("null");
                     }
                 }

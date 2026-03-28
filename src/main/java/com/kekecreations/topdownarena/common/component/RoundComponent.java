@@ -37,6 +37,7 @@ public class RoundComponent implements Component<EntityStore> {
                     .add()
                     .build();
 
+    private String playerOne;
     //Stats
     private int roundsPlayedStat = 0;
     private int sandboxRoundsPlayedStat = 0;
@@ -78,7 +79,7 @@ public class RoundComponent implements Component<EntityStore> {
     public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, int level, String roundType, boolean freezeTimer, boolean arachnophobiaMode, boolean easyMode,
                           int sandboxEnemyChoice, int sandboxEnemyChoice2, int sandboxEnemyChoice3, int sandboxClassChoice, int sandboxClassLevelChoice,
                           int sandboxEnemyCount, int sandboxEnemyCount2, int sandboxEnemyCount3, int sandboxRequiredKills, boolean sandboxRandomWaves, int roundsPlayedStat,
-                          int sandboxRoundsPlayedStat, int totalKillsStat, int totalBonusKillsStat, int roundsWonStat) {
+                          int sandboxRoundsPlayedStat, int totalKillsStat, int totalBonusKillsStat, int roundsWonStat, String playerOne) {
         this.roundTimer = roundTimer;
         this.enemiesKilled = enemiesKilled;
         this.bonusEnemiesKilled = bonusEnemiesKilled;
@@ -103,13 +104,14 @@ public class RoundComponent implements Component<EntityStore> {
         this.totalKillsStat = totalKillsStat;
         this.totalBonusKillsStat = totalBonusKillsStat;
         this.roundsWonStat = roundsWonStat;
+        this.playerOne = playerOne;
     }
 
     @Override
     public Component<EntityStore> clone() {
         RoundComponent copy = new RoundComponent(roundTimer, enemiesKilled, bonusEnemiesKilled, unlockedLevels, level, roundType, freezeTimer, arachnophobiaMode, easyMode, sandboxEnemyChoice, sandboxEnemyChoice2, sandboxEnemyChoice3,
                 sandboxClassChoice, sandboxClassLevelChoice, sandboxEnemyCount, sandboxEnemyCount2, sandboxEnemyCount3, sandboxRequiredKills, sandboxRandomWaves, roundsPlayedStat,
-                sandboxRoundsPlayedStat, totalKillsStat, totalBonusKillsStat, roundsWonStat);
+                sandboxRoundsPlayedStat, totalKillsStat, totalBonusKillsStat, roundsWonStat, playerOne);
         copy.roundTimer = this.roundTimer;
         copy.enemiesKilled = this.enemiesKilled;
         copy.bonusEnemiesKilled = this.bonusEnemiesKilled;
@@ -130,6 +132,13 @@ public class RoundComponent implements Component<EntityStore> {
         copy.sandboxRequiredKills = this.sandboxRequiredKills;
         copy.sandboxRandomWaves = this.sandboxRandomWaves;
         return copy;
+    }
+    //MULTIPLAYER
+    public String getPlayerOne() {
+        return this.playerOne;
+    }
+    public void setPlayerOne(String playerOne) {
+        this.playerOne = playerOne;
     }
     //STATS
     public int getRoundsPlayedStat() {

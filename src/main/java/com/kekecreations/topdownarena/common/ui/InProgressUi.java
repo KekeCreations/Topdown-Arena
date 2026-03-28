@@ -12,6 +12,8 @@ import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.kekecreations.topdownarena.common.component.OtherPlayerRoundComponent;
+import org.jspecify.annotations.NonNull;
 
 import javax.annotation.Nonnull;
 
@@ -19,8 +21,11 @@ public class InProgressUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
 
     private static final String QUIT_BUTTON_ID = "QUIT";
 
-    public InProgressUi(@Nonnull PlayerRef playerRef,  @Nonnull CustomPageLifetime lifetime) {
+    OtherPlayerRoundComponent roundData;
+
+    public InProgressUi(@Nonnull PlayerRef playerRef,  OtherPlayerRoundComponent roundData, @Nonnull CustomPageLifetime lifetime) {
         super(playerRef, lifetime, MenuWithButtonsData.CODEC);
+        this.roundData = roundData;
     }
 
     @Override
@@ -37,5 +42,11 @@ public class InProgressUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         if (QUIT_BUTTON_ID.equals(data.buttonClicked)) {
             playerRef.getPacketHandler().writeNoCache(new ServerDisconnect(null, DisconnectType.Disconnect));
         }
+    }
+
+    @Override
+    public void onDismiss(@NonNull Ref<EntityStore> ref, @NonNull Store<EntityStore> store) {
+        super.onDismiss(ref, store);
+        roundData.setRoundType("in_progress");
     }
 }

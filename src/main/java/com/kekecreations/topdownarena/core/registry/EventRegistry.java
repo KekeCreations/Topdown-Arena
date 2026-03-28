@@ -1,17 +1,18 @@
 package com.kekecreations.topdownarena.core.registry;
 
 import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.protocol.*;
 import com.hypixel.hytale.protocol.packets.camera.SetServerCamera;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
-import com.hypixel.hytale.server.core.command.system.CommandManager;
-import com.hypixel.hytale.server.core.console.ConsoleSender;
+import com.hypixel.hytale.server.core.entity.Entity;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.kekecreations.topdownarena.common.component.OtherPlayerRoundComponent;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
 import com.kekecreations.topdownarena.common.ui.InProgressUi;
 import com.kekecreations.topdownarena.common.ui.StartMenuUi;
@@ -38,19 +39,28 @@ public class EventRegistry {
         javaPlugin.getEventRegistry().registerGlobal(PlayerReadyEvent.class, event -> {
             Player player = event.getPlayer();
             Ref<EntityStore> playerRef = event.getPlayerRef();
-            PlayerRef playerRefClass = event.getPlayerRef().getStore().getComponent(playerRef, PlayerRef.getComponentType());
+            Store<EntityStore> store = playerRef.getStore();
+            PlayerRef playerRefClass = store.getComponent(playerRef, PlayerRef.getComponentType());
             if (playerRefClass != null) {
-                if (Universe.get().getPlayerCount() == 0) {
-                    RoundComponent roundComponent = playerRef.getStore().ensureAndGetComponent(playerRef, RoundComponent.getComponentType());
+                if (Universe.get().getPlayerCount() == 1) {
+                    if (store.getComponent(playerRef, OtherPlayerRoundComponent.getComponentType()) != null) {
+                        store.removeComponent(playerRef, OtherPlayerRoundComponent.getComponentType());
+                    }
+                    RoundComponent roundComponent = store.ensureAndGetComponent(playerRef, RoundComponent.getComponentType());
+                    roundComponent.setPlayerOne(player.getDisplayName());
                     roundComponent.freezeRoundTimer(true);
                     roundComponent.setRoundsPlayedStat(roundComponent.getRoundsPlayedStat() - 1);
                     roundComponent.setRoundsWonStat(roundComponent.getRoundsWonStat() - 1);
-                    player.getPageManager().openCustomPage(playerRef, playerRef.getStore(), new StartMenuUi(playerRefClass, roundComponent, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
-                    playerRefClass.getPacketHandler().writeNoCache(new SetServerCamera(ClientCameraView.Custom, true, cameraSettings));
+                    player.getPageManager().openCustomPage(playerRef, store, new StartMenuUi(playerRefClass, roundComponent, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                 } else {
-                    player.getPageManager().openCustomPage(playerRef, playerRef.getStore(), new InProgressUi(playerRefClass,  CustomPageLifetime.CantClose));
-
+                    OtherPlayerRoundComponent roundComponent = playerRef.getStore().ensureAndGetComponent(playerRef, OtherPlayerRoundComponent.getComponentType());
+                    if (store.getComponent(playerRef, RoundComponent.getComponentType()) != null) {
+                        store.removeComponent(playerRef, RoundComponent.getComponentType());
+                    }
+                    player.getPageManager().openCustomPage(playerRef, store, new InProgressUi(playerRefClass, roundComponent, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                    roundComponent.setRoundType("null");
                 }
+                playerRefClass.getPacketHandler().writeNoCache(new SetServerCamera(ClientCameraView.Custom, true, cameraSettings));
             }
         });
     }
