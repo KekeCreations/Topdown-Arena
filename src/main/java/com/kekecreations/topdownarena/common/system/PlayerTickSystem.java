@@ -53,7 +53,7 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 1F);
                     }
                     //WAVE 2
-                    if (roundData.getRoundTimer() == 20) {
+                    if ((roundData.getRoundTimer() == 20 && roundData.getRoundType() !=  "sandbox") || (roundData.getRoundTimer() == 20 && roundData.getSandboxRandomWaves() && roundData.getRoundType() == "sandbox")) {
                         switch(randomWave) {
                             case 0 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
@@ -117,12 +117,58 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                             }
                         }
                         int count1;
+                        int count2;
+                        int count3;
                         if (roundData.getRoundType() == "sandbox") {
                             for (count1 = 0; count1 < roundData.getSandboxEnemyCount(); count1++) {
                                 switch(roundData.getSandboxEnemyChoice()) {
-                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 1");
-                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 1");
-                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 0 0 1");
+                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 1");
+                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 1");
+                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 0 0 1");
+                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist Add 0 0 1");
+                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner Add 0 0 1");
+                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 0 0 1");
+                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 0 0 1");
+                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 0 0 1");
+                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Add 0 0 1");
+                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 0 0 1");
+                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti Add 0 0 1");
+                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider Add 0 0 1");
+                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 1");
+                                }
+                            }
+                            for (count2 = 0; count2 < roundData.getSandboxEnemyCount(); count2++) {
+                                switch(roundData.getSandboxEnemyChoice2()) {
+                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 1 0 0");
+                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 1 0 0");
+                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist Add 1 0 0");
+                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner Add 1 0 0");
+                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
+                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 1 0 0");
+                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 1 0 0");
+                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Add 1 0 0");
+                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 1 0 0");
+                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti Add 1 0 0");
+                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider Add 1 0 0");
+                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 1 0 0");
+                                }
+                            }
+                            for (count3 = 0; count3 < roundData.getSandboxEnemyCount(); count3++) {
+                                switch(roundData.getSandboxEnemyChoice3()) {
+                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Subtract 1 0 0");
+                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 1 0 0");
+                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Subtract 1 0 0");
+                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist Subtract 1 0 0");
+                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner Subtract 1 0 0");
+                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie Subtract 1 0 0");
+                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Subtract 1 0 0");
+                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Subtract 1 0 0");
+                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Subtract 1 0 0");
+                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Subtract 1 0 0");
+                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti Subtract 1 0 0");
+                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider Subtract 1 0 0");
+                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 1 0 0");
                                 }
                             }
                         }

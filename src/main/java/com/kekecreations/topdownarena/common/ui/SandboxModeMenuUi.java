@@ -34,6 +34,7 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
     private static final String CYCLE_CLASS_LEVEL_BUTTON_ID = "CYCLECLASSLEVEL";
     private static final String BACK_BUTTON_ID = "BACKBUTTON";
     private static final String PLAY_BUTTON_ID = "PLAYBUTTON";
+    private static final String WAVE_BUTTON_ID = "WAVEBUTTON";
     RoundComponent roundData;
 
     public SandboxModeMenuUi(@Nonnull PlayerRef playerRef, RoundComponent roundData, @Nonnull CustomPageLifetime lifetime) {
@@ -44,6 +45,12 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
     @Override
     public void build(@Nonnull Ref<EntityStore> ref, @Nonnull UICommandBuilder uiCommandBuilder, @Nonnull UIEventBuilder uiEventBuilder, @Nonnull Store<EntityStore> store) {
         uiCommandBuilder.append("Pages/sandbox_mode.ui");
+
+        if (roundData.getSandboxRandomWaves()) {
+            uiCommandBuilder.set("#WAVEBUTTON.TextSpans", Message.raw("RANDOM WAVES: ON"));
+        } else {
+            uiCommandBuilder.set("#WAVEBUTTON.TextSpans", Message.raw("RANDOM WAVES: OFF"));
+        }
 
         switch (roundData.getSandboxEnemyChoice()) {
             case 0 -> {
@@ -263,6 +270,7 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#CYCLECLASSLEVEL", EventData.of("OnButtonClicked", CYCLE_CLASS_LEVEL_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#BACKBUTTON", EventData.of("OnButtonClicked", BACK_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYBUTTON", EventData.of("OnButtonClicked", PLAY_BUTTON_ID), false);
+        uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#WAVEBUTTON", EventData.of("OnButtonClicked", WAVE_BUTTON_ID), false);
 
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.ValueChanged, "#COUNT1", EventData.of("@COUNT1", "#COUNT1.Value"), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.ValueChanged, "#COUNT2", EventData.of("@COUNT2", "#COUNT2.Value"), false);
@@ -364,8 +372,12 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
             roundData.setRoundTimer(70);
             roundData.freezeRoundTimer(false);
             roundData.setRoundType("sandbox");
-           // roundData.setEnemiesToKill((int) data.REQUIREDKILLS);
-            //roundData.setLevel(0);
+            roundData.setEnemiesToKill(roundData.getSandboxRequiredKills());
+            roundData.setBonusEnemiesKilled(0);
+        }
+        if (WAVE_BUTTON_ID.equals(data.buttonClicked)) {
+            roundData.setSandboxRandomWaves(!roundData.getSandboxRandomWaves());
+            player.getPageManager().openCustomPage(ref, store, new SandboxModeMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
         }
 
 
@@ -384,8 +396,9 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
             roundData.setEnemyCount3((int) data.COUNT3);
             changed = true;
         }
-        if (data.REQUIREDKILLS > 0) {
-            this.playerRef.sendMessage(Message.raw("REQUIREDKILLS updated to: " + data.COUNT3));
+        if (data.REQUIREDKILLS > 1) {
+            this.playerRef.sendMessage(Message.raw("REQUIREDKILLS updated to: " + data.REQUIREDKILLS));
+            roundData.setRequiredKills((int) data.REQUIREDKILLS);
             changed = true;
         }
 
