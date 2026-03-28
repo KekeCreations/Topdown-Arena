@@ -67,6 +67,18 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         if (roundData.getLevel() == 3 && roundData.getUnlockedLevels() <= 3) {
             roundData.setUnlockedLevels(4);
         }
+        if (roundData.getLevel() == 4 && roundData.getUnlockedLevels() <= 4) {
+            roundData.setUnlockedLevels(5);
+        }
+        if (roundData.getLevel() == 5 && roundData.getUnlockedLevels() <= 5) {
+            roundData.setUnlockedLevels(6);
+        }
+        if (roundData.getLevel() == 6 && roundData.getUnlockedLevels() <= 6) {
+            roundData.setUnlockedLevels(7);
+        }
+        if (roundData.getLevel() == 7 && roundData.getUnlockedLevels() <= 7) {
+            roundData.setUnlockedLevels(8);
+        }
     }
 
     @Override

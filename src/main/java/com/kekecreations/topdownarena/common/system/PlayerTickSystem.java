@@ -58,6 +58,8 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                             case 0 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 0");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 2 0 0");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 0 0 2");
@@ -74,6 +76,8 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Add 0 0 2");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 1 0 0");
                                 } else {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 2");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 2");
@@ -109,8 +113,8 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                             case 3 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Add 2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Subtract 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Subtract 1 0 0");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Subtract 1 0 0");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
@@ -127,6 +131,28 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                             }
                             case 5 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 1 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 2 0 2");
+                            }
+                            case 6 -> {
+                                CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 0 0 3");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 1 0 1");
+                            }
+                            case 7 -> {
+                                CommandManager.get().handleCommand(playerRef, "round_npc Wraith Add 0 0 3");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Wraith Add 2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Wraith  Add 1 0 1");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 1");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
+                            }
+                            case 8 -> {
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 0 0 3");
                             }
                         }
                         int count1;
