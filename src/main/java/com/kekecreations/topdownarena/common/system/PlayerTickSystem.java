@@ -180,11 +180,14 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                 if (roundData.getRoundTimer() <= 0 && !roundData.isTimerFrozen()) {
                     if (roundData.getEnemiesLeftToKill() <= 0) {
                         roundData.setRoundType("menu_winlevel");
+                        roundData.setRoundsPlayedStat(roundData.getRoundsPlayedStat() + 1);
+                        roundData.setRoundsWonStat(roundData.getRoundsWonStat() + 1);
                         if (entityStat != null) {
                             entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
                         }
                     } else {
                         roundData.setRoundType("menu_lostlevel");
+                        roundData.setRoundsPlayedStat(roundData.getRoundsPlayedStat() + 1);
                         if (entityStat != null) {
                             entityStat.setStatValue(DefaultEntityStatTypes.getHealth(), 150.0F);
                         }
@@ -222,6 +225,10 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     }
                     if (roundData.getRoundType() == "sandbox_mode") {
                         player.getPageManager().openCustomPage(ref, store, new SandboxModeMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                        roundData.setRoundType("null");
+                    }
+                    if (roundData.getRoundType() == "stats") {
+                        player.getPageManager().openCustomPage(ref, store, new StatsUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
                 }

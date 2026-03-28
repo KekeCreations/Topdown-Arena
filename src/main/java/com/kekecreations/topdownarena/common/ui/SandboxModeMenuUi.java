@@ -361,6 +361,7 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
             roundData.freezeRoundTimer(false);
             roundData.setRoundType("sandbox");
             roundData.setEnemiesToKill(roundData.getSandboxRequiredKills());
+            roundData.setSandboxRoundsPlayedStat(roundData.getSandboxRoundsPlayedStat() + 1);
             switch (roundData.getSandboxClassChoice()) {
                 case 0 -> {
                     switch (roundData.getSandboxClassLevelChoice()) {

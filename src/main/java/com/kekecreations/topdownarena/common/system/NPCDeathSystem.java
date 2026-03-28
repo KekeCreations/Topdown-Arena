@@ -36,9 +36,12 @@ public class NPCDeathSystem extends DeathSystems.OnDeathSystem {
                     if (roundData != null) {
                         if (roundData.getEnemiesLeftToKill() == 0) {
                             roundData.setBonusEnemiesKilled(roundData.getBonusEnemiesKilled() + 1);
+                            roundData.setTotalBonusKillsStat(roundData.getTotalBonusKillsStat() + 1);
+                            roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
                             npc.remove();
                         } else {
                             roundData.setEnemiesToKill(roundData.getEnemiesLeftToKill() - 1);
+                            roundData.setTotalKillsStat(roundData.getTotalKillsStat() + 1);
                             npc.remove();
                         }
                     }

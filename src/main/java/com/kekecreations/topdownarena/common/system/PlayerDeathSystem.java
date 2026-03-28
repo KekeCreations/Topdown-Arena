@@ -35,6 +35,7 @@ public class PlayerDeathSystem extends DeathSystems.OnDeathSystem {
                 roundData.setRoundType("menu_start");
                 roundData.setLevel(0);
                 roundData.freezeRoundTimer(true);
+                roundData.setRoundsPlayedStat(roundData.getRoundsPlayedStat() + 1);
             }
         }
     }

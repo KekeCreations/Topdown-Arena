@@ -31,6 +31,7 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
     private static final String OPTIONS_BUTTON_ID = "OPTIONS";
     private static final String HOW_TO_PLAY_BUTTON_ID = "HOWTOPLAY";
     private static final String QUIT_BUTTON_ID = "QUIT";
+    private static final String STATS_BUTTON_ID = "STATS";
     RoundComponent roundData;
 
     public StartMenuUi(@Nonnull PlayerRef playerRef, RoundComponent roundComponent, @Nonnull CustomPageLifetime lifetime) {
@@ -47,6 +48,7 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#OPTIONS", EventData.of("OnButtonClicked", OPTIONS_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#HOWTOPLAY", EventData.of("OnButtonClicked", HOW_TO_PLAY_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#QUIT", EventData.of("OnButtonClicked", QUIT_BUTTON_ID), false);
+        uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#STATS", EventData.of("OnButtonClicked", STATS_BUTTON_ID), false);
     }
 
     @Override
@@ -85,6 +87,11 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         } else if (HOW_TO_PLAY_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("how_to_play");
+            store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
+        }
+        else if (STATS_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundData.setRoundType("stats");
             store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
         }
         else if (QUIT_BUTTON_ID.equals(data.buttonClicked)) {

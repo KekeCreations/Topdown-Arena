@@ -44,6 +44,10 @@ Group #MAIN {
       Anchor: (Height: 30, Top: 30);
       Text: "HOW TO PLAY";
     }
+    $C.@TextButton #STATS {
+      Anchor: (Height: 30, Top: 10);
+      Text: "STATISTICS";
+    }
     $C.@CancelTextButton #QUIT {
       Anchor: (Height: 50, Top: 20);
       Text: "QUIT";

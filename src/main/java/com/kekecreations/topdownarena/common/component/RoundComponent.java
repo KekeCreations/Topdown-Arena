@@ -20,8 +20,29 @@ public class RoundComponent implements Component<EntityStore> {
                     .append(new KeyedCodec<>("EasyMode", Codec.BOOLEAN),
                             (c, f) -> c.easyMode = f, c -> c.easyMode)
                     .add()
+                    .append(new KeyedCodec<>("RoundsPlayed", Codec.INTEGER),
+                            (c, f) -> c.roundsPlayedStat = f, c -> c.roundsPlayedStat)
+                    .add()
+                    .append(new KeyedCodec<>("SandboxRoundsPlayed", Codec.INTEGER),
+                            (c, f) -> c.sandboxRoundsPlayedStat = f, c -> c.sandboxRoundsPlayedStat)
+                    .add()
+                    .append(new KeyedCodec<>("TotalKills", Codec.INTEGER),
+                            (c, f) -> c.totalKillsStat = f, c -> c.totalKillsStat)
+                    .add()
+                    .append(new KeyedCodec<>("TotalBonusKills", Codec.INTEGER),
+                            (c, f) -> c.totalBonusKillsStat = f, c -> c.totalBonusKillsStat)
+                    .add()
+                    .append(new KeyedCodec<>("RoundsWon", Codec.INTEGER),
+                            (c, f) -> c.roundsWonStat = f, c -> c.roundsWonStat)
+                    .add()
                     .build();
 
+    //Stats
+    private int roundsPlayedStat = 0;
+    private int sandboxRoundsPlayedStat = 0;
+    private int totalKillsStat = 0;
+    private int totalBonusKillsStat = 0;
+    private int roundsWonStat = 0;
 
     private int roundTimer = 0;
 
@@ -56,7 +77,8 @@ public class RoundComponent implements Component<EntityStore> {
 
     public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, int level, String roundType, boolean freezeTimer, boolean arachnophobiaMode, boolean easyMode,
                           int sandboxEnemyChoice, int sandboxEnemyChoice2, int sandboxEnemyChoice3, int sandboxClassChoice, int sandboxClassLevelChoice,
-                          int sandboxEnemyCount, int sandboxEnemyCount2, int sandboxEnemyCount3, int sandboxRequiredKills, boolean sandboxRandomWaves) {
+                          int sandboxEnemyCount, int sandboxEnemyCount2, int sandboxEnemyCount3, int sandboxRequiredKills, boolean sandboxRandomWaves, int roundsPlayedStat,
+                          int sandboxRoundsPlayedStat, int totalKillsStat, int totalBonusKillsStat, int roundsWonStat) {
         this.roundTimer = roundTimer;
         this.enemiesKilled = enemiesKilled;
         this.bonusEnemiesKilled = bonusEnemiesKilled;
@@ -76,12 +98,18 @@ public class RoundComponent implements Component<EntityStore> {
         this.sandboxEnemyCount3 = sandboxEnemyCount3;
         this.sandboxRequiredKills = sandboxRequiredKills;
         this.sandboxRandomWaves = sandboxRandomWaves;
+        this.roundsPlayedStat = roundsPlayedStat;
+        this.sandboxRoundsPlayedStat = sandboxRoundsPlayedStat;
+        this.totalKillsStat = totalKillsStat;
+        this.totalBonusKillsStat = totalBonusKillsStat;
+        this.roundsWonStat = roundsWonStat;
     }
 
     @Override
     public Component<EntityStore> clone() {
         RoundComponent copy = new RoundComponent(roundTimer, enemiesKilled, bonusEnemiesKilled, unlockedLevels, level, roundType, freezeTimer, arachnophobiaMode, easyMode, sandboxEnemyChoice, sandboxEnemyChoice2, sandboxEnemyChoice3,
-                sandboxClassChoice, sandboxClassLevelChoice, sandboxEnemyCount, sandboxEnemyCount2, sandboxEnemyCount3, sandboxRequiredKills, sandboxRandomWaves);
+                sandboxClassChoice, sandboxClassLevelChoice, sandboxEnemyCount, sandboxEnemyCount2, sandboxEnemyCount3, sandboxRequiredKills, sandboxRandomWaves, roundsPlayedStat,
+                sandboxRoundsPlayedStat, totalKillsStat, totalBonusKillsStat, roundsWonStat);
         copy.roundTimer = this.roundTimer;
         copy.enemiesKilled = this.enemiesKilled;
         copy.bonusEnemiesKilled = this.bonusEnemiesKilled;
@@ -102,6 +130,37 @@ public class RoundComponent implements Component<EntityStore> {
         copy.sandboxRequiredKills = this.sandboxRequiredKills;
         copy.sandboxRandomWaves = this.sandboxRandomWaves;
         return copy;
+    }
+    //STATS
+    public int getRoundsPlayedStat() {
+        return this.roundsPlayedStat;
+    }
+    public int getRoundsWonStat() {
+        return this.roundsWonStat;
+    }
+    public int getSandboxRoundsPlayedStat() {
+        return this.sandboxRoundsPlayedStat;
+    }
+    public int getTotalKillsStat() {
+        return this.totalKillsStat;
+    }
+    public int getTotalBonusKillsStat() {
+        return this.totalBonusKillsStat;
+    }
+    public void setRoundsPlayedStat(int stat) {
+        this.roundsPlayedStat = stat;
+    }
+    public void setSandboxRoundsPlayedStat(int stat) {
+        this.sandboxRoundsPlayedStat = stat;
+    }
+    public void setTotalKillsStat(int stat) {
+        this.totalKillsStat = stat;
+    }
+    public void setTotalBonusKillsStat(int stat) {
+        this.totalBonusKillsStat = stat;
+    }
+    public void setRoundsWonStat(int stat) {
+        this.roundsWonStat = stat;
     }
 
     //SANDBOX
