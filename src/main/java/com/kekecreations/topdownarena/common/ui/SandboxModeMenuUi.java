@@ -12,8 +12,10 @@ import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
+import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntityStatTypes;
 import com.hypixel.hytale.server.core.ui.builder.EventData;
 import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
@@ -302,30 +304,6 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
         ItemContainer storage = storageComponent.getInventory();
         ItemContainer tool = toolComponent.getInventory();
 
-        if (hotbar != null && armour != null && utility != null && backpack != null && storage != null && tool != null) {
-
-        }
-        /*
-            if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked) || SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
-                switch (foodChance) {
-                    case 0 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Cheese", 16));
-                    case 1 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Fish_Grilled", 8));
-                    case 2 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Pie_Apple", 4));
-                    case 3 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Wildmeat_Cooked", 16));
-                    case 4 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Salad_Berry", 8));
-                    case 5 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Kebab_Meat", 8));
-                }
-                switch (potionChance) {
-                    case 0 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Greater", 4));
-                    case 1 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Small", 8));
-                    case 2 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health", 6));
-                }
-                roundData.freezeRoundTimer(false);
-                roundData.setRoundType("level");
-                player.getPageManager().setPage(ref, store, Page.None);
-            }
-
-         */
         if (CYCLE_1_BUTTON_ID.equals(data.buttonClicked)) {
             if (roundData.getSandboxEnemyChoice() >= 12) {
                 roundData.setEnemyChoice(0);
@@ -368,12 +346,99 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
             roundData.setLevel(0);
         }
         if (PLAY_BUTTON_ID.equals(data.buttonClicked)) {
+            hotbar.clear();
+            armour.clear();
+            utility.clear();
+            backpack.clear();
+            storage.clear();
+            tool.clear();
+            if (entityStat != null) {
+                entityStat.resetStatValue(DefaultEntityStatTypes.getHealth());
+                entityStat.resetStatValue(DefaultEntityStatTypes.getStamina());
+            }
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundTimer(70);
             roundData.freezeRoundTimer(false);
             roundData.setRoundType("sandbox");
             roundData.setEnemiesToKill(roundData.getSandboxRequiredKills());
-            roundData.setBonusEnemiesKilled(0);
+            switch (roundData.getSandboxClassChoice()) {
+                case 0 -> {
+                    switch (roundData.getSandboxClassLevelChoice()) {
+                        case 0 -> {
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Copper"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Copper"));
+                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                        }
+                    }
+                }
+                case 1 -> {
+                    switch (roundData.getSandboxClassLevelChoice()) {
+                        case 0 -> {
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
+                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                            hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
+                            hotbar.setItemStackForSlot((short) 6, new ItemStack("Weapon_Club_Copper"));
+                            hotbar.setItemStackForSlot((short) 7, new ItemStack("Weapon_Arrow_Crude", 128));
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                        }
+                    }
+                }
+                case 2 -> {
+                    switch (roundData.getSandboxClassLevelChoice()) {
+                        case 0 -> {
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
+                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                            hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 2));
+                            hotbar.setItemStackForSlot((short) 6, new ItemStack("Potion_Morph_Dog", 3));
+                            hotbar.setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
+                            hotbar.setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                        }
+                    }
+                }
+                case 3 -> {
+                    switch (roundData.getSandboxClassLevelChoice()) {
+                        case 0 -> {
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Copper"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Copper"));
+                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
+                        }
+                    }
+                }
+            }
+            switch (foodChance) {
+                case 0 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Cheese", 16));
+                case 1 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Fish_Grilled", 8));
+                case 2 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Pie_Apple", 4));
+                case 3 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Wildmeat_Cooked", 16));
+                case 4 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Salad_Berry", 8));
+                case 5 -> hotbar.setItemStackForSlot((short) 0, new ItemStack("Food_Kebab_Meat", 8));
+            }
+            switch (potionChance) {
+                case 0 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Greater", 4));
+                case 1 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health_Small", 8));
+                case 2 -> hotbar.setItemStackForSlot((short) 4, new ItemStack("Potion_Health", 6));
+            }
         }
         if (WAVE_BUTTON_ID.equals(data.buttonClicked)) {
             roundData.setSandboxRandomWaves(!roundData.getSandboxRandomWaves());
