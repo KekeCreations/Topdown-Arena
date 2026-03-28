@@ -139,7 +139,7 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 1");
                                 }
                             }
-                            for (count2 = 0; count2 < roundData.getSandboxEnemyCount(); count2++) {
+                            for (count2 = 0; count2 < roundData.getSandboxEnemyCount2(); count2++) {
                                 switch(roundData.getSandboxEnemyChoice2()) {
                                     case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
                                     case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 1 0 0");
@@ -156,7 +156,7 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 1 0 0");
                                 }
                             }
-                            for (count3 = 0; count3 < roundData.getSandboxEnemyCount(); count3++) {
+                            for (count3 = 0; count3 < roundData.getSandboxEnemyCount3(); count3++) {
                                 switch(roundData.getSandboxEnemyChoice3()) {
                                     case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Subtract 1 0 0");
                                     case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 1 0 0");
