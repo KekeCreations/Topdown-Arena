@@ -104,14 +104,13 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
                     hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
                     hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
-                    hotbar.setItemStackForSlot((short) 6, new ItemStack("Weapon_Club_Copper"));
+                    hotbar.setItemStackForSlot((short) 6, new ItemStack("Weapon_Club_Doomed"));
                     hotbar.setItemStackForSlot((short) 7, new ItemStack("Weapon_Arrow_Crude", 128));
 
                     armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
                     armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
                     armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
                     armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
-                    utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
                 }
             } else if (SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
                 if (roundData.getLevel() <= 5) {
