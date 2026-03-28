@@ -11,23 +11,14 @@ public class RoundComponent implements Component<EntityStore> {
 
     public static final BuilderCodec<RoundComponent> CODEC =
             BuilderCodec.builder(RoundComponent.class, RoundComponent::new)
-                    .append(new KeyedCodec<>("RoundTimer", Codec.INTEGER),
-                            (c, f) -> c.roundTimer = f, c -> c.roundTimer)
-                    .add()
-                    .append(new KeyedCodec<>("EnemiesKilled", Codec.INTEGER),
-                            (c, f) -> c.enemiesKilled = f, c -> c.enemiesKilled)
-                    .add()
-                    .append(new KeyedCodec<>("BonusEnemiesKilled", Codec.INTEGER),
-                            (c, f) -> c.bonusEnemiesKilled = f, c -> c.bonusEnemiesKilled)
-                    .add()
                     .append(new KeyedCodec<>("UnlockedLevels", Codec.INTEGER),
                             (c, f) -> c.unlockedLevels = f, c -> c.unlockedLevels)
                     .add()
-                    .append(new KeyedCodec<>("Level", Codec.INTEGER),
-                            (c, f) -> c.level = f, c -> c.level)
+                    .append(new KeyedCodec<>("ArachnophobiaMode", Codec.BOOLEAN),
+                            (c, f) -> c.arachnophobiaMode = f, c -> c.arachnophobiaMode)
                     .add()
-                    .append(new KeyedCodec<>("RoundType", Codec.STRING),
-                            (c, f) -> c.roundType = f, c -> c.roundType)
+                    .append(new KeyedCodec<>("EasyMode", Codec.BOOLEAN),
+                            (c, f) -> c.easyMode = f, c -> c.easyMode)
                     .add()
                     .build();
 

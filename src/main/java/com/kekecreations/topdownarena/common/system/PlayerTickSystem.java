@@ -65,7 +65,9 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                             case 1 -> {
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 0 0 2");
                                 CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
                             }
                             case 2 -> {
                                 if (roundData.getArachnophobiaMode()) {

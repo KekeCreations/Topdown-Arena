@@ -65,12 +65,10 @@ public class OptionsUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         }
         if (SPIDER_BUTTON_ID.equals(data.buttonClicked)) {
             roundData.arachnophobiaMode(!roundData.getArachnophobiaMode());
-            player.sendMessage(Message.raw(roundData.getArachnophobiaMode() + ""));
             player.getPageManager().openCustomPage(ref, store, new OptionsUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
         }
         if (EASY_BUTTON_ID.equals(data.buttonClicked)) {
             roundData.easyMode(!roundData.getEasyMode());
-            player.sendMessage(Message.raw(roundData.getEasyMode() + ""));
             player.getPageManager().openCustomPage(ref, store, new OptionsUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
         }
         else if (BACK_BUTTON_ID.equals(data.buttonClicked)) {
