@@ -47,7 +47,7 @@ public class EventRegistry {
                         store.removeComponent(playerRef, OtherPlayerRoundComponent.getComponentType());
                     }
                     RoundComponent roundComponent = store.ensureAndGetComponent(playerRef, RoundComponent.getComponentType());
-                    roundComponent.setPlayerOne(player.getDisplayName());
+                    roundComponent.setPlayerOne(playerRefClass.getUuid());
                     roundComponent.freezeRoundTimer(true);
                     roundComponent.setRoundsPlayedStat(roundComponent.getRoundsPlayedStat() - 1);
                     roundComponent.setRoundsWonStat(roundComponent.getRoundsWonStat() - 1);

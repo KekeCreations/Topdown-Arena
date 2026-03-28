@@ -4,14 +4,16 @@ import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.DelayedEntitySystem;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
-import com.hypixel.hytale.protocol.packets.interface_.Page;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
+import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.OtherPlayerRoundComponent;
+import com.kekecreations.topdownarena.common.component.RoundComponent;
 import com.kekecreations.topdownarena.common.ui.*;
 
 import javax.annotation.Nonnull;
+import java.util.UUID;
 
 public class OtherPlayerTickSystem extends DelayedEntitySystem<EntityStore> {
 
@@ -36,6 +38,7 @@ public class OtherPlayerTickSystem extends DelayedEntitySystem<EntityStore> {
         if (player != null && playerRef != null) {
             OtherPlayerRoundComponent otherRoundData = store.getComponent(ref, OtherPlayerRoundComponent.getComponentType());
             if (otherRoundData != null) {
+                //OPEN MENUS
                 if (otherRoundData.getRoundType() != "null") {
                     if (otherRoundData.getRoundType() == "in_progress") {
                         player.getPageManager().openCustomPage(ref, store, new InProgressUi(playerRef, otherRoundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
@@ -44,6 +47,17 @@ public class OtherPlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     if (otherRoundData.getRoundType() == "menu_class") {
                         player.getPageManager().openCustomPage(ref, store, new OtherClassMenuUi(playerRef, otherRoundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         otherRoundData.setRoundType("null");
+                    }
+                    if (otherRoundData.getRoundType() == "menu_sandbox") {
+                        player.getPageManager().openCustomPage(ref, store, new OtherSandboxModeMenuUi(playerRef, otherRoundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
+                        otherRoundData.setRoundType("null");
+                    }
+                }
+
+                for (PlayerRef playerRefLoop : Universe.get().getPlayers()) {
+                    if (store.getComponent(playerRefLoop.getReference(), RoundComponent.getComponentType()) != null) {
+                        otherRoundData.setPlayerOne(playerRefLoop.getUuid());
+                            return;
                     }
                 }
             }

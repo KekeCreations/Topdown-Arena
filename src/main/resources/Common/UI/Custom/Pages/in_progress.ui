@@ -31,12 +31,12 @@ Group #MAIN {
     }
     Label #DESC {
       Anchor: (Top: 10);
-      Text: "A round is in progress right now, please wait!";
+      Text: "This screen will appear when Player One is selecting modes or in a round!";
       Style: (TextColor: #ffffff, FontSize: 20, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #DESCcopy {
       Anchor: (Top: 5);
-      Text: "This screen will close when round is over!";
+      Text: "This screen will close soon!";
       Style: (TextColor: #ffffff, FontSize: 20, RenderBold: true, HorizontalAlignment: Center);
     }
     $C.@CancelTextButton #QUIT {

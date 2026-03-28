@@ -7,6 +7,8 @@ import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import java.util.UUID;
+
 public class RoundComponent implements Component<EntityStore> {
 
     public static final BuilderCodec<RoundComponent> CODEC =
@@ -37,7 +39,7 @@ public class RoundComponent implements Component<EntityStore> {
                     .add()
                     .build();
 
-    private String playerOne;
+    private UUID playerOne;
     //Stats
     private int roundsPlayedStat = 0;
     private int sandboxRoundsPlayedStat = 0;
@@ -79,7 +81,7 @@ public class RoundComponent implements Component<EntityStore> {
     public RoundComponent(int roundTimer, int enemiesKilled, int bonusEnemiesKilled, int unlockedLevels, int level, String roundType, boolean freezeTimer, boolean arachnophobiaMode, boolean easyMode,
                           int sandboxEnemyChoice, int sandboxEnemyChoice2, int sandboxEnemyChoice3, int sandboxClassChoice, int sandboxClassLevelChoice,
                           int sandboxEnemyCount, int sandboxEnemyCount2, int sandboxEnemyCount3, int sandboxRequiredKills, boolean sandboxRandomWaves, int roundsPlayedStat,
-                          int sandboxRoundsPlayedStat, int totalKillsStat, int totalBonusKillsStat, int roundsWonStat, String playerOne) {
+                          int sandboxRoundsPlayedStat, int totalKillsStat, int totalBonusKillsStat, int roundsWonStat, UUID playerOne) {
         this.roundTimer = roundTimer;
         this.enemiesKilled = enemiesKilled;
         this.bonusEnemiesKilled = bonusEnemiesKilled;
@@ -134,10 +136,10 @@ public class RoundComponent implements Component<EntityStore> {
         return copy;
     }
     //MULTIPLAYER
-    public String getPlayerOne() {
+    public UUID getPlayerOne() {
         return this.playerOne;
     }
-    public void setPlayerOne(String playerOne) {
+    public void setPlayerOne(UUID playerOne) {
         this.playerOne = playerOne;
     }
     //STATS

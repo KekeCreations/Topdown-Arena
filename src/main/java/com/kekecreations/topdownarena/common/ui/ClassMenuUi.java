@@ -157,7 +157,7 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     hotbar.setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
                     hotbar.setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
                     armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Iron_Head"));
-                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Irom_Chest"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Iron_Chest"));
                     armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Iron_Hands"));
                     armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Iron_Legs"));
                     utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Iron"));

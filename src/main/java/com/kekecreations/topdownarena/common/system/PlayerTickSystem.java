@@ -260,10 +260,32 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_winlevel") {
+                        for (PlayerRef otherPlayerRef : Universe.get().getPlayers()) {
+                            OtherPlayerRoundComponent otherPlayerRoundComponent = store.getComponent(otherPlayerRef.getReference(), OtherPlayerRoundComponent.getComponentType());
+                            if (otherPlayerRoundComponent != null) {
+                                Player otherPlayer = store.getComponent(otherPlayerRef.getReference(), Player.getComponentType());
+                                if (otherPlayer != null) {
+                                    otherPlayer.getPageManager().setPage(ref, store, Page.None);
+                                    otherPlayerRoundComponent.setRoundType("in_progress");
+                                    otherPlayerRoundComponent.setLevel(roundData.getLevel());
+                                }
+                            }
+                        }
                         player.getPageManager().openCustomPage(ref, store, new WinLevelUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "menu_lostlevel") {
+                        for (PlayerRef otherPlayerRef : Universe.get().getPlayers()) {
+                            OtherPlayerRoundComponent otherPlayerRoundComponent = store.getComponent(otherPlayerRef.getReference(), OtherPlayerRoundComponent.getComponentType());
+                            if (otherPlayerRoundComponent != null) {
+                                Player otherPlayer = store.getComponent(otherPlayerRef.getReference(), Player.getComponentType());
+                                if (otherPlayer != null) {
+                                    otherPlayer.getPageManager().setPage(ref, store, Page.None);
+                                    otherPlayerRoundComponent.setRoundType("in_progress");
+                                    otherPlayerRoundComponent.setLevel(roundData.getLevel());
+                                }
+                            }
+                        }
                         player.getPageManager().openCustomPage(ref, store, new LostLevelUi(playerRef, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
@@ -276,6 +298,16 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         roundData.setRoundType("null");
                     }
                     if (roundData.getRoundType() == "sandbox_mode") {
+                        for (PlayerRef otherPlayerRef : Universe.get().getPlayers()) {
+                            OtherPlayerRoundComponent otherPlayerRoundComponent = store.getComponent(otherPlayerRef.getReference(), OtherPlayerRoundComponent.getComponentType());
+                            if (otherPlayerRoundComponent != null) {
+                                Player otherPlayer = store.getComponent(otherPlayerRef.getReference(), Player.getComponentType());
+                                if (otherPlayer != null) {
+                                    otherPlayer.getPageManager().setPage(ref, store, Page.None);
+                                    otherPlayerRoundComponent.setRoundType("menu_sandbox");
+                                }
+                            }
+                        }
                         player.getPageManager().openCustomPage(ref, store, new SandboxModeMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                         roundData.setRoundType("null");
                     }
