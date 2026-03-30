@@ -49,8 +49,6 @@ public class EventRegistry {
                     RoundComponent roundComponent = store.ensureAndGetComponent(playerRef, RoundComponent.getComponentType());
                     roundComponent.setPlayerOne(playerRefClass.getUuid());
                     roundComponent.freezeRoundTimer(true);
-                    roundComponent.setRoundsPlayedStat(roundComponent.getRoundsPlayedStat() - 1);
-                    roundComponent.setRoundsWonStat(roundComponent.getRoundsWonStat() - 1);
                     player.getPageManager().openCustomPage(playerRef, store, new StartMenuUi(playerRefClass, roundComponent, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
                 } else {
                     OtherPlayerRoundComponent roundComponent = playerRef.getStore().ensureAndGetComponent(playerRef, OtherPlayerRoundComponent.getComponentType());
