@@ -1,3 +1,10 @@
+V0.1.1-beta
+- Fixed game starting with -1 rounds played and -1 rounds won
+- Overhauled enemy spawning so enemies spawn around the player instead of 1 location
+- Made Level 1 harder
+- Updated mod icon!
+
+
 V0.1.0-beta
 - Added 8 levels to unlock and play with
 - Added 4 classes (Knight, Warrior, Shifter & Archer)

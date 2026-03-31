@@ -60,33 +60,33 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                     if ((roundData.getRoundTimer() == 20 && roundData.getRoundType() !=  "sandbox") || (roundData.getRoundTimer() == 20 && roundData.getSandboxRandomWaves() && roundData.getRoundType() == "sandbox")) {
                         switch(randomWave) {
                             case 0 -> {
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 2 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 0 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 -2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 2");
                             }
                             case 1 -> {
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 0 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie 0 0 -2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 2");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie 2 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie -1 0 0");
+                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 -1");
                             }
                             case 2 -> {
                                 if (roundData.getArachnophobiaMode()) {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 1 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 1 0 0");
                                 } else {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 2 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave -2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 -2");
                                 }
                             }
                         }
@@ -97,68 +97,72 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         for (roundScale = 0; roundScale < Universe.get().getPlayerCount(); roundScale++) {
                             switch (roundData.getLevel()) {
                                 case 1 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 2 0 1");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 0 0 1");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 2 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 0 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -3 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter -2 0 -2");
                                 }
                                 case 2 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 1");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -1 0 -2");
                                 }
                                 case 3 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Subtract 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Subtract 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 2 0 1");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 2");
                                 }
                                 case 4 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter Add 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Subtract 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Subtract 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter -1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 1 0 0");
                                 }
                                 case 5 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 1 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 2 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead Add 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead -2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage 2 0 2");
                                 }
                                 case 6 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 0 0 3");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 2 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf -2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf -1 0 -1");
                                 }
                                 case 7 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith Add 0 0 3");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith Add 2 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith  Add 1 0 1");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 1");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith 0 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith -2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith  -1 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 2");
                                 }
                                 case 8 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 0 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant -1 0 1");
                                 }
                             }
                         }
@@ -168,53 +172,53 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         if (roundData.getRoundType() == "sandbox") {
                             for (count1 = 0; count1 < roundData.getSandboxEnemyCount(); count1++) {
                                 switch(roundData.getSandboxEnemyChoice()) {
-                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 0 0 1");
-                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 0 0 1");
-                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 0 0 1");
-                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist Add 0 0 1");
-                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner Add 0 0 1");
-                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 0 0 1");
-                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 0 0 1");
-                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 0 0 1");
-                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Add 0 0 1");
-                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 0 0 1");
-                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti Add 0 0 1");
-                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider Add 0 0 1");
-                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 0 0 1");
+                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 1");
+                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 1");
+                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage 0 0 1");
+                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist 0 0 1");
+                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner 0 0 1");
+                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie 0 0 1");
+                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant 0 0 1");
+                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 0 0 1");
+                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black 0 0 1");
+                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 0 0 1");
+                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti 0 0 1");
+                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider 0 0 1");
+                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 1");
                                 }
                             }
                             for (count2 = 0; count2 < roundData.getSandboxEnemyCount2(); count2++) {
                                 switch(roundData.getSandboxEnemyChoice2()) {
-                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Add 1 0 0");
-                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Add 1 0 0");
-                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Add 1 0 0");
-                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist Add 1 0 0");
-                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner Add 1 0 0");
-                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie Add 1 0 0");
-                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Add 1 0 0");
-                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Add 1 0 0");
-                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Add 1 0 0");
-                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Add 1 0 0");
-                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti Add 1 0 0");
-                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider Add 1 0 0");
-                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Add 1 0 0");
+                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
+                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 1 0 0");
+                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage 1 0 0");
+                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist 1 0 0");
+                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner 1 0 0");
+                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 0");
+                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant 1 0 0");
+                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 1 0 0");
+                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black 1 0 0");
+                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 1 0 0");
+                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti 1 0 0");
+                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider 1 0 0");
+                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 1 0 0");
                                 }
                             }
                             for (count3 = 0; count3 < roundData.getSandboxEnemyCount3(); count3++) {
                                 switch(roundData.getSandboxEnemyChoice3()) {
-                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton Subtract 1 0 0");
-                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer Subtract 1 0 0");
-                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage Subtract 1 0 0");
-                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist Subtract 1 0 0");
-                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner Subtract 1 0 0");
-                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie Subtract 1 0 0");
-                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant Subtract 1 0 0");
-                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White Subtract 1 0 0");
-                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black Subtract 1 0 0");
-                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf Subtract 1 0 0");
-                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti Subtract 1 0 0");
-                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider Subtract 1 0 0");
-                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave Subtract 1 0 0");
+                                    case 0 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
+                                    case 1 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 1 0 0");
+                                    case 2 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage 1 0 0");
+                                    case 3 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Alchemist 1 0 0");
+                                    case 4 -> CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Gunner 1 0 0");
+                                    case 5 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 0");
+                                    case 6 -> CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant 1 0 0");
+                                    case 7 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 1 0 0");
+                                    case 8 -> CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black 1 0 0");
+                                    case 9 -> CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 1 0 0");
+                                    case 10 -> CommandManager.get().handleCommand(playerRef, "round_npc Yeti 1 0 0");
+                                    case 11 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider 1 0 0");
+                                    case 12 -> CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 1 0 0");
                                 }
                             }
                         }
