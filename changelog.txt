@@ -1,6 +1,6 @@
 V0.1.1-beta
-- Fixed game starting with -1 rounds played and -1 rounds won
-- Overhauled enemy spawning so enemies spawn around the player instead of 1 location
+- Fixed the game starting with -1 rounds played and -1 rounds won
+- Overhauled enemy spawning so enemies spawn around the player instead of limited locations
 - Made Level 1 harder
 - Updated mod icon!
 - Changed the plugin group to my username
