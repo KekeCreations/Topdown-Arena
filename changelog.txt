@@ -3,6 +3,7 @@ V0.1.1-beta
 - Overhauled enemy spawning so enemies spawn around the player instead of 1 location
 - Made Level 1 harder
 - Updated mod icon!
+- Changed the plugin group to my username
 
 
 V0.1.0-beta
