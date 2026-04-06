@@ -65,6 +65,7 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             roundData.setRoundType("menu_levels");
             roundData.setBonusEnemiesKilled(0);
             roundData.setEnemiesToKill(0);
+            roundData.setRatingStars(0);
             store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
         } else if (OPTIONS_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
@@ -73,6 +74,7 @@ public class StartMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         } else if (PLAY_SANDBOX_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("sandbox_mode");
+            roundData.setRatingStars(0);
             roundData.setRequiredKills(0);
             roundData.setBonusEnemiesKilled(0);
             roundData.setEnemiesToKill(0);

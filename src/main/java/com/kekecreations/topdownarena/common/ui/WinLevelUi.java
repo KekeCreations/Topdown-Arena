@@ -52,10 +52,31 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         RoundComponent roundData = Objects.requireNonNull(store.getComponent(ref, RoundComponent.getComponentType()));
         if (CONTINUE_BUTTON_ID.equals(data.buttonClicked)) {
             unlockLevels();
+            rewardStars();
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_start");
             roundData.freezeRoundTimer(true);
             store.forEachEntityParallel(NPCEntity.getComponentType(), (index, archetypeChunk, commandBuffer) -> commandBuffer.removeEntity(archetypeChunk.getReferenceTo(index), RemoveReason.REMOVE));
+        }
+    }
+
+    void rewardStars() {
+        switch(roundData.getLevel()) {
+            case 1 -> {
+                if (roundData.getFinalRatingStarsLevel1() < roundData.getRatingStars()) {
+                    roundData.setFinalRatingStarsLevel1(roundData.getRatingStars());
+                }
+            }
+            case 2 -> {
+                if (roundData.getFinalRatingStarsLevel2() < roundData.getRatingStars()) {
+                    roundData.setFinalRatingStarsLevel2(roundData.getRatingStars());
+                }
+            }
+            case 3 -> {
+                if (roundData.getFinalRatingStarsLevel3() < roundData.getRatingStars()) {
+                    roundData.setFinalRatingStarsLevel3(roundData.getRatingStars());
+                }
+            }
         }
     }
 
@@ -87,6 +108,7 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
     public void onDismiss(@NotNull Ref<EntityStore> ref, @NotNull Store<EntityStore> store) {
         super.onDismiss(ref, store);
         unlockLevels();
+        rewardStars();
         roundData.setRoundType("menu_start");
     }
 }

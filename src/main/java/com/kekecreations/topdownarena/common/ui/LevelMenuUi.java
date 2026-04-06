@@ -42,6 +42,11 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         uiCommandBuilder.append("Pages/level_menu.ui");
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#BACK", EventData.of("OnButtonClicked", BACK_BUTTON_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL1", EventData.of("OnButtonClicked", PLAY_LEVEL_ONE_BUTTON_ID), false);
+
+        uiCommandBuilder.set("#RATING1.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel1() + "/3"));
+        uiCommandBuilder.set("#RATING2.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel2() + "/3"));
+        uiCommandBuilder.set("#RATING3.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel3() + "/3"));
+
         if (roundData.getUnlockedLevels() >= 2) {
             uiCommandBuilder.set("#PLAYLEVEL2.TextSpans", Message.raw("LEVEL 2"));
             uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL2", EventData.of("OnButtonClicked", PLAY_LEVEL_TWO_BUTTON_ID), false);

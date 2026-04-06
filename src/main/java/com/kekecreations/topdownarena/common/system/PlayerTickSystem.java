@@ -58,8 +58,15 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         }
                         entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 1F);
                     }
+                    if (roundData.getRoundTimer() == 5 && roundData.getEnemiesLeftToKill() == 0) {
+                        roundData.setRatingStars(roundData.getRatingStars() + 1);
+                    }
+                    if (roundData.getBonusEnemiesKilled() >= 5 && roundData.getRoundTimer() == 10) {
+                        roundData.setRatingStars(roundData.getRatingStars() + 1);
+                    }
                     //CONDITIONAL WAVE
                     if (roundData.getRoundTimer() == 30 && roundData.getEnemiesLeftToKill() == 0 && roundData.getRoundType() !=  "sandbox") {
+                        roundData.setRatingStars(roundData.getRatingStars() + 1);
                         int roundScale;
                         for (roundScale = 0; roundScale < Universe.get().getPlayerCount(); roundScale++) {
                             switch (randomWave2) {
