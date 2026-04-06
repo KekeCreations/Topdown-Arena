@@ -46,6 +46,28 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         uiCommandBuilder.set("#RATING1.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel1() + "/3"));
         uiCommandBuilder.set("#RATING2.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel2() + "/3"));
         uiCommandBuilder.set("#RATING3.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel3() + "/3"));
+        uiCommandBuilder.set("#RATING4.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel4() + "/3"));
+        uiCommandBuilder.set("#RATING5.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel5() + "/3"));
+        uiCommandBuilder.set("#RATING6.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel6() + "/3"));
+        uiCommandBuilder.set("#RATING7.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel7() + "/3"));
+        uiCommandBuilder.set("#RATING8.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel8() + "/3"));
+        uiCommandBuilder.set("#RATING9.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel9() + "/3"));
+        uiCommandBuilder.set("#RATING10.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel10() + "/3"));
+        uiCommandBuilder.set("#RATING11.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel11() + "/3"));
+        uiCommandBuilder.set("#RATING12.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel12() + "/3"));
+        uiCommandBuilder.set("#RATING13.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel13() + "/3"));
+        uiCommandBuilder.set("#RATING14.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel14() + "/3"));
+        uiCommandBuilder.set("#RATING15.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel15() + "/3"));
+        uiCommandBuilder.set("#RATING16.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel16() + "/3"));
+        uiCommandBuilder.set("#RATING17.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel17() + "/3"));
+        uiCommandBuilder.set("#RATING18.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel18() + "/3"));
+        uiCommandBuilder.set("#RATING19.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel19() + "/3"));
+        uiCommandBuilder.set("#RATING20.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel20() + "/3"));
+        uiCommandBuilder.set("#RATING21.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel21() + "/3"));
+        uiCommandBuilder.set("#RATING22.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel22() + "/3"));
+        uiCommandBuilder.set("#RATING23.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel23() + "/3"));
+        uiCommandBuilder.set("#RATING24.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel24() + "/3"));
+        uiCommandBuilder.set("#RATING25.TextSpans", Message.raw(roundData.getFinalRatingStarsLevel25() + "/3"));
 
         if (roundData.getUnlockedLevels() >= 2) {
             uiCommandBuilder.set("#PLAYLEVEL2.TextSpans", Message.raw("LEVEL 2"));
