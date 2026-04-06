@@ -51,7 +51,7 @@ Group #MAIN {
       }
       $C.@TextButton #PLAYLEVEL1 {
         Background: (Color: #ffffff);
-        Anchor: (Width: 80, Height: 30, Left: 0, Right: 0);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
         Text: "LEVEL 1";
       }
     }
@@ -60,40 +60,116 @@ Group #MAIN {
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL2 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL2 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER2 {
+        LayoutMode: Center;
+        Label #RATING2 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR2 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM2 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL2 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP4 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL3 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL3 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER3 {
+        LayoutMode: Center;
+        Label #RATING3 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR3 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM3 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL3 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP5 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL4 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL4 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER4 {
+        LayoutMode: Center;
+        Label #RATING4 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR4 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM4 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL4 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP6 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL5 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL5 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER5 {
+        LayoutMode: Center;
+        Label #RATING5 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR5 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM5 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL5 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #BORDERSEP2 {
       LayoutMode: Top;
@@ -115,50 +191,145 @@ Group #MAIN {
       Background: (Color: #1e3d53);
       Anchor: (Width: 40, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL6 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
-      Text: "LOCKED";
+    Group #LEVEL6 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER6 {
+        LayoutMode: Center;
+        Label #RATING6 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR6 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM6 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL6 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP7 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL7 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL7 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER7 {
+        LayoutMode: Center;
+        Label #RATING7 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR7 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM7 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL7 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP8 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL8 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL8 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER8 {
+        LayoutMode: Center;
+        Label #RATING8 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR8 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM8 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL8 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP9 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL9 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL9 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER9 {
+        LayoutMode: Center;
+        Label #RATING9 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR9 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM9 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL9 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP10 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL10 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL10 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER10 {
+        LayoutMode: Center;
+        Label #RATING10 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR10 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM10 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL10 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #BORDERSEP4 {
       LayoutMode: Top;
@@ -180,50 +351,145 @@ Group #MAIN {
       Background: (Color: #1e3d53);
       Anchor: (Width: 40, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL11 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
-      Text: "LOCKED";
+    Group #LEVEL11 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER11 {
+        LayoutMode: Center;
+        Label #RATING11 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR11 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM11 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL11 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP11 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL12 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL12 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER12 {
+        LayoutMode: Center;
+        Label #RATING12 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR12 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM12 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL12 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP12 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL13 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL13 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER13 {
+        LayoutMode: Center;
+        Label #RATING13 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR13 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM13 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL13 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP13 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL14 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL14 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER14 {
+        LayoutMode: Center;
+        Label #RATING14 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR14 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM14 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL14 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP14 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL15 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL15 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER15 {
+        LayoutMode: Center;
+        Label #RATING15 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR15 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM15 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL15 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #BORDERSEP6 {
       LayoutMode: Top;
@@ -245,50 +511,145 @@ Group #MAIN {
       Background: (Color: #1e3d53);
       Anchor: (Width: 40, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL16 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
-      Text: "LOCKED";
+    Group #LEVEL16 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER16 {
+        LayoutMode: Center;
+        Label #RATING16 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR16 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM16 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL16 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP15 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL17 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL17 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER17 {
+        LayoutMode: Center;
+        Label #RATING17 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR17 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM17 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL17 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP16 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL18 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL18 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER18 {
+        LayoutMode: Center;
+        Label #RATING18 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR18 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM18 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL18 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP17 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL19 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL19 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER19 {
+        LayoutMode: Center;
+        Label #RATING19 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR19 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM19 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL19 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP18 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL20 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL20 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER20 {
+        LayoutMode: Center;
+        Label #RATING20 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR20 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM20 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL20 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #BORDERSEP8 {
       LayoutMode: Top;
@@ -310,50 +671,145 @@ Group #MAIN {
       Background: (Color: #1e3d53);
       Anchor: (Width: 40, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL21 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
-      Text: "LOCKED";
+    Group #LEVEL21 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER21 {
+        LayoutMode: Center;
+        Label #RATING21 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR21 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM21 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL21 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP16 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL22 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL22 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER22 {
+        LayoutMode: Center;
+        Label #RATING22 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR22 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM22 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL22 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP17 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL23 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL23 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER23 {
+        LayoutMode: Center;
+        Label #RATING23 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR23 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM23 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL23 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP18 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL24 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL24 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER24 {
+        LayoutMode: Center;
+        Label #RATING24 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR24 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM24 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL24 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #SEP19 {
       LayoutMode: Top;
       Background: (Color: #1e3d53);
       Anchor: (Width: 30, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL25 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0, Top: 0);
-      Text: "LOCKED";
+    Group #LEVEL25 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER25 {
+        LayoutMode: Center;
+        Label #RATING25 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR25 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM25 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL25 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 60, Height: 30, Left: 0, Right: 0);
+        Text: "LOCKED";
+      }
     }
     Group #BORDERSEP10 {
       LayoutMode: Top;
