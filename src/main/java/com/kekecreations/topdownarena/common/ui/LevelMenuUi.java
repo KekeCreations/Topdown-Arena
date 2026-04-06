@@ -238,7 +238,7 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         }
         else if (PLAY_LEVEL_TWELVE_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundStart(12, 8);
+            roundStart(12, 6);
         }
         else if (PLAY_LEVEL_THIRTEEN_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
@@ -246,7 +246,7 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         }
         else if (PLAY_LEVEL_FOURTEEN_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundStart(14, 8);
+            roundStart(14, 3);
         }
         else if (PLAY_LEVEL_FIFTEEN_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);

@@ -251,19 +251,47 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 2");
                                 }
                                 case 11 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Hunter 0 0 -2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Cultist 0 0 -2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Stalker 0 0 -2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Stalker 1 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Stalker -1 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Stalker 1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Marauder 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Marauder 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Marauder 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Brute -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Brute 1 0 -2");
                                 }
                                 case 12 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Priest 1 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Sorcerer 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Berserker 1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Berserker -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Berserker 1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Berserker 3 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Berserker -1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Berserker -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Berserker 3 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Berserker 1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Brute 1 0 -2");
                                 }
                                 case 13 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Brute 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Hound_Bleached 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Hound_Bleached -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Hound_Bleached -1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead -1 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 2 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 1 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 3 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 1 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 2 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 0 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 3 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 2 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead -1 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead 2 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Chicken_Undead -1 0 2");
+                                }
+                                case 14 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant 1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant 1 0 2");
                                 }
                             }
                         }
