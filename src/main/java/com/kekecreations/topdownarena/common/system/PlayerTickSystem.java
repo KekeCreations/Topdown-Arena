@@ -214,7 +214,35 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 2");
                                 }
                                 case 8 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie_Aberrant -1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith 0 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf -2 0 -1");
+                                }
+                                case 9 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 0 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead -2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 1 0 2");
+                                }
+                                case 10 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 1 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer -1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 2");
                                 }
                             }
                         }

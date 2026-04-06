@@ -29,6 +29,24 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
     private static final String PLAY_LEVEL_SIX_BUTTON_ID = "PLAYLEVEL6";
     private static final String PLAY_LEVEL_SEVEN_BUTTON_ID = "PLAYLEVEL7";
     private static final String PLAY_LEVEL_EIGHT_BUTTON_ID = "PLAYLEVEL8";
+    private static final String PLAY_LEVEL_NINE_BUTTON_ID = "PLAYLEVEL9";
+    private static final String PLAY_LEVEL_TEN_BUTTON_ID = "PLAYLEVEL10";
+    private static final String PLAY_LEVEL_ELEVEN_BUTTON_ID = "PLAYLEVEL11";
+    private static final String PLAY_LEVEL_TWELVE_BUTTON_ID = "PLAYLEVEL12";
+    private static final String PLAY_LEVEL_THIRTEEN_BUTTON_ID = "PLAYLEVEL13";
+    private static final String PLAY_LEVEL_FOURTEEN_BUTTON_ID = "PLAYLEVEL14";
+    private static final String PLAY_LEVEL_FIFTEEN_BUTTON_ID = "PLAYLEVEL15";
+    private static final String PLAY_LEVEL_16_BUTTON_ID = "PLAYLEVEL16";
+    private static final String PLAY_LEVEL_17_BUTTON_ID = "PLAYLEVEL17";
+    private static final String PLAY_LEVEL_18_BUTTON_ID = "PLAYLEVEL18";
+    private static final String PLAY_LEVEL_19_BUTTON_ID = "PLAYLEVEL19";
+    private static final String PLAY_LEVEL_20_BUTTON_ID = "PLAYLEVEL20";
+    private static final String PLAY_LEVEL_21_BUTTON_ID = "PLAYLEVEL21";
+    private static final String PLAY_LEVEL_22_BUTTON_ID = "PLAYLEVEL22";
+    private static final String PLAY_LEVEL_23_BUTTON_ID = "PLAYLEVEL23";
+    private static final String PLAY_LEVEL_24_BUTTON_ID = "PLAYLEVEL24";
+    private static final String PLAY_LEVEL_25_BUTTON_ID = "PLAYLEVEL25";
+
     private static final String BACK_BUTTON_ID = "BACK";
     RoundComponent roundData;
 
@@ -97,6 +115,74 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             uiCommandBuilder.set("#PLAYLEVEL8.TextSpans", Message.raw("LEVEL 8"));
             uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL8", EventData.of("OnButtonClicked", PLAY_LEVEL_EIGHT_BUTTON_ID), false);
         }
+        if (roundData.getUnlockedLevels() >= 9) {
+            uiCommandBuilder.set("#PLAYLEVEL9.TextSpans", Message.raw("LEVEL 9"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL9", EventData.of("OnButtonClicked", PLAY_LEVEL_NINE_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 10) {
+            uiCommandBuilder.set("#PLAYLEVEL10.TextSpans", Message.raw("LEVEL 10"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL10", EventData.of("OnButtonClicked", PLAY_LEVEL_TEN_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 11) {
+            uiCommandBuilder.set("#PLAYLEVEL11.TextSpans", Message.raw("LEVEL 11"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL11", EventData.of("OnButtonClicked", PLAY_LEVEL_ELEVEN_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 12) {
+            uiCommandBuilder.set("#PLAYLEVEL12.TextSpans", Message.raw("LEVEL 12"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL12", EventData.of("OnButtonClicked", PLAY_LEVEL_TWELVE_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 13) {
+            uiCommandBuilder.set("#PLAYLEVEL13.TextSpans", Message.raw("LEVEL 13"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL13", EventData.of("OnButtonClicked", PLAY_LEVEL_THIRTEEN_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 14) {
+            uiCommandBuilder.set("#PLAYLEVEL14.TextSpans", Message.raw("LEVEL 14"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL14", EventData.of("OnButtonClicked", PLAY_LEVEL_FOURTEEN_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 15) {
+            uiCommandBuilder.set("#PLAYLEVEL15.TextSpans", Message.raw("LEVEL 15"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL15", EventData.of("OnButtonClicked", PLAY_LEVEL_FIFTEEN_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 16) {
+            uiCommandBuilder.set("#PLAYLEVEL16.TextSpans", Message.raw("LEVEL 16"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL16", EventData.of("OnButtonClicked", PLAY_LEVEL_16_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 17) {
+            uiCommandBuilder.set("#PLAYLEVEL17.TextSpans", Message.raw("LEVEL 17"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL17", EventData.of("OnButtonClicked", PLAY_LEVEL_17_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 18) {
+            uiCommandBuilder.set("#PLAYLEVEL18.TextSpans", Message.raw("LEVEL 18"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL18", EventData.of("OnButtonClicked", PLAY_LEVEL_18_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 19) {
+            uiCommandBuilder.set("#PLAYLEVEL19.TextSpans", Message.raw("LEVEL 19"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL19", EventData.of("OnButtonClicked", PLAY_LEVEL_19_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 20) {
+            uiCommandBuilder.set("#PLAYLEVEL20.TextSpans", Message.raw("LEVEL 20"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL20", EventData.of("OnButtonClicked", PLAY_LEVEL_20_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 21) {
+            uiCommandBuilder.set("#PLAYLEVEL21.TextSpans", Message.raw("LEVEL 21"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL21", EventData.of("OnButtonClicked", PLAY_LEVEL_21_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 22) {
+            uiCommandBuilder.set("#PLAYLEVEL22.TextSpans", Message.raw("LEVEL 22"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL22", EventData.of("OnButtonClicked", PLAY_LEVEL_22_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 23) {
+            uiCommandBuilder.set("#PLAYLEVEL23.TextSpans", Message.raw("LEVEL 23"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL23", EventData.of("OnButtonClicked", PLAY_LEVEL_23_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 24) {
+            uiCommandBuilder.set("#PLAYLEVEL24.TextSpans", Message.raw("LEVEL 24"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL24", EventData.of("OnButtonClicked", PLAY_LEVEL_24_BUTTON_ID), false);
+        }
+        if (roundData.getUnlockedLevels() >= 25) {
+            uiCommandBuilder.set("#PLAYLEVEL25.TextSpans", Message.raw("LEVEL 25"));
+            uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#PLAYLEVEL25", EventData.of("OnButtonClicked", PLAY_LEVEL_25_BUTTON_ID), false);
+        }
     }
 
     @Override
@@ -108,72 +194,116 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
 
         if (PLAY_LEVEL_ONE_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundType("menu_class");
-            roundData.setRoundTimer(70);
-            roundData.setLevel(1);
-            roundData.setEnemiesToKill(5);
-            roundData.freezeRoundTimer(true);
+            roundStart(1, 5);
         }
         else if (PLAY_LEVEL_TWO_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundType("menu_class");
-            roundData.setRoundTimer(70);
-            roundData.setLevel(2);
-            roundData.setEnemiesToKill(6);
-            roundData.freezeRoundTimer(true);
+            roundStart(2, 6);
         }
         else if (PLAY_LEVEL_THREE_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundType("menu_class");
-            roundData.setRoundTimer(70);
-            roundData.setLevel(3);
-            roundData.setEnemiesToKill(8);
-            roundData.freezeRoundTimer(true);
+            roundStart(3, 8);
         }
         else if (PLAY_LEVEL_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundType("menu_class");
-            roundData.setRoundTimer(70);
-            roundData.setLevel(4);
-            roundData.setEnemiesToKill(5);
-            roundData.freezeRoundTimer(true);
+            roundStart(4, 5);
         }
         else if (PLAY_LEVEL_FIVE_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundType("menu_class");
-            roundData.setRoundTimer(70);
-            roundData.setLevel(5);
-            roundData.setEnemiesToKill(10);
-            roundData.freezeRoundTimer(true);
+            roundStart(5, 10);
         }
         else if (PLAY_LEVEL_SIX_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundType("menu_class");
-            roundData.setRoundTimer(70);
-            roundData.setLevel(6);
-            roundData.setEnemiesToKill(3);
-            roundData.freezeRoundTimer(true);
+            roundStart(6, 3);
         }
         else if (PLAY_LEVEL_SEVEN_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundType("menu_class");
-            roundData.setRoundTimer(70);
-            roundData.setLevel(7);
-            roundData.setEnemiesToKill(10);
-            roundData.freezeRoundTimer(true);
+            roundStart(7, 10);
         }
         else if (PLAY_LEVEL_EIGHT_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundData.setRoundType("menu_class");
-            roundData.setRoundTimer(70);
-            roundData.setLevel(8);
-            roundData.setEnemiesToKill(2);
-            roundData.freezeRoundTimer(true);
+            roundStart(8, 8);
+        }
+        else if (PLAY_LEVEL_NINE_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(9, 8);
+        }
+        else if (PLAY_LEVEL_TEN_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(10, 12);
+        }
+        else if (PLAY_LEVEL_ELEVEN_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(11, 8);
+        }
+        else if (PLAY_LEVEL_TWELVE_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(12, 8);
+        }
+        else if (PLAY_LEVEL_THIRTEEN_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(13, 8);
+        }
+        else if (PLAY_LEVEL_FOURTEEN_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(14, 8);
+        }
+        else if (PLAY_LEVEL_FIFTEEN_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(15, 8);
+        }
+        else if (PLAY_LEVEL_16_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(16, 8);
+        }
+        else if (PLAY_LEVEL_17_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(17, 8);
+        }
+        else if (PLAY_LEVEL_18_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(18, 8);
+        }
+        else if (PLAY_LEVEL_19_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(19, 8);
+        }
+        else if (PLAY_LEVEL_20_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(20, 8);
+        }
+        else if (PLAY_LEVEL_21_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(21, 8);
+        }
+        else if (PLAY_LEVEL_22_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(22, 8);
+        }
+        else if (PLAY_LEVEL_23_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(23, 8);
+        }
+        else if (PLAY_LEVEL_24_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(24, 8);
+        }
+        else if (PLAY_LEVEL_25_BUTTON_ID.equals(data.buttonClicked)) {
+            player.getPageManager().setPage(ref, store, Page.None);
+            roundStart(25, 12);
         }
         else if (BACK_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
             roundData.setRoundType("menu_start");
         }
+    }
+
+    void roundStart(int level, int enemiesToKill) {
+        roundData.setRoundType("menu_class");
+        roundData.setRoundTimer(70);
+        roundData.setLevel(level);
+        roundData.setEnemiesToKill(enemiesToKill);
+        roundData.freezeRoundTimer(true);
     }
 
     @Override

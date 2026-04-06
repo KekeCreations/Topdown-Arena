@@ -2,6 +2,7 @@ V1.0.0
 - Random waves now scale with player count!
 - Rebalanced level 4!
 - Added extra conditional wave to keep experienced players entertained!
+- Added reward stars for levels!
 
 V0.1.1-beta
 - Fixed the game starting with -1 rounds played and -1 rounds won
