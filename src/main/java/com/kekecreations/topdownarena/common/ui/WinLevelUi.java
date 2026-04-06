@@ -212,6 +212,57 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         if (roundData.getLevel() == 7 && roundData.getUnlockedLevels() <= 7) {
             roundData.setUnlockedLevels(8);
         }
+        if (roundData.getLevel() == 8 && roundData.getUnlockedLevels() <= 8) {
+            roundData.setUnlockedLevels(9);
+        }
+        if (roundData.getLevel() == 9 && roundData.getUnlockedLevels() <= 9) {
+            roundData.setUnlockedLevels(10);
+        }
+        if (roundData.getLevel() == 10 && roundData.getUnlockedLevels() <= 10) {
+            roundData.setUnlockedLevels(11);
+        }
+        if (roundData.getLevel() == 11 && roundData.getUnlockedLevels() <= 11) {
+            roundData.setUnlockedLevels(12);
+        }
+        if (roundData.getLevel() == 12 && roundData.getUnlockedLevels() <= 12) {
+            roundData.setUnlockedLevels(13);
+        }
+        if (roundData.getLevel() == 13 && roundData.getUnlockedLevels() <= 13) {
+            roundData.setUnlockedLevels(14);
+        }
+        if (roundData.getLevel() == 14 && roundData.getUnlockedLevels() <= 14) {
+            roundData.setUnlockedLevels(15);
+        }
+        if (roundData.getLevel() == 15 && roundData.getUnlockedLevels() <= 15) {
+            roundData.setUnlockedLevels(16);
+        }
+        if (roundData.getLevel() == 16 && roundData.getUnlockedLevels() <= 16) {
+            roundData.setUnlockedLevels(17);
+        }
+        if (roundData.getLevel() == 17 && roundData.getUnlockedLevels() <= 17) {
+            roundData.setUnlockedLevels(18);
+        }
+        if (roundData.getLevel() == 18 && roundData.getUnlockedLevels() <= 18) {
+            roundData.setUnlockedLevels(19);
+        }
+        if (roundData.getLevel() == 19 && roundData.getUnlockedLevels() <= 19) {
+            roundData.setUnlockedLevels(20);
+        }
+        if (roundData.getLevel() == 20 && roundData.getUnlockedLevels() <= 20) {
+            roundData.setUnlockedLevels(21);
+        }
+        if (roundData.getLevel() == 21 && roundData.getUnlockedLevels() <= 21) {
+            roundData.setUnlockedLevels(22);
+        }
+        if (roundData.getLevel() == 22 && roundData.getUnlockedLevels() <= 22) {
+            roundData.setUnlockedLevels(23);
+        }
+        if (roundData.getLevel() == 23 && roundData.getUnlockedLevels() <= 23) {
+            roundData.setUnlockedLevels(24);
+        }
+        if (roundData.getLevel() == 24 && roundData.getUnlockedLevels() <= 24) {
+            roundData.setUnlockedLevels(25);
+        }
     }
 
     @Override

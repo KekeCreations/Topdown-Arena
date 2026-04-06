@@ -56,7 +56,7 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         if (roundData.getEasyMode()) {
                             entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 2F);
                         }
-                        entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 1F);
+                        entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 2.5F);
                     }
                     if (roundData.getRoundTimer() == 5 && roundData.getEnemiesLeftToKill() == 0) {
                         roundData.setRatingStars(roundData.getRatingStars() + 1);
@@ -222,6 +222,7 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Wraith 0 0 -3");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Werewolf -1 0 2");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Werewolf -2 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 2 0 -1");
                                 }
                                 case 9 -> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 0 0 1");
