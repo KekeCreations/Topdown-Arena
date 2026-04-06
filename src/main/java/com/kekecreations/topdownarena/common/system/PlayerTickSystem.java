@@ -206,12 +206,17 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Werewolf -1 0 -1");
                                 }
                                 case 7 -> {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith 0 0 -3");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith -2 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wraith  -1 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 0 0 2");
+                                    //CommandManager.get().handleCommand(playerRef, "round_npc Wraith 0 0 -3");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 1");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 0");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter -1 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter 1 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter -1 0 2");
                                 }
                                 case 8 -> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Wraith 0 0 -3");
@@ -243,6 +248,21 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 1");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -1 0 0");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 1 0 2");
+                                }
+                                case 11 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Hunter 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Cultist 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Stalker 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Stalker 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Stalker -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Stalker 1 0 1");
+                                }
+                                case 12 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Priest 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Sorcerer 1 0 2");
+                                }
+                                case 13 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Outlander_Brute 1 0 2");
                                 }
                             }
                         }
