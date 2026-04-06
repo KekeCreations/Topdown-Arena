@@ -22,8 +22,9 @@ public class RoundStatsHud extends CustomUIHud {
 
         //Show and hide UI
         if (!roundData.isTimerFrozen()) {
-            uiCommandBuilder.set("#KILLCOUNT.TextSpans", Message.raw("Enemies Left:" + roundData.getEnemiesLeftToKill()));
-            uiCommandBuilder.set("#BONUSKILLCOUNT.TextSpans", Message.raw("Bonus Kills:" + roundData.getBonusEnemiesKilled()));
+            uiCommandBuilder.set("#KILLCOUNT.TextSpans", Message.raw("Enemies Left: " + roundData.getEnemiesLeftToKill()));
+            uiCommandBuilder.set("#BONUSKILLCOUNT.TextSpans", Message.raw("Bonus Kills: " + roundData.getBonusEnemiesKilled()));
+            uiCommandBuilder.set("#STARS.TextSpans", Message.raw("" + roundData.getRatingStars()));
             uiCommandBuilder.set("#ROUNDTIMER.TextSpans", Message.raw(String.valueOf(roundData.getRoundTimer())));
             if ((roundData.getRoundTimer() <= 24 && roundData.getRoundTimer() >= 20 && roundData.getRoundType() != "sandbox") ||
                     roundData.getRoundTimer() <= 24 && roundData.getRoundTimer() >= 20 && roundData.getRoundType() == "sandbox" && roundData.getSandboxRandomWaves()) {

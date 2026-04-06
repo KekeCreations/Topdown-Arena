@@ -31,10 +31,29 @@ Group #MAIN {
       Background: (Color: #1e3d53);
       Anchor: (Width: 40, Height: 50);
     }
-    $C.@TextButton #PLAYLEVEL1 {
-      Background: (Color: #ffffff);
-      Anchor: (Width: 120, Height: 50, Left: 0, Right: 0);
-      Text: "LEVEL 1";
+    Group #LEVEL1 {
+      LayoutMode: Top;
+      Anchor: (Width: 120, Height: 50);
+      Group #CENTER1 {
+        LayoutMode: Center;
+        Label #RATING1 {
+          Text: "0/3";
+          Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+        }
+        Group #IMGR1 {
+          Anchor: (Width: 16, Height: 16);
+          Padding: (Top: 16, Bottom: 16);
+          AssetImage #IM1 {
+            Anchor: (Width: 16, Height: 16);
+            AssetPath: "Particles/Textures/Shapes/Star_Stylized.png";
+          }
+        }
+      }
+      $C.@TextButton #PLAYLEVEL1 {
+        Background: (Color: #ffffff);
+        Anchor: (Width: 80, Height: 30, Left: 0, Right: 0);
+        Text: "LEVEL 1";
+      }
     }
     Group #SEP3 {
       LayoutMode: Top;
