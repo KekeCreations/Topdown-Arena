@@ -30,6 +30,8 @@ public class RoundStatsHud extends CustomUIHud {
                 uiCommandBuilder.set("#WAVE.TextSpans", Message.raw("INCOMING WAVE!"));
             } else if (roundData.getRoundTimer() <= 70 && roundData.getRoundTimer() >= 60) {
                 uiCommandBuilder.set("#WAVE.TextSpans", Message.raw("PREPARE!"));
+            } else if (roundData.getRoundTimer() <= 35 && roundData.getRoundTimer() >= 30 && roundData.getRoundType() != "sandbox" && roundData.getEnemiesLeftToKill() == 0) {
+                uiCommandBuilder.set("#WAVE.TextSpans", Message.raw("INCOMING WAVE!"));
             } else {
                 uiCommandBuilder.set("#WAVE.TextSpans", Message.raw(""));
             }

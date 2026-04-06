@@ -1,3 +1,8 @@
+V1.0.0
+- Random waves now scale with player count!
+- Rebalanced level 4!
+- Added extra conditional wave to keep experienced players entertained!
+
 V0.1.1-beta
 - Fixed the game starting with -1 rounds played and -1 rounds won
 - Overhauled enemy spawning so enemies spawn around the player instead of limited locations

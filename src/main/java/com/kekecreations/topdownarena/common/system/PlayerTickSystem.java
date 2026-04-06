@@ -8,6 +8,7 @@ import com.hypixel.hytale.protocol.packets.interface_.Page;
 import com.hypixel.hytale.server.core.command.system.CommandManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
+import com.hypixel.hytale.server.core.modules.entitystats.EntityStatValue;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntityStatTypes;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.Universe;
@@ -40,6 +41,7 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
         PlayerRef playerRef = store.getComponent(ref, PlayerRef.getComponentType());
 
         int randomWave = (int)(Math.random() * 3);
+        int randomWave2 = (int)(Math.random() * 3);
 
         if (player != null && playerRef != null) {
             RoundComponent roundData = store.getComponent(ref, RoundComponent.getComponentType());
@@ -56,37 +58,79 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                         }
                         entityStat.addStatValue(DefaultEntityStatTypes.getHealth(), 1F);
                     }
+                    //CONDITIONAL WAVE
+                    if (roundData.getRoundTimer() == 30 && roundData.getEnemiesLeftToKill() == 0 && roundData.getRoundType() !=  "sandbox") {
+                        int roundScale;
+                        for (roundScale = 0; roundScale < Universe.get().getPlayerCount(); roundScale++) {
+                            switch (randomWave2) {
+                                case 0 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 2");
+                                }
+                                case 1 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 -1");
+                                }
+                                case 2 -> {
+                                    if (roundData.getArachnophobiaMode()) {
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black 0 0 2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -2 0 2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 2 0 0");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -1 0 -2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 1 0 0");
+                                    } else {
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 2 0 2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave -2 0 0");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 -2");
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     //WAVE 2
                     if ((roundData.getRoundTimer() == 20 && roundData.getRoundType() !=  "sandbox") || (roundData.getRoundTimer() == 20 && roundData.getSandboxRandomWaves() && roundData.getRoundType() == "sandbox")) {
-                        switch(randomWave) {
-                            case 0 -> {
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 -2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 2 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 2");
-                            }
-                            case 1 -> {
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie 0 0 -2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 2");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie 2 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie -1 0 0");
-                                CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 -1");
-                            }
-                            case 2 -> {
-                                if (roundData.getArachnophobiaMode()) {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 2 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -1 0 -2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 1 0 0");
-                                } else {
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 2 0 2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave -2 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 -2");
+                        int roundScale;
+                        for (roundScale = 0; roundScale < Universe.get().getPlayerCount(); roundScale++) {
+                            switch (randomWave) {
+                                case 0 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton -2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archer 0 0 2");
+                                }
+                                case 1 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 0 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie 2 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Zombie -2 0 -1");
+                                }
+                                case 2 -> {
+                                    if (roundData.getArachnophobiaMode()) {
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_Black 0 0 2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -2 0 2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 2 0 0");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -1 0 -2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 1 0 0");
+                                    } else {
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 2 0 2");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave -2 0 0");
+                                        CommandManager.get().handleCommand(playerRef, "round_npc Spider_Cave 0 0 -2");
+                                    }
                                 }
                             }
                         }
@@ -136,8 +180,9 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Fighter -1 0 0");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage -2 0 -2");
                                     CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 1 0 0");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White -2 0 -2");
-                                    CommandManager.get().handleCommand(playerRef, "round_npc Wolf_White 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead -2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Archmage -2 0 1");
                                 }
                                 case 5 -> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Cow_Undead 0 0 2");

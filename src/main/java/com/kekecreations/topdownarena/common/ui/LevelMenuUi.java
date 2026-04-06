@@ -108,7 +108,7 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
             roundData.setRoundType("menu_class");
             roundData.setRoundTimer(70);
             roundData.setLevel(4);
-            roundData.setEnemiesToKill(8);
+            roundData.setEnemiesToKill(5);
             roundData.freezeRoundTimer(true);
         }
         else if (PLAY_LEVEL_FIVE_BUTTON_ID.equals(data.buttonClicked)) {
