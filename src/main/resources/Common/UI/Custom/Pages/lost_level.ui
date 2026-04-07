@@ -38,7 +38,7 @@ Group #MENU {
     }
   }
   $C.@TextButton #CONTINUE {
-    Anchor: (Width: 130, Height: 40);
+    Anchor: (Width: 130, Height: 20);
     Text: "CONTINUE";
   }
 }

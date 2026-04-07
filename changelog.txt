@@ -8,6 +8,7 @@ V1.0.0
 - Overhauled camera POV
 - Buffed waves in higher levels!
 - Added more random wave variation!
+- Fixed Lost UI having a button that appears outside the panel
 
 V0.1.1-beta
 - Fixed the game starting with -1 rounds played and -1 rounds won
