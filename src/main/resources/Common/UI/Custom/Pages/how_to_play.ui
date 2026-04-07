@@ -3,7 +3,7 @@ $C = "../Common.ui";
 Group #MAIN {
   LayoutMode: Top;
   Background: (Color: #1e3d53);
-  Anchor: (Width: 800, Height: 500);
+  Anchor: (Width: 1000, Height: 800);
   Group #TEXT {
     LayoutMode: Top;
     Background: (Color: #244964);
@@ -24,24 +24,25 @@ Group #MAIN {
   Group #BUTTONS {
     LayoutMode: Top;
     Background: (Color: #1e3d53);
-    Anchor: (Width: 505, Height: 330, Top: 5);
+    Anchor: (Width: 1000, Height: 330, Top: 5);
     Label #SUBTITLE1 {
+      Anchor: (Top: 50);
       Text: "GAME EXPLAINED";
       Style: (FontSize: 20, TextColor: #998033, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #EASYDESC {
       Anchor: (Top: 5);
-      Text: "Each round lasts 60 seconds with 10 seconds of preparation time.";
+      Text: "Each round lasts 60 seconds with 10 seconds of preparation time";
       Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #EASYDESC2 {
       Anchor: (Top: 1);
-      Text: "Every level you select a new class.";
+      Text: "Every level you select a new class";
       Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #EASYDESC3 {
       Anchor: (Top: 1);
-      Text: "Class gear upgrades every 5 levels.";
+      Text: "Class gear upgrades every 5 levels";
       Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #EASYDESC4 {
@@ -50,28 +51,48 @@ Group #MAIN {
       Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #SUBTITLE2 {
-      Anchor: (Top: 20);
+      Anchor: (Top: 40);
       Text: "TIPS";
       Style: (FontSize: 20, TextColor: #998033, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #TIPDESC {
       Anchor: (Top: 5);
-      Text: "Tip #1: If you are stuck on a menu, dismiss the screen.";
+      Text: "Tip #1: If you are stuck on a menu, dismiss the screen";
       Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #TIPDESC2 {
       Anchor: (Top: 1);
-      Text: "Tip #2: Clicking menu buttons kills all entities in the world.";
+      Text: "Tip #2: Clicking menu buttons kills all entities in the world";
       Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
     }
     Label #TIPDESC3 {
       Anchor: (Top: 1);
-      Text: "Tip #3: Not all enemies can be hit with the same weapon.";
+      Text: "Tip #3: Not all enemies can be hit with the same weapon";
       Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
     }
-    $C.@TextButton #BACK {
-      Anchor: (Width: 115, Height: 50, Top: 40);
-      Text: "BACK";
+    Label #SUBTITLE3 {
+      Anchor: (Top: 40);
+      Text: "HOW TO GET STARS";
+      Style: (FontSize: 20, TextColor: #998033, RenderBold: true, HorizontalAlignment: Center);
     }
+    Label #STAR1 {
+      Anchor: (Top: 5);
+      Text: "You can get 1 star by killing all enemies before the round timer reaches 30 seconds";
+      Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+    }
+    Label #STAR2 {
+      Anchor: (Top: 5);
+      Text: "You can get 1 star by having 5 or more bonus kills 10 seconds before the round ends";
+      Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+    }
+    Label #STAR3 {
+      Anchor: (Top: 5);
+      Text: "You can get 1 star by killing all enemies with 5 seconds to spare";
+      Style: (TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+    }
+  }
+  $C.@TextButton #BACK {
+    Anchor: (Width: 115, Height: 80, Top: 200);
+    Text: "BACK";
   }
 }
