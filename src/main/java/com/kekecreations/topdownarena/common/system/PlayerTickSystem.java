@@ -431,7 +431,91 @@ public class PlayerTickSystem extends DelayedEntitySystem<EntityStore> {
                                     CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian 3 0 -2");
                                 }
                                 case 20 -> {
-
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Earth 1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Earth 3 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Earth 2 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Earth 3 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Sand -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Sand -3 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Sand -2 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Sand -3 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Sand -2 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Sand -3 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 2 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 3 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Werewolf 2 0 -3");
+                                }
+                                case 21 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder -1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder -3 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder -2 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder -3 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder 1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder 3 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder 2 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder 3 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder 3 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder 2 0 1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Thunder 3 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian 3 0 -2");
+                                }
+                                case 22 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Flame 3 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Flame 2 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Firesteel 2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Flame 3 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Golem_Crystal_Flame 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Emberwulf 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Emberwulf -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Emberwulf 2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Emberwulf 1 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Emberwulf 4 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spirit_Ember -1 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spirit_Ember 1 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Spirit_Ember 1 0 2");
+                                }
+                                case 23 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Toad_Rhino_Magma 1 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Toad_Rhino_Magma -1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Toad_Rhino_Magma 1 0 -4");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Toad_Rhino_Magma 1 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Emberwulf -1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Emberwulf -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Emberwulf 1 0 -2");
+                                }
+                                case 24 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul -3 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul -1 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul 1 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul 0 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul 1 0 3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul -1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul 1 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul 3 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul 4 0 0");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Ghoul 2 0 2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian 2 0 -3");
+                                }
+                                case 25 -> {
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian 2 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian 2 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian -2 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian -3 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian 2 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian -3 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian -2 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Praetorian 3 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Knight 5 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Knight 3 0 -1");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Knight 4 0 -2");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Knight 3 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Knight 2 0 -3");
+                                    CommandManager.get().handleCommand(playerRef, "round_npc Skeleton_Burnt_Knight 1 0 -3");
                                 }
                             }
                         }

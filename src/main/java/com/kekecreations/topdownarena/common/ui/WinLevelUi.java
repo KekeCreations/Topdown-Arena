@@ -38,7 +38,10 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         if (roundData.getRoundType() != "sandbox") {
             uiCommandBuilder.set("#WINTEXT.TextSpans", Message.raw("YOU'VE COMPLETED LEVEL " + roundData.getLevel()));
         } else {
-            uiCommandBuilder.set("#WINTEXT.TextSpans", Message.raw("YOU'VE COMPLETED LEVEL SANDBOX"));
+            uiCommandBuilder.set("#WINTEXT.TextSpans", Message.raw("YOU'VE COMPLETED THE SANDBOX LEVEL"));
+        }
+        if (roundData.getLevel() == 25) {
+            uiCommandBuilder.set("#DESC.TextSpans", Message.raw("YOU'VE COMPLETED THE GAME"));
         }
 
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#CONTINUE", EventData.of("OnButtonClicked", CONTINUE_BUTTON_ID), false);

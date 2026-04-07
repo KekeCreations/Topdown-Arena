@@ -270,7 +270,7 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         }
         else if (PLAY_LEVEL_20_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
-            roundStart(20, 8);
+            roundStart(20, 12);
         }
         else if (PLAY_LEVEL_21_BUTTON_ID.equals(data.buttonClicked)) {
             player.getPageManager().setPage(ref, store, Page.None);
