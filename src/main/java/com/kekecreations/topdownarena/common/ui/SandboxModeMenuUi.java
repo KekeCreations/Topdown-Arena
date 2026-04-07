@@ -251,18 +251,18 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
             }
             case 2 -> {
                 uiCommandBuilder.set("#CLASSLEVELTITLE.TextSpans", Message.raw("LEVEL 3"));
-                uiCommandBuilder.set("#DESCLEVEL.TextSpans", Message.raw("COPPER EQUIPMENT"));
-                uiCommandBuilder.set("#CLASSLEVELIMAGE.AssetPath", "Icons/ItemsGenerated/Armor_Copper_Chest.png");
+                uiCommandBuilder.set("#DESCLEVEL.TextSpans", Message.raw("COBALT EQUIPMENT"));
+                uiCommandBuilder.set("#CLASSLEVELIMAGE.AssetPath", "Icons/ItemsGenerated/Armor_Cobalt_Chest.png");
             }
             case 3 -> {
                 uiCommandBuilder.set("#CLASSLEVELTITLE.TextSpans", Message.raw("LEVEL 4"));
-                uiCommandBuilder.set("#DESCLEVEL.TextSpans", Message.raw("COPPER EQUIPMENT"));
-                uiCommandBuilder.set("#CLASSLEVELIMAGE.AssetPath", "Icons/ItemsGenerated/Armor_Copper_Chest.png");
+                uiCommandBuilder.set("#DESCLEVEL.TextSpans", Message.raw("ADAMANTITE EQUIPMENT"));
+                uiCommandBuilder.set("#CLASSLEVELIMAGE.AssetPath", "Icons/ItemsGenerated/Armor_Adamantite_Chest.png");
             }
             case 4 -> {
                 uiCommandBuilder.set("#CLASSLEVELTITLE.TextSpans", Message.raw("LEVEL 5"));
-                uiCommandBuilder.set("#DESCLEVEL.TextSpans", Message.raw("COPPER EQUIPMENT"));
-                uiCommandBuilder.set("#CLASSLEVELIMAGE.AssetPath", "Icons/ItemsGenerated/Armor_Copper_Chest.png");
+                uiCommandBuilder.set("#DESCLEVEL.TextSpans", Message.raw("MITHRIL EQUIPMENT"));
+                uiCommandBuilder.set("#CLASSLEVELIMAGE.AssetPath", "Icons/ItemsGenerated/Armor_Mithril_Chest.png");
             }
         }
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#CYCLE1", EventData.of("OnButtonClicked", CYCLE_1_BUTTON_ID), false);
@@ -385,46 +385,88 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
                             armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Iron_Legs"));
                             utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Iron"));
                         }
+                        case 2 -> {
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Cobalt"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Cobalt"));
+                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Cobalt_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Cobalt_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Cobalt_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Cobalt"));
+                        }
+                        case 3 -> {
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Adamantite_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Adamantite_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Adamantite_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Adamantite_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Adamantite"));
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Adamantite"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Adamantite"));
+                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                        }
+                        case 4 -> {
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Mithril_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Mithril_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Mithril_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Mithril_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Mithril"));
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Mithril"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Mithril"));
+                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                        }
                     }
                 }
                 case 1 -> {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                    hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
+                    hotbar.setItemStackForSlot((short) 6, new ItemStack("Weapon_Club_Doomed"));
+                    hotbar.setItemStackForSlot((short) 7, new ItemStack("Weapon_Arrow_Crude", 128));
                     switch (roundData.getSandboxClassLevelChoice()) {
                         case 0 -> {
-                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
-                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
-                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
-                            hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
-                            hotbar.setItemStackForSlot((short) 6, new ItemStack("Weapon_Club_Doomed"));
-                            hotbar.setItemStackForSlot((short) 7, new ItemStack("Weapon_Arrow_Crude", 128));
                             armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
                             armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
                             armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
                             armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Copper_Legs"));
                         }
                         case 1 -> {
-                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
-                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
-                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
-                            hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
-                            hotbar.setItemStackForSlot((short) 6, new ItemStack("Weapon_Club_Doomed"));
-                            hotbar.setItemStackForSlot((short) 7, new ItemStack("Weapon_Arrow_Crude", 128));
                             armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Iron_Head"));
                             armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Iron_Chest"));
                             armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Iron_Hands"));
                             armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Iron_Legs"));
                         }
+                        case 2 -> {
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Cobalt_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Cobalt_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Cobalt_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
+                        }
+                        case 3 -> {
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Adamantite_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Adamantite_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Adamantite_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Adamantite_Legs"));
+                        }
+                        case 4 -> {
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Mithril_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Mithril_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Mithril_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Mithril_Legs"));
+                        }
                     }
                 }
                 case 3 -> {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                    hotbar.setItemStackForSlot((short) 5, new ItemStack("Potion_Morph_Pigeon", 3));
+                    hotbar.setItemStackForSlot((short) 6, new ItemStack("Potion_Morph_Dog", 3));
+                    hotbar.setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
+                    hotbar.setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
                     switch (roundData.getSandboxClassLevelChoice()) {
                         case 0 -> {
-                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
-                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
-                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
-                            hotbar.setItemStackForSlot((short) 5, new ItemStack("Potion_Morph_Pigeon", 3));
-                            hotbar.setItemStackForSlot((short) 6, new ItemStack("Potion_Morph_Dog", 3));
-                            hotbar.setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
-                            hotbar.setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
                             armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
                             armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
                             armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
@@ -432,27 +474,41 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
                             utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Copper"));
                         }
                         case 1 -> {
-                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
-                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
-                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
-                            hotbar.setItemStackForSlot((short) 5, new ItemStack("Potion_Morph_Pigeon", 3));
-                            hotbar.setItemStackForSlot((short) 6, new ItemStack("Potion_Morph_Dog", 3));
-                            hotbar.setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
-                            hotbar.setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
                             armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Iron_Head"));
                             armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Iron_Chest"));
                             armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Iron_Hands"));
                             armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Iron_Legs"));
                             utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Iron"));
                         }
+                        case 2 -> {
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Cobalt_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Cobalt_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Cobalt_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Cobalt"));
+                        }
+                        case 3 -> {
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Adamantite_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Adamantite_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Adamantite_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Adamantite_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Adamantite"));
+                        }
+                        case 4 -> {
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Mithril_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Mithril_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Mithril_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Mithril_Legs"));
+                            utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Mithril"));
+                        }
                     }
                 }
                 case 2 -> {
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));
                     switch (roundData.getSandboxClassLevelChoice()) {
                         case 0 -> {
                             hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Copper"));
                             hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Copper"));
-                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));
                             armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Copper_Head"));
                             armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Copper_Chest"));
                             armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Copper_Hands"));
@@ -461,11 +517,34 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
                         case 1 -> {
                             hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Iron"));
                             hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Iron"));
-                            hotbar.setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));
                             armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Iron_Head"));
                             armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Iron_Chest"));
                             armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Iron_Hands"));
                             armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Iron_Legs"));
+                        }
+                        case 2 -> {
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Cobalt"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Cobalt"));
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Cobalt_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Cobalt_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Cobalt_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
+                        }
+                        case 3 -> {
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Adamantite"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Adamantite"));
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Adamantite_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Adamantite_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Adamantite_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Adamantite_Legs"));
+                        }
+                        case 4 -> {
+                            hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Mithril"));
+                            hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Mithril"));
+                            armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Mithril_Head"));
+                            armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Mithril_Chest"));
+                            armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Mithril_Hands"));
+                            armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Mithril_Legs"));
                         }
                     }
                 }
