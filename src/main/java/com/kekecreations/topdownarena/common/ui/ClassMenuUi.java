@@ -117,6 +117,17 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
                     utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Cobalt"));
                 }
+                if (roundData.getLevel() > 15 && roundData.getLevel() <= 20) {
+                    armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Adamantite_Head"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Adamantite_Chest"));
+                    armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Adamantite_Hands"));
+                    armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Adamantite_Legs"));
+
+                    utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Adamantite"));
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Adamantite"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Battleaxe_Adamantite"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                }
             } else if (SELECT_TWO_BUTTON_ID.equals(data.buttonClicked)) {
                 if (roundData.getLevel() <= 5) {
                     hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
@@ -155,6 +166,19 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Cobalt_Chest"));
                     armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Cobalt_Hands"));
                     armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
+                }
+                if (roundData.getLevel() > 15 && roundData.getLevel() <= 20) {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Shortbow_Mithril"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Crossbow_Ancient_Steel"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                    hotbar.setItemStackForSlot((short) 5, new ItemStack("Weapon_Bomb_Potion_Poison", 3));
+                    hotbar.setItemStackForSlot((short) 6, new ItemStack("Weapon_Club_Doomed"));
+                    hotbar.setItemStackForSlot((short) 7, new ItemStack("Weapon_Arrow_Crude", 128));
+
+                    armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Adamantite_Head"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Adamantite_Chest"));
+                    armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Adamantite_Hands"));
+                    armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Adamantite_Legs"));
                 }
             } else if (SELECT_THREE_BUTTON_ID.equals(data.buttonClicked)) {
                 if (roundData.getLevel() <= 5) {
@@ -201,6 +225,21 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Cobalt_Hands"));
                     armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
                 }
+                if (roundData.getLevel() > 15 && roundData.getLevel() <= 20) {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Sword_Bone"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Staff_Frost"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Potion_Health", 8));
+                    hotbar.setItemStackForSlot((short) 5, new ItemStack("Potion_Morph_Pigeon", 3));
+                    hotbar.setItemStackForSlot((short) 6, new ItemStack("Potion_Morph_Dog", 3));
+                    hotbar.setItemStackForSlot((short) 7, new ItemStack("Potion_Morph_Frog", 3));
+                    hotbar.setItemStackForSlot((short) 8, new ItemStack("Potion_Morph_Mouse", 3));
+
+                    utility.setItemStackForSlot((short) 0, new ItemStack("Weapon_Shield_Adamantite"));
+                    armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Adamantite_Head"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Adamantite_Chest"));
+                    armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Adamantite_Hands"));
+                    armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Adamantite_Legs"));
+                }
             } else if (SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {
                 if (roundData.getLevel() <= 5) {
                     hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Copper"));
@@ -229,6 +268,16 @@ public class ClassMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
                     armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Cobalt_Chest"));
                     armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Cobalt_Hands"));
                     armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
+                }
+                if (roundData.getLevel() > 15 && roundData.getLevel() <= 20) {
+                    hotbar.setItemStackForSlot((short) 1, new ItemStack("Weapon_Spear_Adamantite"));
+                    hotbar.setItemStackForSlot((short) 2, new ItemStack("Weapon_Mace_Adamantite"));
+                    hotbar.setItemStackForSlot((short) 3, new ItemStack("Bandage_Crude", 10));
+
+                    armour.setItemStackForSlot((short) 0, new ItemStack("Armor_Adamantite_Head"));
+                    armour.setItemStackForSlot((short) 1, new ItemStack("Armor_Adamantite_Chest"));
+                    armour.setItemStackForSlot((short) 2, new ItemStack("Armor_Adamantite_Hands"));
+                    armour.setItemStackForSlot((short) 3, new ItemStack("Armor_Adamantite_Legs"));
                 }
             }
             if (SELECT_ONE_BUTTON_ID.equals(data.buttonClicked) || SELECT_TWO_BUTTON_ID.equals(data.buttonClicked) || SELECT_THREE_BUTTON_ID.equals(data.buttonClicked) || SELECT_FOUR_BUTTON_ID.equals(data.buttonClicked)) {

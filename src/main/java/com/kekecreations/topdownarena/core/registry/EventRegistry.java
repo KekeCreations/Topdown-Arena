@@ -24,14 +24,14 @@ public class EventRegistry {
     public static void registerEvents(JavaPlugin javaPlugin) {
         cameraSettings.positionLerpSpeed = 0.2F;
         cameraSettings.rotationLerpSpeed = 0.2F;
-        cameraSettings.distance = 6.0F;
+        cameraSettings.distance = 7.0F;
         cameraSettings.displayCursor = true;
         cameraSettings.isFirstPerson = false;
         cameraSettings.movementForceRotationType = MovementForceRotationType.Custom;
         cameraSettings.eyeOffset = true;
         cameraSettings.positionDistanceOffsetType = PositionDistanceOffsetType.DistanceOffset;
         cameraSettings.rotationType = RotationType.Custom;
-        cameraSettings.rotation = new Direction(0.0F, (-(float)Math.PI / 2F), 0.0F);
+        cameraSettings.rotation = new Direction(0F, (-(float) Math.PI / 2F - 5.5F), 0F);
         cameraSettings.mouseInputType = MouseInputType.LookAtPlane;
         cameraSettings.planeNormal = new Vector3f(0.0F, 1.0F, 0.0F);
 

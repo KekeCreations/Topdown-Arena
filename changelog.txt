@@ -1,10 +1,13 @@
 V1.0.0
 - Random waves now scale with player count!
 - Rebalanced level 4!
-- Added extra conditional wave to keep experienced players entertained!
+- Added an extra conditional wave to keep experienced players entertained!
 - Added reward stars for levels!
 - Buffed health regeneration for normal and easy mode!
 - Added 17 new levels!
+- Overhauled camera POV
+- Buffed waves in higher levels!
+- Added more random wave variation!
 
 V0.1.1-beta
 - Fixed the game starting with -1 rounds played and -1 rounds won
