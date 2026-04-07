@@ -1,6 +1,6 @@
 V1.0.0
 - Random waves now scale with player count!
-- Rebalanced level 4!
+- Rebalanced most levels!
 - Added an extra conditional wave to keep experienced players entertained!
 - Added reward stars for levels!
 - Buffed health regeneration for normal and easy mode!
@@ -9,6 +9,8 @@ V1.0.0
 - Buffed waves in higher levels!
 - Added more random wave variation!
 - Fixed Lost UI having a button that appears outside the panel
+- Added 9 new enemy options to Sandbox Mode!
+- Fix Win UI Text
 
 V0.1.1-beta
 - Fixed the game starting with -1 rounds played and -1 rounds won

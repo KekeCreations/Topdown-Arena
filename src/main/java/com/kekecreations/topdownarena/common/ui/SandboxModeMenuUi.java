@@ -76,36 +76,72 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Gunner.png");
             }
             case 5 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("SKELETON BURNT KNIGHT"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Knight.png");
+            }
+            case 6 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("SKELETON BURNT LANCER"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Lancer.png");
+            }
+            case 7 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("SKELETON BURNT ARCHER"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Archer.png");
+            }
+            case 8 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("SKELETON BURNT GUARD"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Praetorian.png");
+            }
+            case 9 -> {
                 uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("ZOMBIE"));
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Zombie.png");
             }
-            case 6 -> {
+            case 10 -> {
                 uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("ZOMBIE ABERRANT"));
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Zombie_Aberrant.png");
             }
-            case 7 -> {
+            case 11 -> {
                 uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("WHITE WOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Wolf_White.png");
             }
-            case 8 -> {
+            case 12 -> {
                 uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("BLACK WOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Wolf_Black.png");
             }
-            case 9 -> {
+            case 13 -> {
                 uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("WEREWOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Werewolf.png");
             }
-            case 10 -> {
+            case 14 -> {
                 uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("YETI"));
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Yeti.png");
             }
-            case 11 -> {
+            case 15 -> {
                 uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("SPIDER"));
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Spider.png");
             }
-            case 12 -> {
+            case 16 -> {
                 uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("CAVE SPIDER"));
                 uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Spider_Cave.png");
+            }
+            case 17 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("SNAPDRAGON"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Snapdragon.png");
+            }
+            case 18 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("SPAWN VOID"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Spawn_Void.png");
+            }
+            case 19 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("SPECTRE VOID"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Spectre_Void.png");
+            }
+            case 20 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("GHOUL"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Ghoul.png");
+            }
+            case 21 -> {
+                uiCommandBuilder.set("#ENEMYTITLE1.TextSpans", Message.raw("WRAITH"));
+                uiCommandBuilder.set("#ENEMYIMAGE1.AssetPath", "UI/Custom/Pages/Memories/npcs/Wraith.png");
             }
         }
         switch (roundData.getSandboxEnemyChoice2()) {
@@ -130,36 +166,72 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Gunner.png");
             }
             case 5 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("SKELETON BURNT KNIGHT"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Knight.png");
+            }
+            case 6 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("SKELETON BURNT LANCER"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Lancer.png");
+            }
+            case 7 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("SKELETON BURNT ARCHER"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Archer.png");
+            }
+            case 8 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("SKELETON BURNT GUARD"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Praetorian.png");
+            }
+            case 9 -> {
                 uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("ZOMBIE"));
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Zombie.png");
             }
-            case 6 -> {
+            case 10 -> {
                 uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("ZOMBIE ABERRANT"));
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Zombie_Aberrant.png");
             }
-            case 7 -> {
+            case 11 -> {
                 uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("WHITE WOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Wolf_White.png");
             }
-            case 8 -> {
+            case 12 -> {
                 uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("BLACK WOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Wolf_Black.png");
             }
-            case 9 -> {
+            case 13 -> {
                 uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("WEREWOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Werewolf.png");
             }
-            case 10 -> {
+            case 14 -> {
                 uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("YETI"));
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Yeti.png");
             }
-            case 11 -> {
+            case 15 -> {
                 uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("SPIDER"));
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Spider.png");
             }
-            case 12 -> {
+            case 16 -> {
                 uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("CAVE SPIDER"));
                 uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Spider_Cave.png");
+            }
+            case 17 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("SNAPDRAGON"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Snapdragon.png");
+            }
+            case 18 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("SPAWN VOID"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Spawn_Void.png");
+            }
+            case 19 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("SPECTRE VOID"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Spectre_Void.png");
+            }
+            case 20 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("GHOUL"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Ghoul.png");
+            }
+            case 21 -> {
+                uiCommandBuilder.set("#ENEMYTITLE2.TextSpans", Message.raw("WRAITH"));
+                uiCommandBuilder.set("#ENEMYIMAGE2.AssetPath", "UI/Custom/Pages/Memories/npcs/Wraith.png");
             }
         }
         switch (roundData.getSandboxEnemyChoice3()) {
@@ -184,36 +256,72 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Gunner.png");
             }
             case 5 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("SKELETON BURNT KNIGHT"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Knight.png");
+            }
+            case 6 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("SKELETON BURNT LANCER"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Lancer.png");
+            }
+            case 7 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("SKELETON BURNT ARCHER"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Archer.png");
+            }
+            case 8 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("SKELETON BURNT GUARD"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Skeleton_Burnt_Praetorian.png");
+            }
+            case 9 -> {
                 uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("ZOMBIE"));
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Zombie.png");
             }
-            case 6 -> {
+            case 10 -> {
                 uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("ZOMBIE ABERRANT"));
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Zombie_Aberrant.png");
             }
-            case 7 -> {
+            case 11 -> {
                 uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("WHITE WOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Wolf_White.png");
             }
-            case 8 -> {
+            case 12 -> {
                 uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("BLACK WOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Wolf_Black.png");
             }
-            case 9 -> {
+            case 13 -> {
                 uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("WEREWOLF"));
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Werewolf.png");
             }
-            case 10 -> {
+            case 14 -> {
                 uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("YETI"));
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Yeti.png");
             }
-            case 11 -> {
+            case 15 -> {
                 uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("SPIDER"));
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Spider.png");
             }
-            case 12 -> {
+            case 16 -> {
                 uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("CAVE SPIDER"));
                 uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Spider_Cave.png");
+            }
+            case 17 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("SNAPDRAGON"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Snapdragon.png");
+            }
+            case 18 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("SPAWN VOID"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Spawn_Void.png");
+            }
+            case 19 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("SPECTRE VOID"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Spectre_Void.png");
+            }
+            case 20 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("GHOUL"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Ghoul.png");
+            }
+            case 21 -> {
+                uiCommandBuilder.set("#ENEMYTITLE3.TextSpans", Message.raw("WRAITH"));
+                uiCommandBuilder.set("#ENEMYIMAGE3.AssetPath", "UI/Custom/Pages/Memories/npcs/Wraith.png");
             }
         }
         switch (roundData.getSandboxClassChoice()) {
@@ -305,21 +413,21 @@ public class SandboxModeMenuUi extends InteractiveCustomUIPage<SandboxModeMenuUi
         ItemContainer tool = toolComponent.getInventory();
 
         if (CYCLE_1_BUTTON_ID.equals(data.buttonClicked)) {
-            if (roundData.getSandboxEnemyChoice() >= 12) {
+            if (roundData.getSandboxEnemyChoice() >= 21) {
                 roundData.setEnemyChoice(0);
             } else {
                 roundData.setEnemyChoice(roundData.getSandboxEnemyChoice() + 1);
             }
             player.getPageManager().openCustomPage(ref, store, new SandboxModeMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
         } else if (CYCLE_2_BUTTON_ID.equals(data.buttonClicked)) {
-            if (roundData.getSandboxEnemyChoice2() >= 12) {
+            if (roundData.getSandboxEnemyChoice2() >= 21) {
                 roundData.setEnemyChoice2(0);
             } else {
                 roundData.setEnemyChoice2(roundData.getSandboxEnemyChoice2() + 1);
             }
             player.getPageManager().openCustomPage(ref, store, new SandboxModeMenuUi(playerRef, roundData, CustomPageLifetime.CanDismissOrCloseThroughInteraction));
         } else if (CYCLE_3_BUTTON_ID.equals(data.buttonClicked)) {
-            if (roundData.getSandboxEnemyChoice3() >= 12) {
+            if (roundData.getSandboxEnemyChoice3() >= 21) {
                 roundData.setEnemyChoice3(0);
             } else {
                 roundData.setEnemyChoice3(roundData.getSandboxEnemyChoice3() + 1);

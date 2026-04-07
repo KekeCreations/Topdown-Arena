@@ -35,10 +35,11 @@ public class WinLevelUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
     @Override
     public void build(@Nonnull Ref<EntityStore> ref, @Nonnull UICommandBuilder uiCommandBuilder, @Nonnull UIEventBuilder uiEventBuilder, @Nonnull Store<EntityStore> store) {
         uiCommandBuilder.append("Pages/win_level.ui");
-        if (roundData.getRoundType() != "sandbox") {
+        if (roundData.getLevel() != 0) {
             uiCommandBuilder.set("#WINTEXT.TextSpans", Message.raw("YOU'VE COMPLETED LEVEL " + roundData.getLevel()));
         } else {
             uiCommandBuilder.set("#WINTEXT.TextSpans", Message.raw("YOU'VE COMPLETED THE SANDBOX LEVEL"));
+            uiCommandBuilder.set("#DESC.TextSpans", Message.raw("REPORT BUGS ON GITHUB"));
         }
         if (roundData.getLevel() == 25) {
             uiCommandBuilder.set("#DESC.TextSpans", Message.raw("YOU'VE COMPLETED THE GAME"));
