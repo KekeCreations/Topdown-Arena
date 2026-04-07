@@ -13,7 +13,6 @@ import com.kekecreations.topdownarena.common.component.RoundComponent;
 import com.kekecreations.topdownarena.common.ui.*;
 
 import javax.annotation.Nonnull;
-import java.util.UUID;
 
 public class OtherPlayerTickSystem extends DelayedEntitySystem<EntityStore> {
 

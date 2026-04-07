@@ -12,6 +12,7 @@ V1.0.0
 - Added 9 new enemy options to Sandbox Mode!
 - Fix Win UI Text
 - Updated "How To Play" UI Screen!
+- Player can no longer drop items!
 
 V0.1.1-beta
 - Fixed the game starting with -1 rounds played and -1 rounds won

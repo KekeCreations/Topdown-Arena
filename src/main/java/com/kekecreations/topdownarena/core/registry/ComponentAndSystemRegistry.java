@@ -5,10 +5,7 @@ import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.kekecreations.topdownarena.common.component.OtherPlayerRoundComponent;
 import com.kekecreations.topdownarena.common.component.RoundComponent;
-import com.kekecreations.topdownarena.common.system.NPCDeathSystem;
-import com.kekecreations.topdownarena.common.system.OtherPlayerTickSystem;
-import com.kekecreations.topdownarena.common.system.PlayerDeathSystem;
-import com.kekecreations.topdownarena.common.system.PlayerTickSystem;
+import com.kekecreations.topdownarena.common.system.*;
 
 public class ComponentAndSystemRegistry {
 
@@ -38,6 +35,7 @@ public class ComponentAndSystemRegistry {
         registry.registerSystem(new OtherPlayerTickSystem(otherRoundComponent));
         registry.registerSystem(new PlayerDeathSystem());
         registry.registerSystem(new NPCDeathSystem());
+        registry.registerSystem(new ItemDropSystem());
     }
 
 }
