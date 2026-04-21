@@ -16,6 +16,7 @@ import com.kekecreations.topdownarena.common.component.OtherPlayerRoundComponent
 import com.kekecreations.topdownarena.common.component.RoundComponent;
 import com.kekecreations.topdownarena.common.ui.InProgressUi;
 import com.kekecreations.topdownarena.common.ui.StartMenuUi;
+import org.joml.Vector3f;
 
 public class EventRegistry {
 
