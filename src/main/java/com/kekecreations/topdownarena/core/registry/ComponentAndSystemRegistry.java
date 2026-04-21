@@ -33,6 +33,7 @@ public class ComponentAndSystemRegistry {
 
         registry.registerSystem(new PlayerTickSystem(roundComponent));
         registry.registerSystem(new OtherPlayerTickSystem(otherRoundComponent));
+        registry.registerSystem(new DeleteItemsSystem(roundComponent));
         registry.registerSystem(new PlayerDeathSystem());
         registry.registerSystem(new NPCDeathSystem());
         registry.registerSystem(new ItemDropSystem());
