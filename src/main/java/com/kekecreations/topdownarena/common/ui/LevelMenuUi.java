@@ -303,6 +303,7 @@ public class LevelMenuUi extends InteractiveCustomUIPage<MenuWithButtonsData> {
         roundData.setRoundTimer(70);
         roundData.setLevel(level);
         roundData.setEnemiesToKill(enemiesToKill);
+        roundData.setRoundsPlayedStat(roundData.getRoundsPlayedStat() + 1);
         roundData.freezeRoundTimer(true);
     }
 
