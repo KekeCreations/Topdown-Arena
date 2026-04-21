@@ -1,11 +1,10 @@
 # Very Very Simple Instructions
 1. Add the mod to a new world.
-2. When creating a world I recommend you turn inventory penalty to none!
-3. Once loaded in, customise your settings and explore the how to play menu.
-4. When ready, press play levels or play sandbox, then you will be directed to select a level or customise the level (in sandbox mode).
-5. Then you pick a class to play as, each class offers a different play style!
-6. Once the round begins, you must kill a certain amount of enemies to complete the level without dying in 60 seconds. 
-7. Watch out for the random waves!
+2. Once loaded in, customise your settings and explore the how to play menu.
+3. When ready, press play levels or play sandbox, then you will be directed to select a level or customise the level (in sandbox mode).
+4. Then you pick a class to play as, each class offers a different play style!
+5. Once the round begins, you must kill a certain amount of enemies to complete the level without dying in 60 seconds. 
+6. Watch out for the random waves!
 
 # Classes Explained
 
