@@ -3,7 +3,6 @@ package com.kekecreations.topdownarena.common.command;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.RemoveReason;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.protocol.GameMode;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractTargetPlayerCommand;
 import com.hypixel.hytale.server.core.modules.entity.item.ItemComponent;
@@ -18,7 +17,7 @@ public class DeleteItemsCommand extends AbstractTargetPlayerCommand {
 
     public DeleteItemsCommand() {
         super("delete_items", "Goodbye Items!");
-        this.setPermissionGroup(GameMode.Adventure);
+        this.setPermissionGroups("hytale:Adventurer");
     }
 
     @Override

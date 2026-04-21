@@ -2,9 +2,7 @@ package com.kekecreations.topdownarena.common.command;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
-import com.hypixel.hytale.protocol.GameMode;
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
@@ -17,6 +15,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3d;
 
 public class SpawnEntityForRoundCommand extends AbstractTargetPlayerCommand {
 
@@ -31,7 +30,7 @@ public class SpawnEntityForRoundCommand extends AbstractTargetPlayerCommand {
         this.x = this.withRequiredArg("x", "x", ArgTypes.DOUBLE);
         this.y = this.withRequiredArg("y", "y", ArgTypes.DOUBLE);
         this.z = this.withRequiredArg("z", "z", ArgTypes.DOUBLE);
-        this.setPermissionGroup(GameMode.Adventure);
+        this.setPermissionGroups("hytale:Adventurer");
     }
 
     @Override
@@ -40,10 +39,10 @@ public class SpawnEntityForRoundCommand extends AbstractTargetPlayerCommand {
         if (player != null) {
             TransformComponent transformComponent = store.getComponent(ref, TransformComponent.getComponentType());
             if (transformComponent != null) {
-                Vector3d newVector = new Vector3d(transformComponent.getPosition().getX() + this.x.get(commandContext), transformComponent.getPosition().getY() + this.y.get(commandContext), transformComponent.getPosition().getZ() + this.z.get(commandContext));;
+                Vector3d newVector = new Vector3d(transformComponent.getPosition().x() + this.x.get(commandContext), transformComponent.getPosition().y() + this.y.get(commandContext), transformComponent.getPosition().z() + this.z.get(commandContext));;
                 NPCPlugin.get().spawnNPC(store, this.npcId.get(commandContext), null,
                         newVector,
-                        new Vector3f()
+                        Rotation3f.ZERO
                 );
             }
         }
